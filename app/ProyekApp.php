@@ -1,0 +1,46 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ProyekApp extends Model
+{
+    protected $fillable = [
+        'nama',
+        'themeRef',
+        'color_id',
+        'penjelasan',
+        'status',
+        'deadline',
+        'admin_id',
+        'zipData',
+        'namaApp',
+        'proyekWeb_id'
+    ];
+
+    public function pesanan()
+    {
+        return $this->belongsTo('App\Pesanan');
+    }
+
+    public function color()
+    {
+        return $this->belongsTo('App\Color');
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo('App\Admin');
+    }
+
+    public function proyekWeb()
+    {
+        return $this->belongsTo('App\ProyekWeb');
+    }
+
+    public function publishPlay()
+    {
+        return $this->hasOne('App\PublishPlay');
+    }
+}

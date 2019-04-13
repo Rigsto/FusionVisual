@@ -19,4 +19,14 @@ class PaketDesain extends Model
     {
         return $this->morphMany('App/Paket', 'kodePaket');
     }
+
+    public function tipedesain()
+    {
+        return $this->belongsTo('App\TipeDesain');
+    }
+
+    public function catdesain()
+    {
+        return $this->belongsTo('App\CatDesain');
+    }
 }

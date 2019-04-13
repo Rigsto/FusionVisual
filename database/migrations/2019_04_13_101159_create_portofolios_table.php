@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaketsTable extends Migration
+class CreatePortofoliosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePaketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pakets', function (Blueprint $table) {
+        Schema::create('portofolios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('tipe_id');
-
-            $table->bigInteger('kodePaket_id');
-            $table->string('kodePaket_type');
+            $table->string('nama');
+            $table->bigInteger('photo_id');
+            $table->enum('status', [0, 1, 2])->default(0);
+            $table->bigInteger('admin_id');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePaketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pakets');
+        Schema::dropIfExists('portofolios');
     }
 }

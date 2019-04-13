@@ -15,8 +15,8 @@ class CreatePaketDesainsTable extends Migration
     {
         Schema::create('paket_desains', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('category');
-            $table->string('tipe');
+            $table->bigInteger('catdesain_id');
+            $table->bigInteger('tipedesain_id');
             $table->integer('harga');
             $table->integer('tambahanHarga');
             $table->integer('duration')->default(1);
