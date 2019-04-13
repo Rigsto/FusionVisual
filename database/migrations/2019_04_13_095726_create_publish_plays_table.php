@@ -15,7 +15,7 @@ class CreatePublishPlaysTable extends Migration
     {
         Schema::create('publish_plays', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('proyekApp_id');
+            $table->bigInteger('proyekApp_id');
             $table->string('featureGraphics')->nullable();
             $table->string('shortDesc');
             $table->text('description');
