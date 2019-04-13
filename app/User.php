@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'nama', 'telepon', 'alamat', 'gender'
     ];
 
     /**
@@ -35,4 +35,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pembayaran()
+    {
+        return $this->hasMany('App\Pembayaran');
+    }
+
+    public function setPasswordAttribute($pass)
+    {
+        if (!empty($pass)) {
+            $this->attributes['password'] = bcrypt($pass);
+        }
+    }
 }
