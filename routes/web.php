@@ -11,9 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "PagesController@index");
+Route::get('/design', "PagesController@design");
+Route::get('/web', "PagesController@web");
+Route::get('/mobile', "PagesController@mobile");
+Route::get('/portfolio', "PagesController@portfolio");
+Route::get('/meet', "PagesController@meet");
+Route::get('/contact', "PagesController@contact");
+Route::get('/login', "PagesController@login");
+Route::get('/sign', "PagesController@sign");
+Route::get('/checkout', "PagesController@checkout");
+Route::get('/review', "PagesController@review");
+Route::get('/home', "PagesController@index");
 
 Auth::routes();
 
