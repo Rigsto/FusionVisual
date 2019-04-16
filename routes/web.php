@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'admin'], function () {
+Route::group(['middleware'=>'admin'], function (){
 
 });
 
-Route::group(['middleware' => 'user'], function () {
+Route::group(['middleware'=>'user'], function (){
 
 });

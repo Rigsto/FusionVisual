@@ -75,17 +75,15 @@ class User extends Authenticatable
     }
 
 //    cek role
-    public function isAdmin()
-    {
-        if ($this->role->nama == 'administrator') {
+    public function isAdmin(){
+        if ($this->role->nama == 'administrator'){
             return true;
         }
         return false;
     }
 
-    public function isUser()
-    {
-        if ($this->role->nama == 'user') {
+    public function isUser(){
+        if ($this->role->nama == 'user'){
             return true;
         }
         return false;
