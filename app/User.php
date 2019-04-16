@@ -48,9 +48,9 @@ class User extends Authenticatable
         }
     }
 
-    public function roles()
+    public function role()
     {
-        return $this->belongsToMany('App\Role');
+        return $this->belongsTo('App\Role');
     }
 
 //    admin
@@ -72,5 +72,20 @@ class User extends Authenticatable
     public function meeting()
     {
         return $this->hasMany('App\MeetUs');
+    }
+
+//    cek role
+    public function isAdmin(){
+        if ($this->role->nama == 'administrator'){
+            return true;
+        }
+        return false;
+    }
+
+    public function isUser(){
+        if ($this->role->nama == 'user'){
+            return true;
+        }
+        return false;
     }
 }
