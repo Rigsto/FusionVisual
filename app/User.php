@@ -52,4 +52,25 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
+
+//    admin
+    public function proyekWeb()
+    {
+        return $this->hasMany('App\ProyekWeb');
+    }
+
+    public function proyekApp()
+    {
+        return $this->hasMany('App\ProyekApp');
+    }
+
+    public function proyekDesain()
+    {
+        return $this->hasMany('App\ProyekDesain');
+    }
+
+    public function meeting()
+    {
+        return $this->hasMany('App\MeetUs');
+    }
 }

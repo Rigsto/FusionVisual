@@ -19,6 +19,6 @@ class Portofolio extends Model
 
     public function admin()
     {
-        return $this->belongsTo('App\Admin');
+        return $this->belongsTo('App\User', 'admin_id', 'id');
     }
 }
