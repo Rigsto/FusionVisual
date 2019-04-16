@@ -13,7 +13,7 @@ class RoleTableSeeder extends Seeder
     public function run()
     {
         $role_admin = new Role();
-        $role_admin->nama = 'admin';
+        $role_admin->nama = 'administrator';
         $role_admin->save();
 
         $role_user = new Role();
