@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/', "HomeController@index");
-Route::get('/design', "HomeController@design");
-Route::get('/web', "HomeController@web");
-Route::get('/mobile', "HomeController@mobile");
-Route::get('/portfolio', "HomeController@portfolio");
-Route::get('/meet', "HomeController@meet");
-Route::get('/contact', "HomeController@contact");
-Route::get('/login', "HomeController@login");
-Route::get('/sign', "HomeController@sign");
-Route::get('/checkout', "HomeController@checkout");
-Route::get('/review', "HomeController@review");
-Route::get('/home', "HomeController@index");
+Route::get('/', "PagesController@index");
+Route::get('/design', "PagesController@design");
+Route::get('/web', "PagesController@web");
+Route::get('/mobile', "PagesController@mobile");
+Route::get('/portfolio', "PagesController@portfolio");
+Route::get('/meet', "PagesController@meet");
+Route::get('/contact', "PagesController@contact");
+Route::get('/login', "PagesController@login");
+Route::get('/sign', "PagesController@sign");
+Route::get('/checkout', "PagesController@checkout");
+Route::get('/review', "PagesController@review");
+Route::get('/home', "PagesController@index");
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
