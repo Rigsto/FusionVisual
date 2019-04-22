@@ -3,6 +3,7 @@
         <div
             class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav d-xl-flex mx-auto">
+                @guest
                 <li class="nav-item dropdown link"><a class="dropdown-toggle nav-link links" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-tags"></i>&nbsp;Products&nbsp;</a>
                     <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="meet">Design</a><a class="dropdown-item" role="presentation" href="web">Website</a><a class="dropdown-item" role="presentation" href="mobile">Mobile Apps</a></div>
                 </li>
@@ -23,6 +24,7 @@
                         </div>
                     </a>
                 </li>
+                @endguest
             </ul>
         </div>
     </div>
