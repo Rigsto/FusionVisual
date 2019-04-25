@@ -14,7 +14,7 @@
                                 <div class="form-row"><input class="form-control inlog" type="password" placeholder="Password..."></div>
                                 <div class="form-row"><input class="form-control inlog" type="password" placeholder="Re-type Password..."></div>
                                 <div class="form-row"><button class="btn btn-primary logbtn" type="submit">Sign Up</button></div>
-                                <p class="forpass">Already have account?&nbsp;<a href="login.html">Login Here.</a></p>
+                                <p class="forpass">Already have account?&nbsp;<a href="login">Login Here.</a></p>
                             </form>
                         </div>
                     </div>

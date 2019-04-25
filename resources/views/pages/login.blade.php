@@ -13,7 +13,7 @@
                                 <div class="form-row"><input class="form-control inlog" type="password" required="" placeholder="Password..."></div>
                                 <div class="form-row"><button class="btn btn-primary logbtn" type="submit">Login</button></div>
                                 <p class="forpass">Forgot password?&nbsp;<a href="#">Reset Here.</a></p>
-                                <p class="forpass">Don't have account?&nbsp;<a href="sign-up.html">Sign up Here.</a></p>
+                                <p class="forpass">Don't have account?&nbsp;<a href="sign">Sign up Here.</a></p>
                             </form>
                         </div>
                     </div>
