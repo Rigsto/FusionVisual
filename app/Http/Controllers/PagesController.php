@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class PagesController extends Controller
 {
     public function index(){
@@ -32,10 +30,6 @@ class PagesController extends Controller
 
     public function contact(){
         return view("pages.contact-us");
-    }
-
-    public function login(){
-        return view("pages.login");
     }
 
     public function sign(){

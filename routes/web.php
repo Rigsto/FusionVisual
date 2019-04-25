@@ -18,13 +18,14 @@ Route::get('/mobile', "PagesController@mobile");
 Route::get('/portfolio', "PagesController@portfolio");
 Route::get('/meet', "PagesController@meet");
 Route::get('/contact', "PagesController@contact");
-Route::get('/login', "PagesController@login");
 Route::get('/sign', "PagesController@sign");
 Route::get('/checkout', "PagesController@checkout");
 Route::get('/review', "PagesController@review");
 Route::get('/home', "PagesController@index");
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login', "LoginController@login");
 
 Route::group(['middleware'=>'admin'], function (){
 
