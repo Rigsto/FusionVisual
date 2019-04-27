@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'nama', 'telepon', 'alamat', 'gender', 'role_id'
+        'name', 'telepon', 'alamat', 'gender', 'role_id', 'email'
     ];
 
     /**
@@ -41,12 +41,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Pembayaran');
     }
 
-    public function setPasswordAttribute($pass)
-    {
-        if (!empty($pass)) {
-            $this->attributes['password'] = bcrypt($pass);
-        }
-    }
+//    public function setPasswordAttribute($pass)
+//    {
+//        if (!empty($pass)) {
+//            $this->attributes['password'] = bcrypt($pass);
+//        }
+//    }
 
     public function role()
     {

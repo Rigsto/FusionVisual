@@ -18,7 +18,8 @@
                             <li>Item 4</li>
                         </ul>
                     </div>
-                    <div class="pricingTable-sign-up"><a href="checkout.html" class="btn btn-block">Add to cart</a></div>
+                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">Add to
+                            cart</a></div>
                 </div>
             </div>
             <div class="col-md-4 compro2">
@@ -36,7 +37,8 @@
                             <li>Item 4</li>
                         </ul>
                     </div>
-                    <div class="pricingTable-sign-up"><a href="checkout.html" class="btn btn-block">ADD TO CART<br></a></div>
+                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">ADD TO
+                            CART<br></a></div>
                 </div>
             </div>
         </div>
@@ -57,7 +59,8 @@
                             <li>Item 4</li>
                         </ul>
                     </div>
-                    <div class="pricingTable-sign-up"><a href="checkout.html" class="btn btn-block">Add to cart</a></div>
+                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">Add to
+                            cart</a></div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -75,7 +78,8 @@
                             <li>Item 4</li>
                         </ul>
                     </div>
-                    <div class="pricingTable-sign-up"><a href="checkout.html" class="btn btn-block">ADD TO CART<br></a></div>
+                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">ADD TO
+                            CART<br></a></div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -93,9 +97,10 @@
                             <li>Item 4</li>
                         </ul>
                     </div>
-                    <div class="pricingTable-sign-up"><a href="checkout.html" class="btn btn-block">ADD TO CART<br></a></div>
+                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">ADD TO
+                            CART<br></a></div>
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+@endsection

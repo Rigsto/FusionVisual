@@ -5,42 +5,42 @@ namespace App\Http\Controllers;
 class PagesController extends Controller
 {
     public function index(){
-        return view("pages.index");
+        return view("index");
     }
 
     public function design(){
-        // return view("pages.index");
+        // return view("index");
     }
 
     public function web(){
-        return view("pages.web");
+        return view("web");
     }
 
     public function mobile(){
-        return view("pages.apps");
+        return view("apps");
     }
 
     public function portfolio(){
-        return view("pages.portfolio");
+        return view("portfolio");
     }
 
     public function meet(){
-        return view("pages.meet-us");
+        return view("meet-us");
     }
 
     public function contact(){
-        return view("pages.contact-us");
+        return view("contact-us");
     }
 
     public function sign(){
-        return view("pages.sign-up");
+        return view("sign-up");
     }
 
     public function checkout(){
-        return view("pages.checkout");
+        return view("checkout");
     }
 
     public function review(){
-        return view("pages.review");
+        return view("review");
     }
 }

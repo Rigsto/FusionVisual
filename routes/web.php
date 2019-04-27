@@ -11,26 +11,31 @@
 |
 */
 
-Route::get('/', "PagesController@index");
-Route::get('/design', "PagesController@design");
-Route::get('/web', "PagesController@web");
-Route::get('/mobile', "PagesController@mobile");
-Route::get('/portfolio', "PagesController@portfolio");
-Route::get('/meet', "PagesController@meet");
-Route::get('/contact', "PagesController@contact");
-Route::get('/sign', "PagesController@sign");
-Route::get('/checkout', "PagesController@checkout");
-Route::get('/review', "PagesController@review");
-Route::get('/home', "PagesController@index");
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', "PagesController@index")->name('index');
+Route::get('/design', "PagesController@design")->name('design');
+Route::get('/web', "PagesController@web")->name('web');
+Route::get('/mobile', "PagesController@mobile")->name('mobile');
+Route::get('/portfolio', "PagesController@portfolio")->name('portfolio');
+Route::get('/meet', "PagesController@meet")->name('meet-us');
+Route::get('/contact', "PagesController@contact")->name('contact-us');
+Route::get('/checkout', "PagesController@checkout")->name('checkout');
+Route::get('/review', "PagesController@review")->name('review');
 
-Route::get('/login', "LoginController@login");
+Auth::routes();
 
 Route::group(['middleware'=>'admin'], function (){
+    Route::get('/admin', function () {
+        return view('admin.index');
+    });
 
 });
 
 Route::group(['middleware'=>'user'], function (){
+    Route::get('/home', function () {
+        return view('user.index');
+    });
 
 });
