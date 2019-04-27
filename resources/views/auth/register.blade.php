@@ -8,30 +8,26 @@
                         <div class="formbody"><img class="img-fluid" src="assets/img/aaa(2).png" width="100">
                             <h1 class="wb">Hello, Let's start your new adventure!</h1>
                             <p>Turn your ideas into reality with us!</p>
-                            <form method="POST" action="{{ route('register') }}">
-                                @csrf
-                                <div class="form-row">
-                                    <input class="form-control inlog" type="text" required="" placeholder="Full Name.."
-                                           name="name" id="name">
-                                </div>
-                                <div class="form-row">
-                                    <input class="form-control inlog" type="text" required=""
-                                           placeholder="E-mail Address..." name="email" id="email">
-                                </div>
-                                <div class="form-row">
-                                    <input class="form-control inlog" type="password" placeholder="Password..."
-                                           name="password" id="password">
-                                </div>
-                                <div class="form-row">
-                                    <input class="form-control inlog" type="password" placeholder="Re-type Password..."
-                                           name="password-confirmation" id="password-confirm">
-                                </div>
-                                <div class="form-row">
-                                    <button class="btn btn-primary logbtn" type="submit">{{ __('Sign Up') }}</button>
-                                </div>
-                                <p class="forpass">Already have account?&nbsp;<a href="{{ route('login') }}">Login
-                                        Here.</a></p>
-                            </form>
+                            {!! Form::open(['method'=>'POST', 'action'=>'Auth\RegisterController@register']) !!}
+                            {{ csrf_field() }}
+                            <div class="form-row">
+                                {!! Form::text('name', null, ['class'=>'form-control inlog', 'placeholder'=>'Full Name..']) !!}
+                            </div>
+                            <div class="form-row">
+                                {!! Form::email('email', null, ['class'=>'form-control inlog', 'placeholder'=>'E-mail Address...']) !!}
+                            </div>
+                            <div class="form-row">
+                                {!! Form::password('password', ['class'=>'form-control inlog', 'placeholder'=>'Password...']) !!}
+                            </div>
+                            <div class="form-row">
+                                {!! Form::password('password_confirmation', ['class'=>'form-control inlog', 'placeholder'=>'Re-type Password...']) !!}
+                            </div>
+                            <div class="form-row">
+                                {!! Form::submit('Sign Up', ['class'=>'btn btn-primary logbtn']) !!}
+                            </div>
+                            {!! Form::close() !!}
+                            <p class="forpass">Already have account?&nbsp;<a href="{{ route('login') }}">Login Here.</a>
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -29,13 +29,13 @@ Auth::routes();
 Route::group(['middleware'=>'admin'], function (){
     Route::get('/admin', function () {
         return view('admin.index');
-    });
+    })->name('admin');
 
 });
 
 Route::group(['middleware'=>'user'], function (){
     Route::get('/home', function () {
         return view('user.index');
-    });
+    })->name('user');
 
 });

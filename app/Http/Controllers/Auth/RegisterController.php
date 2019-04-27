@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -69,5 +71,23 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'role_id' => 2,
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        if (empty($user)) { // Failed to register user
+            redirect('/register'); // Wherever you want to redirect
+        }
+
+        event(new Registered($user));
+
+        $this->guard()->login($user);
+
+        // Success redirection - which will be attribute `$redirectTo`
+        redirect($this->redirectPath());
     }
 }

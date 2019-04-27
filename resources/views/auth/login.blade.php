@@ -8,18 +8,21 @@
                         <div class="formbody"><img class="img-fluid" src="assets/img/aaa(2).png" width="100">
                             <h1 class="wb">Welcome Back!</h1>
                             <p>Let's continue our journey together!</p>
-                            <form>
-                                <div class="form-row"><input class="form-control inlog" type="email" required=""
-                                                             placeholder="E-mail Address..."></div>
-                                <div class="form-row"><input class="form-control inlog" type="password" required=""
-                                                             placeholder="Password..."></div>
-                                <div class="form-row">
-                                    <button class="btn btn-primary logbtn" type="submit">Login</button>
-                                </div>
-                                <p class="forpass">Forgot password?&nbsp;<a href="#">Reset Here.</a></p>
-                                <p class="forpass">Don't have account?&nbsp;<a href="{{ route('register') }}">Sign up
-                                        Here.</a></p>
-                            </form>
+                            {!! Form::open(['method'=>'POST', 'action'=>'Auth\LoginController@login']) !!}
+                            {{ csrf_field() }}
+                            <div class="form-row">
+                                {!! Form::email('email', null, ['class'=>'form-control inlog', 'placeholder'=>'E-mail Address...']) !!}
+                            </div>
+                            <div class="form-row">
+                                {!! Form::password('password', ['class'=>'form-control inlog', 'placeholder'=>'Password...']) !!}
+                            </div>
+                            <div class="form-row">
+                                {!! Form::submit('Login', ['class'=>'btn btn-primary logbtn']) !!}
+                            </div>
+                            {!! Form::close() !!}
+                            <p class="forpass">Forgot password?&nbsp;<a href="#">Reset Here.</a></p>
+                            <p class="forpass">Don't have account?&nbsp;<a href="{{ route('register') }}">Sign up
+                                    Here.</a></p>
                         </div>
                     </div>
                 </div>
