@@ -19,7 +19,8 @@ class CreatePaketDesainsTable extends Migration
             $table->bigInteger('tipedesain_id');
             $table->integer('harga');
             $table->integer('tambahanHarga');
-            $table->integer('duration')->default(1);
+            $table->integer('durationFrom')->default(1);
+            $table->integer('durationTo')->default(10);
             $table->integer('revisi')->default(1);
             $table->timestamps();
         });

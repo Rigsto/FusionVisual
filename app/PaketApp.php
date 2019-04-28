@@ -4,6 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property string nama
+ * @property int harga
+ * @property int pages
+ * @property int duration
+ * @property int publish
+ * @property int play_id
+ * @property int connectivity
+ * @property int freeEditPage
+ * @property int troubleshooting
+ * @property int storage
+ * @property int offline
+ * @property int online
+ * @property int admin
+ * @property int language
+ */
 class PaketApp extends Model
 {
     protected $fillable = [

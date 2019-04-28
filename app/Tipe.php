@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property string tipe
+ */
 class Tipe extends Model
 {
     protected $fillable = [

@@ -14,5 +14,12 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleTableSeeder::class);
         $this->call(CatDesainTableSeeder::class);
         $this->call(TipeDesainTableSeeder::class);
+        $this->call(PaketAppSeeder::class);
+        $this->call(PlaySeeder::class);
+        $this->call(PaketDesainSeeder::class);
+        $this->call(PaketHostingSeeder::class);
+        $this->call(PaketWebSeeder::class);
+        $this->call(TipeSeeder::class);
+        $this->call(PaketSeeder::class);
     }
 }

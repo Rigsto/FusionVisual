@@ -4,6 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int catdesain_id
+ * @property int tipedesain_id
+ * @property int harga
+ * @property int tambahanHarga
+ * @property int durationFrom
+ * @property int durationTo
+ * @property int revisi
+ */
 class PaketDesain extends Model
 {
     protected $fillable = [
@@ -11,7 +20,8 @@ class PaketDesain extends Model
         'tipe',
         'harga',
         'tambahanHarga',
-        'durasi',
+        'durationFrom',
+        'durationTo',
         'revisi'
     ];
 
