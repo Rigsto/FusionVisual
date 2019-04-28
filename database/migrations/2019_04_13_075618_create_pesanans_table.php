@@ -15,7 +15,7 @@ class CreatePesanansTable extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('paket_id');
             $table->string('buktiTransfer');
             $table->enum('statusBayar', ['0', '1']);
@@ -23,6 +23,8 @@ class CreatePesanansTable extends Migration
             $table->time('waktuTerima')->nullable();
             $table->bigInteger('admin_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
