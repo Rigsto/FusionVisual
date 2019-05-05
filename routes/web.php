@@ -27,14 +27,18 @@ Route::get('/review', "PagesController@review")->name('review');
 Auth::routes();
 
 Route::group(['middleware'=>'admin'], function (){
-    Route::get('/dashboard', function () {
+    Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin');
-});
 
-//Route::get('/dash', function (){
-//   return view('admin.dashboard');
-//});
+    Route::resource('/admin/user', 'Admin\UserController');
+    Route::resource('/admin/blog', 'Admin\BlogController');
+    Route::resource('/admin/faq', 'Admin\FaqController');
+    Route::resource('/admin/newsletter', 'Admin\NewsletterController');
+    Route::resource('/admin/page', 'Admin\PageController');
+    Route::resource('/admin/project', 'Admin\ProjectController');
+    Route::resource('/admin/request', 'Admin\RequestController');
+});
 
 Route::group(['middleware'=>'user'], function (){
     Route::get('/user', function () {
