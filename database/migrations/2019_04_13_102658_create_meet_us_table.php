@@ -14,6 +14,7 @@ class CreateMeetUsTable extends Migration
     public function up()
     {
         Schema::create('meet_us', function (Blueprint $table) {
+            $table->bigIncrements('id');
 //            $table->bigInteger('user_id')->nullable();
             $table->date('dateMeet');
             $table->time('timeMeet');
