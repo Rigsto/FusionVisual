@@ -1,6 +1,9 @@
 @extends('layout.pages')
 @section('content')
     <section id="login">
+        <div class="container">
+            @include('inc.alert')
+        </div>
         <div class="container" id="logform">
             <div class="formlog">
                 <div class="row no-gutters">
