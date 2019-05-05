@@ -25,7 +25,7 @@
 		</div>
 		<ul class="list-unstyled components">
 			<li>
-				<a href="{{url('/dashboard')}}"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;Dashboard</a>
+				<a href="{{route('admin')}}"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;Dashboard</a>
 			</li>
 			<li>
 				<a href="#managepage" data-toggle="collapse" onclick="rotate(1)" aria-expanded="false"><i class="far fa-file-alt"></i>&nbsp;&nbsp;Manage Page <i class="fas fa-angle-down rotate icon r1"></i></a>
@@ -51,30 +51,30 @@
 				<a href="#manageuser" data-toggle="collapse" onclick="rotate(2)" aria-expanded="false"><i class="fas fa-users-cog"></i>&nbsp;Manage User<i class="fas fa-angle-down rotate icon r2"></i></a>
 				<ul class="collapse list-unstyled" id="manageuser">
 					<li>
-						<a href="#h6">User List</a>
+						<a href="{{ route('user.index') }}">User List</a>
 					</li>
 					<li>
-						<a href="#h7" >Add User</a>
+						<a href="{{ route('user.create') }}" >Add User</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="#h8"><i class="fas fa-comments-dollar"></i>&nbsp;&nbsp;Meet Request</a>
+				<a href="{{ route('request.index') }}"><i class="fas fa-comments-dollar"></i>&nbsp;&nbsp;Meet Request</a>
 			</li>
 			<li>
-				<a href="#h9" ><i class="fas fa-tasks"></i>&nbsp;&nbsp;Projects</a>
+				<a href="{{ route('project.index') }}" ><i class="fas fa-tasks"></i>&nbsp;&nbsp;Projects</a>
 			</li>
 			<li>
 				<a href="#newsletter" data-toggle="collapse" onclick="rotate(3)" aria-expanded="false"><i class="far fa-envelope-open"></i>&nbsp;&nbsp;Newsletter<i class="fas fa-angle-down rotate icon r3"></i></a>
 				<ul class="collapse list-unstyled" id="newsletter">
 					<li>
-						<a href="#h10">Subscriber List</a>
+						<a href="{{ route('newsletter.index') }}">Subscriber List</a>
 					</li>
 					<li>
-						<a href="#h11">Send Mail</a>
+						<a href="">Send Mail</a>
 					</li>
 					<li>
-						<a href="#h12">Edit Mail Template</a>
+						<a href="">Edit Mail Template</a>
 					</li>
 				</ul>
 			</li>
@@ -82,14 +82,14 @@
 				<a href="#blog" data-toggle="collapse" onclick="rotate(4)" aria-expanded="false"><i class="fas fa-rss-square"></i>&nbsp;&nbsp;Blog<i class="fas fa-angle-down rotate icon r4"></i></a>
 				<ul class="collapse list-unstyled" id="blog">
 					<li>
-						<a href="#h13">Add Post</a>
+						<a href="{{ route('blog.create') }}">Add Post</a>
 					</li>
 					<li>
-						<a href="#h14">Post List</a>
+						<a href="{{ route('blog.index') }}">Post List</a>
 					</li>
 				</ul>
 			</li>
-			<li><a href="#h15"><i class="far fa-question-circle"></i>&nbsp;&nbsp;FAQ</a></li>
+			<li><a href="{{ route('faq.index') }}"><i class="far fa-question-circle"></i>&nbsp;&nbsp;FAQ</a></li>
 		</ul>
 	</nav>
 

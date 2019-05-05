@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/user/dashboard';
 
     /**
      * Create a new controller instance.
@@ -80,7 +80,7 @@ class RegisterController extends Controller
         $user = $this->create($request->all());
 
         if (empty($user)) { // Failed to register user
-            redirect('/register'); // Wherever you want to redirect
+            redirect()->route('register'); // Wherever you want to redirect
         }
 
         event(new Registered($user));
@@ -88,6 +88,6 @@ class RegisterController extends Controller
         $this->guard()->login($user);
 
         // Success redirection - which will be attribute `$redirectTo`
-        redirect($this->redirectPath());
+        redirect()->route('user');
     }
 }
