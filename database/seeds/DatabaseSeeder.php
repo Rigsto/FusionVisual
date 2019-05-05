@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PaketWebSeeder::class);
         $this->call(TipeSeeder::class);
         $this->call(PaketSeeder::class);
+        $this->call(UserSeeder::class);
 
         Model::reguard();
     }

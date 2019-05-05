@@ -24,6 +24,8 @@ Route::get('/contact', "PagesController@contact")->name('contact-us');
 Route::get('/checkout', "PagesController@checkout")->name('checkout');
 Route::get('/review', "PagesController@review")->name('review');
 
+Route::post('/meet', 'FormController@meetus');
+
 Auth::routes();
 
 Route::group(['middleware'=>'admin'], function (){

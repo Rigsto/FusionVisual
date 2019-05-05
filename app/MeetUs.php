@@ -15,7 +15,9 @@ class MeetUs extends Model
         'methodmeet',
         'phoneOrSkype',
         'placeMeet',
-        'topics',
+        'topic_design',
+        'topic_web',
+        'topic_app',
         'notes',
         'admin_id'
     ];

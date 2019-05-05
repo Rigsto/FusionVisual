@@ -15,15 +15,16 @@ class CreateMeetUsTable extends Migration
     {
         Schema::create('meet_us', function (Blueprint $table) {
             $table->bigIncrements('id');
-//            $table->bigInteger('user_id')->nullable();
-            $table->date('dateMeet');
-            $table->time('timeMeet');
+            $table->string('dateMeet');
+            $table->string('timeMeet');
             $table->string('name');
             $table->string('email');
             $table->enum('methodmeet',['online','offline']);
             $table->string('phoneOrSkype');
             $table->string('placeMeet', 100);
-            $table->enum('topics', ['design','web','app']);
+            $table->enum('topic_design', [1, 2]);
+            $table->enum('topic_web', [1, 2]);
+            $table->enum('topic_app', [1, 2]);
             $table->text('notes')->nullable();
             $table->bigInteger('admin_id')->nullable();
             $table->timestamps();
