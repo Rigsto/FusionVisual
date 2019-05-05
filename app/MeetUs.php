@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class MeetUs extends Model
 {
     protected $fillable = [
-        'user_id',
+        //'user_id',
         'dateMeet',
         'timeMeet',
+        'name',
+        'email',
+        'methodmeet',
+        'phoneOrSkype',
         'placeMeet',
+        'topics',
         'notes',
         'admin_id'
     ];
