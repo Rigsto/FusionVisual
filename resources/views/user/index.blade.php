@@ -10,5 +10,10 @@
 </head>
 <body>
 <h1>Hello User</h1>
+<a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
+							document.getElementById('logout-form').submit();">{{Auth::user()->name}} -> Logout <i class="fas fa-sign-out-alt"></i></a>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
 </body>
 </html>
