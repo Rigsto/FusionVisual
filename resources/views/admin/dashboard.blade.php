@@ -8,13 +8,13 @@
 				<i class="far fa-file-alt dash"></i>
 			</div>
 			<div class="col-md-6" style="text-align: right;">
-				<h1 style="margin:10px 0 0 0">26</h1>
+				<h1 style="margin:10px 0 0 0">{{ $blog }}</h1>
 				<p>Total Post</p>
 			</div>
 		</div>
 		<div class="row no-gutters infob">
 			<div class="col-md-6">
-				<a href="">View Details</a>
+				<a href="{{ route('blog.index') }}">View Details</a>
 			</div>
 			<div class="col-md-6" style="text-align: right;">
 				<a href=""><i class="fas fa-arrow-circle-right"></i></a>
@@ -28,13 +28,13 @@
 				<i class="fas fa-users dash"></i>
 			</div>
 			<div class="col-md-6" style="text-align: right;">
-				<h1 style="margin:10px 0 0 0">26</h1>
+				<h1 style="margin:10px 0 0 0">{{ $user }}</h1>
 				<p>Total User</p>
 			</div>
 		</div>
 		<div class="row no-gutters infou">
 			<div class="col-md-6">
-				<a href="">View Details</a>
+				<a href="{{ route('user.index') }}">View Details</a>
 			</div>
 			<div class="col-md-6" style="text-align: right;">
 				<a href=""><i class="fas fa-arrow-circle-right"></i></a>
@@ -48,13 +48,13 @@
 				<i class="fas fa-comments-dollar dash"></i>
 			</div>
 			<div class="col-md-6" style="text-align: right;">
-				<h1 style="margin:10px 0 0 0">26</h1>
+				<h1 style="margin:10px 0 0 0">{{ $meet }}</h1>
 				<p>Meet Request</p>
 			</div>
 		</div>
 		<div class="row no-gutters infom">
 			<div class="col-md-6">
-				<a href="">View Details</a>
+				<a href="{{ route('request.index') }}">View Details</a>
 			</div>
 			<div class="col-md-6" style="text-align: right;">
 				<a href=""><i class="fas fa-arrow-circle-right"></i></a>
@@ -68,13 +68,13 @@
 				<i class="fas fa-tasks dash"></i>
 			</div>
 			<div class="col-md-6" style="text-align: right;">
-				<h1 style="margin:10px 0 0 0">26</h1>
+				<h1 style="margin:10px 0 0 0">{{ $project }}</h1>
 				<p>New Projects</p>
 			</div>
 		</div>
 		<div class="row no-gutters infop">
 			<div class="col-md-6">
-				<a href="">View Details</a>
+				<a href="{{ route('project.index') }}">View Details</a>
 			</div>
 			<div class="col-md-6" style="text-align: right;">
 				<a href=""><i class="fas fa-arrow-circle-right"></i></a>

@@ -27,9 +27,7 @@ Route::get('/review', "PagesController@review")->name('review');
 Auth::routes();
 
 Route::group(['middleware'=>'admin'], function (){
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin');
+    Route::get('/admin/dashboard', 'Admin\AdminPageController@dashboard')->name('admin');
 
     Route::resource('/admin/user', 'Admin\UserController');
     Route::resource('/admin/blog', 'Admin\BlogController');
