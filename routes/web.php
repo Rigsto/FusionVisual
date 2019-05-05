@@ -27,14 +27,17 @@ Route::get('/review', "PagesController@review")->name('review');
 Auth::routes();
 
 Route::group(['middleware'=>'admin'], function (){
-    Route::get('/admin', function () {
-        return view('admin.index');
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
     })->name('admin');
-
 });
 
+//Route::get('/dash', function (){
+//   return view('admin.dashboard');
+//});
+
 Route::group(['middleware'=>'user'], function (){
-    Route::get('/home', function () {
+    Route::get('/user', function () {
         return view('user.index');
     })->name('user');
 

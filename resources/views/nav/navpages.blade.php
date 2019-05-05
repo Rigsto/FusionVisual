@@ -10,7 +10,7 @@
         <div
             class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav d-xl-flex mx-auto">
-                @guest
+
                 <li class="nav-item dropdown link"><a class="dropdown-toggle nav-link links" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-tags"></i>&nbsp;Products&nbsp;</a>
                     <div class="dropdown-menu" role="menu">
                         <a class="dropdown-item" role="presentation" href="{{ route('meet-us') }}">Design</a>
@@ -27,6 +27,7 @@
                     <li class="nav-item link" role="presentation"><a class="nav-link links"
                                                                      href="{{ route('contact-us') }}"><i
                                     class="fa fa-phone"></i>&nbsp;Contact Us</a></li>
+                @guest
                 <li class="nav-item link" role="presentation">
                     <a class="nav-link" href="{{ route('login') }}">
                         <div class="log">
