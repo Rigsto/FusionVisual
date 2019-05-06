@@ -38,7 +38,7 @@
                     <div class="form-row">
                         <div class="col-md-12">
                             {!! Form::label('metod', 'Method of Meeting *') !!}
-                            {!! Form::select('metod', array(''=>'----', 'Online', 'Offline'), null, ['class'=>'custom-select', 'required'=>'']) !!}
+                            {!! Form::select('metod', array(''=>'----', 'Online', 'Offline'), null, ['id'=>'mthod', 'class'=>'custom-select', 'required'=>'']) !!}
                         </div>
                     </div>
                     <div class="form-row">
@@ -57,20 +57,20 @@
                             {!! Form::email('email', null, ['class'=>'form-control', 'required'=>'', 'placeholder'=>'E-mail Address...']) !!}
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" id ="phoneOrSkype">
                         <div class="col-md-12">
                             {!! Form::label('phone', 'Phone Number / Skype ID *') !!}
-                            {!! Form::text('phone', null, ['class'=>'form-control', 'required'=>'', 'placeholder'=>'Phone Number / Skype ID']) !!}
+                            {!! Form::text('phone', null, ['class'=>'form-control', 'id' => 'phoneS', 'placeholder'=>'Phone Number / Skype ID']) !!}
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" id="meetplace">
                         <div class="col-md-12">
                             {!! Form::label('place', 'Prefered Place of Meeting *') !!}
-                            {!! Form::select('place', array(''=>'----',
+                            {!! Form::select('place', array('----',
                                                 'Starbucks Gwalk Citraland Surabaya',
                                                 'Excelso Gwalk Citraland Surabaya',
                                                 'Calipto Cafe TPR Citraland'),
-                                null, ['class'=>'custom-select', 'required'=>'']) !!}
+                                null, ['class'=>'custom-select', 'id' => 'mplace']) !!}
                         </div>
                     </div>
                     <div class="form-row">

@@ -31,8 +31,8 @@ class MeetUsRequest extends FormRequest
             'fname'     =>'required',
             'lname'     =>'required',
             'email'     =>'required',
-            'phone'     =>'required',
-            'place'     =>'required',
+//            'phone'     =>'required',
+//            'place'     =>'required',
         ];
     }
 }
