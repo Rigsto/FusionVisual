@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\UserActivationEmail;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Auth\Events\Registered;
@@ -86,9 +87,9 @@ class RegisterController extends Controller
         }
 
         event(new Registered($user));
-
-        $this->guard()->login($user);
-        $this->guard()->logout();
+//        $this->guard()->login($user);
+//        $this->guard()->logout();
+        event(new UserActivationEmail($user));
         return redirect("/login")->with('Success','Registered, Please check your email to activate you acccount.');
         // Success redirection - which will be attribute `$redirectTo`
 //        redirect()->route('user');
