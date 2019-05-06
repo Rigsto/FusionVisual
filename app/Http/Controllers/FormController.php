@@ -13,7 +13,7 @@ class FormController extends Controller
         $time = array('13:00', '13:30', '14:00');
 
         MeetUs::create([
-            'dateMeet'      => $request->date." ".$month[$request->month - 1],
+            'dateMeet'      => $request->date." ".$month[$request->month],
             'timeMeet'      => $time[$request->time],
             'name'          => $request->lname.", ".$request->fname,
             'email'         => $request->email,

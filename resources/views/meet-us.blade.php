@@ -24,11 +24,11 @@
                     <div class="form-row ex">
                         <div class="col-md-4">
                             {!! Form::label('month', 'Month') !!}
-                            {!! Form::selectMonth('month', 1, ['class'=>'custom-select', 'required'=>'']) !!}
+                            {!! Form::text('month', \Carbon\Carbon::now()->monthName, ['class'=>'form-control', 'readonly']) !!}
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('date', 'Date *') !!}
-                            {!! Form::selectRange('date', '1', '31', 1, ['class'=>'custom-select', 'required'=>'']) !!}
+                            {!! Form::selectRange('date', \Carbon\Carbon::now()->day, \Carbon\Carbon::now()->day+7, \Carbon\Carbon::now()->day, ['class'=>'custom-select', 'required'=>'']) !!}
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('time', 'Time *') !!}
