@@ -9,11 +9,11 @@ class FormController extends Controller
 {
     public function meetus(MeetUsRequest $request){
         $place = array('Starbucks Gwalk Citraland Surabaya', 'Excelso Gwalk Citraland Surabaya', 'Calipto Cafe TPR Citraland');
-        $month = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+//        $month = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
         $time = array('13:00', '13:30', '14:00');
 
         MeetUs::create([
-            'dateMeet'      => $request->date." ".$month[$request->month],
+            'dateMeet'      => $request->date." ".$request->month,
             'timeMeet'      => $time[$request->time],
             'name'          => $request->lname.", ".$request->fname,
             'email'         => $request->email,
