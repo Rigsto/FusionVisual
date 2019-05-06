@@ -13,21 +13,36 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="formtitle">Contact Us</h2>
-                    <form>
-                        <div class="form-row">
-                            <div class="col-md-6"><label>First Name *</label><input class="form-control" type="text" required="" placeholder="First Name..."></div>
-                            <div class="col-md-6"><label>Last Name</label><input class="form-control" type="text" placeholder="Last Name..."></div>
+                    {!! Form::open(['method'=>'POST', 'action'=>'FormController@contactus']) !!}
+                    {{ csrf_field() }}
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            {!! Form::label('fname', 'First Name *') !!}
+                            {!! Form::text('fname', null, ['class'=>'form-control', 'placeholder'=>'First Name...', 'required']) !!}
                         </div>
-                        <div class="form-row">
-                            <div class="col-md-12"><label>Your e-mail address *</label><input class="form-control" type="email" required="" placeholder="e-mail address..."></div>
+                        <div class="col-md-6">
+                            {!! Form::label('lname', 'Last Name') !!}
+                            {!! Form::text('lname', null, ['class'=>'form-control', 'placeholder'=>'Last Name...']) !!}
                         </div>
-                        <div class="form-row">
-                            <div class="col-md-12"><label>What's on your mind?</label><textarea class="form-control form-control-lg" rows="6" placeholder="Type something..."></textarea></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            {!! Form::label('email', 'Your e-mail address *') !!}
+                            {!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'Last Name...', 'required']) !!}
                         </div>
-                        <div class="form-row">
-                            <div class="col-md-12"><button class="btn btn-primary" type="submit">Contact Us</button></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            {!! Form::label('else', 'What\'s on your mind?') !!}
+                            {!! Form::textarea('else', null, ['class'=>'form-control form-control-lg', 'placeholder'=>'Type something...', 'rows'=>6]) !!}
                         </div>
-                    </form>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            {!! Form::submit('Contact Us', ['class'=>'btn btn-primary']) !!}
+                        </div>
+                    </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

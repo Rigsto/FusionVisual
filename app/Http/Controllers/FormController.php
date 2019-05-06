@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\ContactUs;
 use App\Http\Requests\MeetUsRequest;
 use App\MeetUs;
+use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
@@ -27,5 +29,14 @@ class FormController extends Controller
         ]);
 
         return redirect()->route('meet-us');
+    }
+
+    public function contactus(Request $request)
+    {
+        ContactUs::create([
+            'name' => $request->lname . ", " . $request->fname,
+            'email' => $request->email,
+            'body' => $request->else
+        ]);
     }
 }

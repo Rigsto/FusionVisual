@@ -25,6 +25,7 @@ Route::get('/checkout', "PagesController@checkout")->name('checkout');
 Route::get('/review', "PagesController@review")->name('review');
 
 Route::post('/meet', 'FormController@meetus');
+Route::post('/contact', 'FormController@contactus');
 
 Auth::routes();
 
