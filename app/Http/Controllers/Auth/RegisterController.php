@@ -90,7 +90,7 @@ class RegisterController extends Controller
 //        $this->guard()->login($user);
 //        $this->guard()->logout();
         event(new UserActivationEmail($user));
-        return redirect("/login")->with('Success','Registered, Please check your email to activate you acccount.');
+        return redirect("/login")->with('Success','Registered, Please check your email to activate you acccount.')->with('email', $request->email);
         // Success redirection - which will be attribute `$redirectTo`
 //        redirect()->route('user');
     }

@@ -5,22 +5,22 @@
             <div class="formlog">
                 <div class="row no-gutters">
                     <div class="col-md-12">
-                        <div class="formbody"><img class="img-fluid" src="assets/img/aaa(2).png" width="100">
-                            <h1 class="wb">Hello, Let's start your new adventure!</h1>
+                        <div class="formbody"><img class="img-fluid" src="{{asset('assets/img/aaa(2).png')}}" width="100">
+                            <h1 class="wb">Let's start your new adventure!</h1>
                             <p>Turn your ideas into reality with us!</p>
                             {!! Form::open(['method'=>'POST', 'action'=>'Auth\RegisterController@register']) !!}
                             {{ csrf_field() }}
                             <div class="form-row">
-                                {!! Form::text('name', null, ['class'=>'form-control inlog', 'placeholder'=>'Full Name..']) !!}
+                                {!! Form::text('name', null, ['class'=>'form-control inlog', 'placeholder'=>'Full Name..' , 'required'=>'']) !!}
                             </div>
                             <div class="form-row">
-                                {!! Form::email('email', null, ['class'=>'form-control inlog', 'placeholder'=>'E-mail Address...']) !!}
+                                {!! Form::email('email', null, ['class'=>'form-control inlog', 'placeholder'=>'E-mail Address...' , 'required'=>'']) !!}
                             </div>
                             <div class="form-row">
-                                {!! Form::password('password', ['class'=>'form-control inlog', 'placeholder'=>'Password...']) !!}
+                                {!! Form::password('password', ['class'=>'form-control inlog', 'placeholder'=>'Password...' , 'required'=>'']) !!}
                             </div>
                             <div class="form-row">
-                                {!! Form::password('password_confirmation', ['class'=>'form-control inlog', 'placeholder'=>'Re-type Password...']) !!}
+                                {!! Form::password('password_confirmation', ['class'=>'form-control inlog', 'placeholder'=>'Re-type Password...' , 'required'=>'']) !!}
                             </div>
                             <div class="form-row">
                                 {!! Form::submit('Sign Up', ['class'=>'btn btn-primary logbtn']) !!}

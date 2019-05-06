@@ -23,6 +23,9 @@ Route::get('/meet', "PagesController@meet")->name('meet-us');
 Route::get('/contact', "PagesController@contact")->name('contact-us');
 Route::get('/checkout', "PagesController@checkout")->name('checkout');
 Route::get('/review', "PagesController@review")->name('review');
+Route::get('/activate', 'Auth\ActivationController@activate')->name('activate');
+Route::get('/resend', 'Auth\ActivationController@showResendForm')->name('resend');
+Route::post('/resend', 'Auth\ActivationController@resend');
 
 Route::post('/meet', 'FormController@meetus');
 Route::post('/contact', 'FormController@contactus');
@@ -42,8 +45,7 @@ Route::group(['middleware'=>'admin'], function (){
 });
 
 Route::group(['middleware'=>'user'], function (){
-    Route::get('/user', function () {
+    Route::get('/user/dashboard', function () {
         return view('user.index');
     })->name('user');
-
 });

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark navbar-expand-md sticky-top pagess">
     <div class="container">
         <a class="navbar-brand" href="{{ route('index') }}">
-            <img class="img-fluid" src="assets/img/fusionpurplehaha.svg">
+            <img class="img-fluid" src="{{asset('assets/img/fusionpurplehaha.svg')}}">
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
             <span class="sr-only">Toggle navigation</span>

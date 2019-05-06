@@ -1,5 +1,4 @@
 @extends('layout.pages')
-
 @section('content')
     <section id="login">
         <div class="container">
@@ -11,10 +10,10 @@
                     <div class="col-md-12">
                         <div class="formbody"><img class="img-fluid" src="{{asset('assets/img/aaa(2).png')}}" width="100">
                             <h1 class="wb">Resend Activation Email</h1>
-                            {!! Form::open(['method'=>'POST']) !!}
+                            {!! Form::open(['method'=>'POST', 'action'=>'Auth\ActivationController@resend']) !!}
                             {{ csrf_field() }}
                             <div class="form-row">
-                                {!! Form::email('email', null, ['class'=>'form-control inlog', 'placeholder'=>'E-mail Address...', 'required' => '']) !!}
+                                {!! Form::email('email', null, ['class'=>'form-control inlog', 'placeholder'=>'E-mail Address...']) !!}
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -22,7 +21,7 @@
                                 @endif
                             </div>
                             <div class="form-row">
-                                {!! Form::submit('Send Password Reset Link', ['class'=>'btn btn-primary logbtn']) !!}
+                                {!! Form::submit('Resend', ['class'=>'btn btn-primary logbtn']) !!}
                             </div>
                             {!! Form::close() !!}
                         </div>

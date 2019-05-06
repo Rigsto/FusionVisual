@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-4 offset-xl-3">
                 <div class="row no-gutters">
-                    <div class="col-md-12 logo"><img class="img-fluid fus" src="assets/img/Group%202.png"></div>
+                    <div class="col-md-12 logo"><img class="img-fluid fus" src="{{asset('assets/img/Group%202.png')}}"></div>
                 </div>
                 <div class="row no-gutters carr">
                     <div class="col">

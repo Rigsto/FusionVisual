@@ -3,7 +3,7 @@
 
 Thanks for signing up, please verify your email to activate your account.
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => route('activate', ['token' => $user->activation_token, 'email' => $user->email])])
 Verify
 @endcomponent
 
