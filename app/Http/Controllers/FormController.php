@@ -38,5 +38,6 @@ class FormController extends Controller
             'email' => $request->email,
             'body' => $request->else
         ]);
+        return redirect()->route('contact-us');
     }
 }
