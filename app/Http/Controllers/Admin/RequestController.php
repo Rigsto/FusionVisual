@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\MeetUs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller
 {
@@ -14,7 +16,11 @@ class RequestController extends Controller
      */
     public function index()
     {
-        return view('admin.request.index');
+        $pages = 'mreq';
+        $requests = MeetUs::all()->where('admin_id', null)->sortBy('created_at');
+        $approve = MeetUs::where('deleted_at', null)->whereNotNull('admin_id')->get();
+        $reject = MeetUs::onlyTrashed()->get();
+        return view('admin.request.index', compact('requests','pages', 'approve', 'reject'));
     }
 
     /**
@@ -69,7 +75,9 @@ class RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $req = MeetUs::findOrFail($id);
+        $req->update(['admin_id' => $request->ids]);
+        return redirect('/admin/request')->with('Success', 'Request Approved');
     }
 
     /**
@@ -80,6 +88,10 @@ class RequestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $req = MeetUs::findOrFail($id);
+        $ids = Auth::id();
+        $req->update(['admin_id' => $ids]);
+        $req->delete();
+        return redirect('/admin/request')->with('Success', 'Request Deleted / Rejected');
     }
 }

@@ -34,8 +34,9 @@
                             <td>{{$user->telepon}}</td>
                             <td>{{$user->alamat}}</td>
                             <td>{{ucwords($user->role->nama)}}</td>
-                            <td>{{$user->active == 1 ? 'Active' : 'Inactive'}}</td>
-                            <td>
+                            <td>@if($user->active == 1)<p class="text-success">Active</p> @else <p class="text-warning">Inactive</p> @endif</td>
+                            <td><div class="row no-gutters">
+                                <div class="col-md-6">
                                 @if($user->active == 1)
                                     {!! Form::open(['method'=>'POST', 'action'=> 'Admin\UserController@deactivate']) !!}
                                     {{ csrf_field() }}
@@ -49,10 +50,14 @@
                                     {!! Form::button('<i class="fas fa-check"></i>', ['type'=>'submit', 'class'=>'btn btn-success btn-circle', 'title'=>'Activate User']) !!}
                                     {!! Form::close() !!}
                                 @endif
+                                </div>
+                                <div class="col-md-6">
                                 {!! Form::open(['method'=>'DELETE', 'action'=> ['Admin\UserController@destroy', $user->id], 'id' => 'delete-user']) !!}
                                 {{ csrf_field() }}
-                                    {!! Form::button('<i class="fas fa-trash"></i>', ['type'=>'submit', 'class'=>'btn btn-danger btn-circle']) !!}
+                                    {!! Form::button('<i class="fas fa-trash"></i>', ['type'=>'submit', 'class'=>'btn btn-danger btn-circle', 'title'=>'Delete User']) !!}
                                 {!! Form::close() !!}
+                                </div>
+                                </div>
                             </td>
                         </tr>
                             @endforeach
