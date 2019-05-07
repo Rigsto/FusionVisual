@@ -16,7 +16,8 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all()->where('role_id', 2);
-        return view('admin.user.index', compact('user'));
+        $pages = 'ulist';
+        return view('admin.user.index', compact('user', 'pages'));
     }
 
     /**

@@ -48,7 +48,3 @@ Route::group(['middleware'=>'user'], function (){
     Route::get('/user/dashboard', 'User\UserPageController@dashboard')->name('user');
 
 });
-
-Route::get('dash', function (){
-    return view('dashboardtest');
-});

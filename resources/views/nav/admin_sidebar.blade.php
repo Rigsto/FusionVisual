@@ -1,61 +1,60 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-    </a>
-    <!-- Divider -->
+    <div class="sidebar-heading">
+        <img src="{{asset('admin/img/Group2.png')}}" class="img-fluid" style="margin: 1em;">
+    </div>
     <hr class="sidebar-divider my-0">
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active"><a class="nav-link" href="{{route('admin')}}"><i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <li class="nav-item @if($pages=='dash') active @endif"><a class="nav-link" href="{{route('admin')}}"><i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+    <li class="nav-item @if($pages=='mhome' || $pages=='mport' || $pages=='mMeet' || $pages=='mcont' || $pages=='mabout') active @endif">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-file-alt"></i><span>Manage Page</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse @if($pages=='mhome' || $pages=='mport' || $pages=='mMeet' || $pages=='mcont' || $pages=='mabout') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="">Home</a>
-                <a class="collapse-item" href="">Portfolio</a>
-                <a class="collapse-item" href="">Meet Us</a>
-                <a class="collapse-item" href="">Contact Us</a>
-                <a class="collapse-item" href="">About Us</a>
+                <a class="collapse-item @if($pages=='mhome') active @endif" href="">Home</a>
+                <a class="collapse-item @if($pages=='mport') active @endif" href="">Portfolio</a>
+                <a class="collapse-item @if($pages=='mMeet') active @endif" href="">Meet Us</a>
+                <a class="collapse-item @if($pages=='mcont') active @endif" href="">Contact Us</a>
+                <a class="collapse-item @if($pages=='mabout') active @endif" href="">About Us</a>
             </div>
         </div>
     </li>
-
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
+    <li class="nav-item @if($pages=='ulist' || $pages=='uadd') active @endif">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-user-cog"></i><span>Manage User</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse @if($pages=='ulist' || $pages=='uadd') show @endif" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('user.index') }}">User List</a>
-                <a class="collapse-item" href="{{ route('user.create') }}" >Add User</a>
+                <a class="collapse-item @if($pages=='ulist') active @endif" href="{{ route('user.index') }}">User List</a>
+                <a class="collapse-item @if($pages=='uadd') active @endif" href="{{ route('user.create') }}" >Add User</a>
             </div>
         </div>
     </li>
-    <li class="nav-item"><a class="nav-link" href="{{ route('request.index') }}"><i class="fas fa-fw fa-comments-dollar"></i><span>Meet Request</span></a></li>
-    <li class="nav-item"><a class="nav-link" href="{{ route('project.index') }}"><i class="fas fa-fw fa-tasks"></i><span>Projects</span></a></li>
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <li class="nav-item"><a class="nav-link @if($pages=='mreq') active @endif" href="{{ route('request.index') }}"><i class="fas fa-fw fa-comments-dollar"></i><span>Meet Request</span></a></li>
+    <li class="nav-item"><a class="nav-link @if($pages=='proj') active @endif" href="{{ route('project.index') }}"><i class="fas fa-fw fa-tasks"></i><span>Projects</span></a></li>
+    <li class="nav-item @if($pages=='sublist' || $pages=='sendm') active @endif">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-envelope-open"></i><span>Newsletter</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapsePages" class="collapse @if($pages=='sublist' || $pages=='sendm') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
+                <a class="collapse-item @if($pages=='sublist') active @endif" href="{{ route('newsletter.index') }}">Subscriber List</a>
+                <a class="collapse-item @if($pages=='sendm') active @endif" href=""> Send Mail</a>
             </div>
         </div>
     </li>
-    <li class="nav-item"><a class="nav-link" href="charts.html"><i class="fas fa-fw fa-chart-area"></i><span>Charts</span></a></li>
-    <li class="nav-item"><a class="nav-link" href="tables.html"><i class="fas fa-fw fa-table"></i><span>Tables</span></a></li>
+    <li class="nav-item @if($pages=='medlist' || $pages=='upload') active @endif">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMedia" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-images"></i><span>Media</span>
+        </a>
+        <div id="collapseMedia" class="collapse @if($pages=='medlist' || $pages=='upload') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if($pages=='medlist') active @endif" href="">Media List</a>
+                <a class="collapse-item @if($pages=='upload') active @endif" href=""> Upload</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item"><a class="nav-link @if($pages=='blog') active @endif" href=""><i class="fas fa-fw fa-rss"></i><span>Blog</span></a></li>
+    <li class="nav-item"><a class="nav-link @if($pages=='testi') active @endif" href=""><i class="fas fa-fw fa-comment"></i><span>Testimoni</span></a></li>
+    <li class="nav-item"><a class="nav-link @if($pages=='faq') active @endif" href="{{ route('faq.index') }}"><i class="fas fa-fw fa-question-circle"></i><span>FAQ</span></a></li>
 </ul>

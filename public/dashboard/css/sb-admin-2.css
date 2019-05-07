@@ -10677,6 +10677,13 @@ a:focus {
   animation-timing-function: opacity cubic-bezier(0, 1, 0.4, 1);
 }
 
+.bg-gradient-fusions {
+  background-color: #913BFF;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #913BFF), to(#6700EB));
+  background-image: linear-gradient(180deg, #913BFF 10%, #6700EB 100%);
+  background-size: cover;
+}
+
 .bg-gradient-primary {
   background-color: #4e73df;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
@@ -10711,6 +10718,7 @@ a:focus {
   background-image: linear-gradient(180deg, #e74a3b 10%, #be2617 100%);
   background-size: cover;
 }
+
 
 .bg-gray-100 {
   background-color: #f8f9fc !important;
@@ -11217,6 +11225,12 @@ a:focus {
   padding: 0 1rem;
   font-weight: 800;
   font-size: 0.65rem;
+}
+
+.sidebar-heading{
+  padding-left: 2.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 @media (min-width: 768px) {
