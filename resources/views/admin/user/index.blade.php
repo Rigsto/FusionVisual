@@ -23,7 +23,7 @@
                         @if($users)
                             @foreach($users as $user)
                         <tr>
-                            <td><a href="">{{$user->name}}</a></td>
+                            <td><a href="{{route('user.edit', $user->id)}}">{{ucwords($user->name)}}</a></td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->telepon}}</td>
                             <td>{{$user->alamat}}</td>

@@ -76,14 +76,14 @@ class User extends Authenticatable
 
 //    cek role
     public function isAdmin(){
-        if ($this->role->nama == 'administrator' && $this->active == 1 && $this->activation_token == null){
+        if ($this->role->nama == 'Administrator' && $this->active == 1 && $this->activation_token == null){
             return true;
         }
         return false;
     }
 
     public function isUser(){
-        if ($this->role->nama == 'user' && $this->active == 1 && $this->activation_token == null){
+        if ($this->role->nama == 'User' && $this->active == 1 && $this->activation_token == null){
             return true;
         }
         return false;

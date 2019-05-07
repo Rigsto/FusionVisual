@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,7 +29,8 @@ class UserController extends Controller
     public function create()
     {
         $pages = 'uadd';
-        return view('admin.user.add', compact('pages'));
+        $roles = Role::pluck('nama','id')->all();
+        return view('admin.user.add', compact('roles','pages'));
     }
 
     /**
@@ -39,7 +41,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -61,7 +63,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $pages = 'ulist';
+        $roles = Role::pluck('nama','id')->all();
+        return view('admin.user.edit', compact('user','roles','pages'));
     }
 
     /**
@@ -73,7 +78,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
     }
 
     /**
