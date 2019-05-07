@@ -18,19 +18,24 @@
                         {!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'E-mail Address...'])!!}
                     </div>
                     <div class="form-group">
+                        {!! Form::label('tel', 'Phone Number') !!}
+                        {!! Form::number('telepon', null, ['min'=>'0', 'class'=> 'form-control', 'placeholder' =>'Phone Number...']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('ala', 'Address') !!}
+                        {!! Form::text('alamat', null, ['class'=> 'form-control', 'placeholder' =>'Address...']) !!}
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('password', 'Password ') !!}
                         {!! Form::password('password', ['class'=>'form-control',  'placeholder'=>'Password...'])!!}
                     </div>
                     <div class="form-group">
-                        {!! Form::label('password2', 'Re-type Password ') !!}
-                        {!! Form::password('password_confirmation', ['class'=>'form-control', 'placeholder'=>'Re-type Password...'])!!}
-                    </div>
-                    <div class="form-group">
                         {!! Form::label('roles', 'User Role') !!}
-                        {!! Form::select('role', $roles, $user->role->nama, ['class'=>'custom-select']) !!}
+                        {!! Form::select('role_id', array(1 => 'Administrator', 2=> 'User'), null, ['class'=>'custom-select']) !!}
                     </div>
                     <div class="form-group">
-                        {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+                        <a href="{{ route('user.index') }}" class="btn btn-danger">Cancel</a>
+                        {!! Form::submit('Update User', ['class'=>'btn btn-primary']) !!}
                     </div>
                     {!! Form::close() !!}
                 </div>

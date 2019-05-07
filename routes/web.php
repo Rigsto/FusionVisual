@@ -35,6 +35,11 @@ Auth::routes(['verify'=>true]);
 Route::group(['middleware'=>'admin'], function (){
     Route::get('/admin/dashboard', 'Admin\AdminPageController@dashboard')->name('admin');
 
+    Route::get('admin/user/deactivate', 'Admin\UserController@deactivate')->name('user.deactivate');
+    Route::post('admin/user/deactivate', 'Admin\UserController@deactivate');
+    Route::get('admin/user/activate', 'Admin\UserController@activate')->name('user.activate');
+    Route::post('admin/user/activate', 'Admin\UserController@activate');
+
     Route::resource('/admin/user', 'Admin\UserController');
     Route::resource('/admin/blog', 'Admin\BlogController');
     Route::resource('/admin/faq', 'Admin\FaqController');
@@ -46,5 +51,4 @@ Route::group(['middleware'=>'admin'], function (){
 
 Route::group(['middleware'=>'user'], function (){
     Route::get('/user/dashboard', 'User\UserPageController@dashboard')->name('user');
-
 });

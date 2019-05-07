@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\UserActivationEmail;
 use App\Role;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -41,7 +45,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $this->validator($request->all())->validate();
+        $user = $this->new($request->all());
+        if (empty($user)) { // Failed to register user
+            redirect('/admin/user/')->with('Fail', 'Failed to add user'); // Wherever you want to redirect
+        }
+        event(new Registered($user));
+        event(new UserActivationEmail($user));
+        return redirect('/admin/user')->with('Success', 'Added New User');
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+    protected function new(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'role_id' => $data['role_id'],
+            'active' => false,
+            'activation_token' => str_random(20)
+        ]);
     }
 
     /**
@@ -78,7 +110,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        $user = User::findOrFail($id);
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        } else{
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+//        if ($file = $request->file('file')){
+//            $tmp = str_replace(" ", "-",$request->name);
+//            $type = $file->getClientOriginalExtension();
+//            $name = $tmp."_photos.".$type;
+//            $file->move('images', $name);
+//            $input['path'] = $name;
+//        }
+        $user->update($input);
+        return redirect('/admin/user')->with('Success', 'User '.$request->name.' Updated');
     }
 
     /**
@@ -89,6 +136,22 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect('/admin/user')->with('Success', 'User Deleted');
+    }
+
+    public function deactivate(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->update(['active' => false]);
+        return redirect('/admin/user')->with('Success', 'User Deactivated');
+    }
+
+    public function activate(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $user->update(['active' => true]);
+        return redirect('/admin/user')->with('Success', 'User Activated');
     }
 }

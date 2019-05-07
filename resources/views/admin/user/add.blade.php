@@ -2,6 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <!-- Content Row -->
+        @include('inc.alert')
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h1 class="h4 mb-0 font-weight-bold text-primary">Add New User</h1>
@@ -27,9 +28,10 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('roles', 'User Role') !!}
-                        {!! Form::select('role', [''=>'Choose user role'] + $roles, null, ['class'=>'custom-select', 'required']) !!}
+                        {!! Form::select('role_id', [''=>'Choose user role'] + $roles, null, ['class'=>'custom-select', 'required']) !!}
                     </div>
                     <div class="form-group">
+                        <a href="{{ route('user.index') }}" class="btn btn-danger">Cancel</a>
                         {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
                     </div>
                     {!! Form::close() !!}
