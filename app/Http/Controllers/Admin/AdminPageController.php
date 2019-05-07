@@ -19,9 +19,10 @@ class AdminPageController extends Controller
 
     public function dashboard(){
         $blog = Blog::all()->count();
-        $user = Role::with('users')->where('nama', 'user')->get()->count();
+//        $user = Role::with('users')->where('nama', 'user')->get()->count();
+        $user = User::where('role_id', 2)->get()->count();
         $meet = MeetUs::all()->count();
         $project = Pesanan::all()->count();
-        return view('admin.dashboard', compact('blog', 'user', 'meet', 'project'));
+        return view('admin.dashboard', compact('blog','user', 'meet', 'project'));
     }
 }
