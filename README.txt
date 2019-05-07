@@ -9,3 +9,7 @@ Notes (enum) :
 1 - No
 2 - Yes
 *Enum can't be zero and negative
+
+Ganti nama roles jadi capitalize biar bisa login
+1 : Administrator
+2 : User
