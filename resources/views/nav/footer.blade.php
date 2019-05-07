@@ -63,7 +63,7 @@
     <div class="container-fluid cp">
         <div class="row no-gutters">
             <div class="col">
-                <p><i class="fa fa-copyright"></i>&nbsp;Copyright Fusionsvisual.com 2019<br></p>
+                <p><i class="fa fa-copyright"></i>&nbsp;Copyright Fusionsvisual.com {{\Carbon\Carbon::now()->year}}<br></p>
             </div>
         </div>
     </div>

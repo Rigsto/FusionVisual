@@ -1,177 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Admin | FusionsVisual</title>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="icon" type="image/png" sizes="462x454" href="{{asset('admin/img/Group.png')}}">
-<!-- Our Custom CSS -->
-<link rel="stylesheet" href="{{asset('admin/admin.css')}}">
-<link rel="stylesheet" href="{{asset('admin/style.css')}}">
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-<!-- Font Awesome JS -->
-<link rel="stylesheet" href="{{asset('assets/fonts/fontawesome-all.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/fonts/font-awesome.min.css')}}">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Admin | FusionsVisual</title>
+	<!-- Custom fonts for this template-->
+	<link rel="icon" type="image/png" sizes="462x454" href="{{asset('admin/img/Group.png')}}">
+	<link href="{{asset('dashboard/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<!-- Custom styles for this template-->
+	<link href="{{asset('dashboard/css/sb-admin-2.min.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
 </head>
-<body>
-<div class="wrapper">
-	<!--Side nav-->
-	<nav id="sidebar">
-		<div class="sidebar-header">
-			<img src="{{asset('admin/img/Group2.png')}}" class="img-fluid">
-		</div>
-		<ul class="list-unstyled components">
-			<li>
-				<a href="{{route('admin')}}"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;Dashboard</a>
-			</li>
-			<li>
-				<a href="#managepage" data-toggle="collapse" onclick="rotate(1)" aria-expanded="false"><i class="far fa-file-alt"></i>&nbsp;&nbsp;Manage Page <i class="fas fa-angle-down rotate icon r1"></i></a>
-				<ul class="collapse list-unstyled" id="managepage">
-					<li>
-						<a href="">Home</a>
-					</li>
-					<li>
-						<a href="">Portfolio</a>
-					</li>
-					<li>
-						<a href="">Meet Us</a>
-					</li>
-					<li>
-						<a href="">Contact Us</a>
-					</li>
-					<li>
-						<a href="">About Us</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="#manageuser" data-toggle="collapse" onclick="rotate(2)" aria-expanded="false"><i class="fas fa-users-cog"></i>&nbsp;Manage User<i class="fas fa-angle-down rotate icon r2"></i></a>
-				<ul class="collapse list-unstyled" id="manageuser">
-					<li>
-						<a href="{{ route('user.index') }}">User List</a>
-					</li>
-					<li>
-						<a href="{{ route('user.create') }}" >Add User</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="{{ route('request.index') }}"><i class="fas fa-comments-dollar"></i>&nbsp;&nbsp;Meet Request</a>
-			</li>
-			<li>
-				<a href="{{ route('project.index') }}" ><i class="fas fa-tasks"></i>&nbsp;&nbsp;Projects</a>
-			</li>
-			<li>
-				<a href="#newsletter" data-toggle="collapse" onclick="rotate(3)" aria-expanded="false"><i class="far fa-envelope-open"></i>&nbsp;&nbsp;Newsletter<i class="fas fa-angle-down rotate icon r3"></i></a>
-				<ul class="collapse list-unstyled" id="newsletter">
-					<li>
-						<a href="{{ route('newsletter.index') }}">Subscriber List</a>
-					</li>
-					<li>
-						<a href="">Send Mail</a>
-					</li>
-					<li>
-						<a href="">Edit Mail Template</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="#blog" data-toggle="collapse" onclick="rotate(4)" aria-expanded="false"><i class="fas fa-rss-square"></i>&nbsp;&nbsp;Blog<i class="fas fa-angle-down rotate icon r4"></i></a>
-				<ul class="collapse list-unstyled" id="blog">
-					<li>
-						<a href="{{ route('blog.create') }}">Add Post</a>
-					</li>
-					<li>
-						<a href="{{ route('blog.index') }}">Post List</a>
-					</li>
-				</ul>
-			</li>
-			<li><a href="{{ route('faq.index') }}"><i class="far fa-question-circle"></i>&nbsp;&nbsp;FAQ</a></li>
-		</ul>
-	</nav>
 
-	<!--Content-->
-	<div id="content">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-			<div class="container-fluid">
-				<button type="button" id="sidebarCollapse" class="btn btn-outline-info">
-					<i class="fas fa-align-justify"></i>
-					<!-- <span>Hide / Show Menu</span> -->
-				</button>
-				<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<i class="fas fa-align-justify"></i>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="nav navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
-							document.getElementById('logout-form').submit();">{{Auth::user()->name}} <i class="fas fa-sign-out-alt"></i></a>
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-								@csrf
-							</form>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+<body id="page-top">
+<!-- Page Wrapper -->
+<div id="wrapper">
+	<!-- Sidebar -->
+@include('nav.admin_sidebar')
+<!-- End of Sidebar -->
+	<!-- Content Wrapper -->
+	<div id="content-wrapper" class="d-flex flex-column">
+		<!-- Main Content -->
+		<div id="content">
+			<!-- Topbar -->
+		@include('nav.admin_top_nav')
+		<!-- End of Topbar -->
 
-		<div class="container-fluid">
-			@yield('content')
+			<!-- Begin Page Content -->
+		@yield('content')
+		<!-- End Page Content-->
 		</div>
 	</div>
+	<!-- End of Content Wrapper -->
 </div>
-<!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="{{asset('assets/js/jquery.min.js')}}"></script>
-<script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-<!-- jQuery Custom Scroller CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
+<!-- End of Page Wrapper -->
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+	<i class="fas fa-angle-up"></i>
+</a>
+<!-- Logout Modal-->
+@include('inc.logout_modal')
+<!-- Bootstrap core JavaScript-->
+<script src="{{asset('dashboard/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Core plugin JavaScript-->
+<script src="{{asset('dashboard/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+<!-- Custom scripts for all pages-->
+<script src="{{asset('dashboard/js/sb-admin-2.min.js')}}"></script>
+<!-- Page level plugins -->
+<script src="{{asset('dashboard/vendor/chart.js/Chart.min.js')}}"></script>
+<!-- Page level custom scripts -->
+<script src="{{asset('dashboard/js/demo/chart-area-demo.js')}}"></script>
+<script src="{{asset('dashboard/js/demo/chart-pie-demo.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function () {
-		$("#sidebar").mCustomScrollbar({
-			theme: "minimal"
-		});
-
-		$('#sidebarCollapse').on('click', function () {
-			$('#sidebar, #content').toggleClass('active');
-			$('.collapse.in').toggleClass('in');
-			$('a[aria-expanded=true]').attr('aria-expanded', 'false');
-		});
+	$('.table-responsive').on('show.bs.dropdown', function () {
+		$('.table-responsive').css( "overflow", "inherit" );
 	});
-
-	$(function(){
-		rotate(99);
-	});
-
-	function rotate(pil){
-		switch(pil){
-			case 1 :
-			$('.r1').toggleClass('down');
-			break;
-			case 2 :
-			$('.r2').toggleClass('down');
-			break;
-			case 3 :
-			$('.r3').toggleClass('down');
-			break;
-			case 4 :
-			$('.r4').toggleClass('down');
-			break;
-		}
-	}
-
-</script>
-<script type="text/javascript">
-    $('.table-responsive').on('show.bs.dropdown', function () {
-     $('.table-responsive').css( "overflow", "inherit" );
-});
-
-$('.table-responsive').on('hide.bs.dropdown', function () {
-     $('.table-responsive').css( "overflow", "auto" );
-})
 </script>
 </body>
 </html>
