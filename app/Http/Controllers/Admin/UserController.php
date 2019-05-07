@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all()->where('role_id', 2);
+        $users = User::all()->where('role_id', 2)->sortBy('id');
         $pages = 'ulist';
         return view('admin.user.index', compact('users', 'pages'));
     }
@@ -136,7 +136,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::where('id', $id)->first();
+//        return $user;0
         $user->delete();
         return redirect('/admin/user')->with('Success', 'User Deleted');
     }
@@ -151,6 +152,7 @@ class UserController extends Controller
     public function activate(Request $request)
     {
         $user = User::findOrFail($request->id);
+//        return $user;
         $user->update(['active' => true]);
         return redirect('/admin/user')->with('Success', 'User Activated');
     }

@@ -12,6 +12,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr class="text-center">
+                            <th>Id</th>
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -26,6 +27,7 @@
                         @if($users)
                             @foreach($users as $user)
                         <tr class="text-center">
+                            <td>{{$user->id}}</td>
                             <td><img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" height="45"></td>
                             <td><a href="{{route('user.edit', $user->id)}}">{{ucwords($user->name)}}</a></td>
                             <td>{{$user->email}}</td>
@@ -35,24 +37,21 @@
                             <td>{{$user->active == 1 ? 'Active' : 'Inactive'}}</td>
                             <td>
                                 @if($user->active == 1)
-                                    <a href="{{route('user.deactivate')}}" class="btn btn-warning btn-circle" title="Deactivate User" onclick="event.preventDefault();
-							                                              document.getElementById('deactivate-user').submit();"><i class="fas fa-exclamation-triangle"></i></a>
-                                    {!! Form::open(['method'=>'POST', 'action'=> ['Admin\UserController@deactivate', $user->id], 'id' => 'deactivate-user', 'style' => 'display: none;']) !!}
+                                    {!! Form::open(['method'=>'POST', 'action'=> 'Admin\UserController@deactivate']) !!}
                                     {{ csrf_field() }}
-                                        <input type="hidden" name="id" value="{{$user->id}}">
+                                    {!! Form::hidden('id', $user->id) !!}
+                                    {!! Form::button('<i class="fas fa-exclamation-triangle"></i>', ['type'=>'submit', 'class'=>'btn btn-warning btn-circle', 'title'=>'Deactivate User']) !!}
                                     {!! Form::close() !!}
                                 @else
-                                    <a href="{{route('user.activate')}}" class="btn btn-success btn-circle" title="Deactivate User" onclick="event.preventDefault();
-							                                              document.getElementById('activate-user').submit();"><i class="fas fa-check"></i></a>
-                                    {!! Form::open(['method'=>'POST', 'action'=> ['Admin\UserController@activate', $user->id], 'id' => 'activate-user', 'style' => 'display: none;']) !!}
+                                    {!! Form::open(['method'=>'POST', 'action'=> 'Admin\UserController@activate']) !!}
                                     {{ csrf_field() }}
-                                        <input type="hidden" name="id" value="{{$user->id}}">
+                                    {!! Form::hidden('id', $user->id) !!}
+                                    {!! Form::button('<i class="fas fa-check"></i>', ['type'=>'submit', 'class'=>'btn btn-success btn-circle', 'title'=>'Activate User']) !!}
                                     {!! Form::close() !!}
                                 @endif
-                                <a href="{{route('user.destroy', $user->id)}}" class="btn btn-danger btn-circle" title="Delete User" onclick="event.preventDefault();
-							                                              document.getElementById('delete-user').submit();"><i class="fas fa-trash"></i></a>
-                                {!! Form::open(['method'=>'DELETE', 'action'=> ['Admin\UserController@destroy', $user->id], 'id' => 'delete-user', 'style' => 'display: none;']) !!}
+                                {!! Form::open(['method'=>'DELETE', 'action'=> ['Admin\UserController@destroy', $user->id], 'id' => 'delete-user']) !!}
                                 {{ csrf_field() }}
+                                    {!! Form::button('<i class="fas fa-trash"></i>', ['type'=>'submit', 'class'=>'btn btn-danger btn-circle']) !!}
                                 {!! Form::close() !!}
                             </td>
                         </tr>
