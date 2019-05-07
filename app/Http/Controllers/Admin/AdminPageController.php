@@ -12,6 +12,11 @@ use App\Http\Controllers\Controller;
 
 class AdminPageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function dashboard(){
         $blog = Blog::all()->count();
         $user = Role::with('users')->where('nama', 'user')->get()->count();

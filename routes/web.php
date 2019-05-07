@@ -30,7 +30,7 @@ Route::post('/resend', 'Auth\ActivationController@resend');
 Route::post('/meet', 'FormController@meetus');
 Route::post('/contact', 'FormController@contactus');
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 Route::group(['middleware'=>'admin'], function (){
     Route::get('/admin/dashboard', 'Admin\AdminPageController@dashboard')->name('admin');
@@ -45,7 +45,6 @@ Route::group(['middleware'=>'admin'], function (){
 });
 
 Route::group(['middleware'=>'user'], function (){
-    Route::get('/user/dashboard', function () {
-        return view('user.index');
-    })->name('user');
+    Route::get('/user/dashboard', 'User\UserPageController@dashboard')->name('user');
+
 });
