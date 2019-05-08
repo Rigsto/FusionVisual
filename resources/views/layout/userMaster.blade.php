@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Admin | FusionsVisual</title>
+	<title>Dashboard | FusionsVisual</title>
 	<!-- Custom fonts for this template-->
 	<link rel="icon" type="image/png" sizes="462x454" href="{{asset('admin/img/Group.png')}}">
 	<link href="{{asset('dashboard/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -20,7 +20,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 	<!-- Sidebar -->
-@include('nav.admin_sidebar')
+@include('nav.user_sidebar')
 <!-- End of Sidebar -->
 	<!-- Content Wrapper -->
 	<div id="content-wrapper" class="d-flex flex-column">

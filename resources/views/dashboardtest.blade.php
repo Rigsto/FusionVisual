@@ -27,7 +27,7 @@
       <!-- Main Content -->
       <div id="content">
         <!-- Topbar -->
-        @include('nav.admin_top_nav')
+        @include('nav.top_nav')
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->

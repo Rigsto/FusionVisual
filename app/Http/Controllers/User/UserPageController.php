@@ -13,6 +13,7 @@ class UserPageController extends Controller
     }
 
     public function dashboard(){
-        return view('user.index');
+        $pages = 'dash';
+        return view('user.index', compact('pages'));
     }
 }
