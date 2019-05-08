@@ -15,11 +15,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="{{asset('assets/css/Pricing-Table-Style-01-1.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
+    @guest
+        <style>
+            .links {
+                margin-top: 0.5em;
+                color: white;
+                border-bottom: 2px solid transparent;
+            }
+        </style>
+    @endguest
 </head>
 
 <body>
     <section class="top head">
         @include('nav.nav')
+        @include('inc.logout_modal')
         <div class="container header">
             <div class="row no-gutters slogan">
                 <div class="col">
@@ -181,6 +192,7 @@
     <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/bs-animation.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
 </body>
 
 </html>

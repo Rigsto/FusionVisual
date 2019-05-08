@@ -186,8 +186,9 @@
 }
 
 .links {
-  margin-top: 0.5em;
+  /*margin-top: 0.5em;*/
   color: white;
+  border-bottom: 2px solid transparent;
 }
 
 .links:hover {

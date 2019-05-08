@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <div class="sidebar-heading">
-        <img src="{{asset('admin/img/Group2.png')}}" class="img-fluid" style="margin: 1em;">
+        <a href="{{route('index')}}"><img src="{{asset('admin/img/Group2.png')}}" class="img-fluid" style="margin: 1em;"></a>
     </div>
     <hr class="sidebar-divider my-0">
     <li class="nav-item @if($pages=='dash') active @endif"><a class="nav-link" href="{{route('admin')}}"><i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span></a></li>

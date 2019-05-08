@@ -15,9 +15,19 @@
                             {{ csrf_field() }}
                             <div class="form-row">
                                 {!! Form::email('email', null, ['class'=>'form-control inlog', 'placeholder'=>'E-mail Address...', 'required'=>'']) !!}
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong class="text-danger">{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-row">
                                 {!! Form::password('password', ['class'=>'form-control inlog', 'placeholder'=>'Password...', 'required'=>'']) !!}
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong class="text-danger">{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-row">
                                 {!! Form::submit('Login', ['class'=>'btn btn-primary logbtn']) !!}
