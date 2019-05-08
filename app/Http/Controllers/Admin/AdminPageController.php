@@ -21,7 +21,7 @@ class AdminPageController extends Controller
         $blog = Blog::all()->count();
 //        $user = Role::with('users')->where('nama', 'user')->get()->count();
         $user = User::where('role_id', 2)->get()->count();
-        $meet = MeetUs::all()->count();
+        $meet = MeetUs::all()->where('admin_id', null)->count();
         $project = Pesanan::all()->count();
         $pages = 'dash';
         return view('admin.dashboard', compact('blog','user', 'meet', 'project', 'pages'));
