@@ -5,7 +5,7 @@
     </div>
     <hr class="sidebar-divider my-0">
     <li class="nav-item @if($pages=='dash') active @endif"><a class="nav-link" href="{{route('user')}}"><i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-    <li class="nav-item @if($pages=='mreq') active @endif"><a class="nav-link" href="{{ route('myrequest.index') }}"><i class="fas fa-fw fa-comments-dollar"></i><span>My Meet Request</span></a></li>
+    <li class="nav-item @if($pages=='mreq') active @endif"><a class="nav-link" href="{{ route('my-request.index') }}"><i class="fas fa-fw fa-comments-dollar"></i><span>My Meet Request</span></a></li>
     <li class="nav-item @if($pages=='proj') active @endif"><a class="nav-link" href="{{ route('order.index') }}"><i class="fas fa-fw fa-history"></i><span>History Order</span></a></li>
     <li class="nav-item @if($pages=='faq') active @endif"><a class="nav-link" href="{{ route('faq-list.index') }}"><i class="fas fa-fw fa-question-circle"></i><span>FAQ</span></a></li>
 </ul>

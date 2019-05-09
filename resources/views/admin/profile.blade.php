@@ -30,7 +30,7 @@
                         {!! Form::password('password', ['class'=>'form-control',  'placeholder'=>'Password...'])!!}
                     </div>
                     <div class="form-group">
-                        <a href="{{ route('user.index') }}" class="btn btn-danger">Cancel</a>
+                        <a href="{{ route('admin') }}" class="btn btn-danger">Cancel</a>
                         {!! Form::submit('Update User', ['class'=>'btn btn-primary']) !!}
                     </div>
                     {!! Form::close() !!}

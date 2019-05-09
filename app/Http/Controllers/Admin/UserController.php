@@ -21,8 +21,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        $ids = Auth::id();
         $users = User::all()->where('role_id', 2)->sortBy('id');
-        $admin = User::all()->where('role_id', 1)->sortBy('id');
+        $admin = User::all()->where('id', '!=', $ids)->where('role_id', 1)->sortBy('id');
         $pages = 'ulist';
         return view('admin.user.index', compact('users','admin', 'pages'));
     }
@@ -54,7 +55,7 @@ class UserController extends Controller
         }
         event(new Registered($user));
         event(new UserActivationEmail($user));
-        return redirect('/admin/user')->with('Success', 'Added New User');
+        return redirect('/admin/user')->with('Success', 'Added New User, please confirm email address');
     }
 
     protected function validator(array $data)
