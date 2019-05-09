@@ -37,8 +37,9 @@
         </a>
         <div id="collapseMedia" class="collapse @if($pages=='medlist' || $pages=='upload') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if($pages=='medlist') active @endif" href="">Portfolio List</a>
-                <a class="collapse-item @if($pages=='upload') active @endif" href="">Upload</a>
+                <a class="collapse-item @if($pages=='medlist') active @endif" href="{{ route('portfolio.index') }}">Portfolio
+                    List</a>
+                <a class="collapse-item @if($pages=='upload') active @endif" href="{{ route('portfolio.create') }}">Upload</a>
             </div>
         </div>
     </li>
@@ -51,11 +52,14 @@
         <div id="collapsePages" class="collapse @if($pages=='sublist' || $pages=='sendm') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item @if($pages=='sublist') active @endif" href="{{ route('newsletter.index') }}">Subscriber List</a>
-                <a class="collapse-item @if($pages=='sendm') active @endif" href=""> Send Mail</a>
+                <a class="collapse-item @if($pages=='sendm') active @endif" href="{{ route('newsletter.send') }}"> Send
+                    Mail</a>
             </div>
         </div>
     </li>
-    <li class="nav-item @if($pages=='blog') active @endif"><a class="nav-link" href=""><i class="fas fa-fw fa-rss"></i><span>Blog</span></a></li>
-    <li class="nav-item @if($pages=='testi') active @endif"><a class="nav-link" href=""><i class="fas fa-fw fa-comment"></i><span>Testimoni</span></a></li>
+    <li class="nav-item @if($pages=='blog') active @endif"><a class="nav-link" href="{{ route('blog.index') }}"><i
+                    class="fas fa-fw fa-rss"></i><span>Blog</span></a></li>
+    <li class="nav-item @if($pages=='testi') active @endif"><a class="nav-link" href="{{ route('testimoni.index') }}"><i
+                    class="fas fa-fw fa-comment"></i><span>Testimoni</span></a></li>
     <li class="nav-item @if($pages=='faq') active @endif"><a class="nav-link" href="{{ route('faq.index') }}"><i class="fas fa-fw fa-question-circle"></i><span>FAQ</span></a></li>
 </ul>

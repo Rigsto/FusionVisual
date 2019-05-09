@@ -40,6 +40,8 @@ Route::group(['middleware'=>'admin'], function (){
     Route::get('admin/user/activate', 'Admin\UserController@activate')->name('user.activate');
     Route::post('admin/user/activate', 'Admin\UserController@activate');
 
+    Route::get('/admin/newsletter/send', 'Admin\NewsletterController@send')->name('newsletter.send');
+
     Route::resource('/admin/user', 'Admin\UserController');
     Route::resource('/admin/blog', 'Admin\BlogController');
     Route::resource('/admin/faq', 'Admin\FaqController');
@@ -48,6 +50,8 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('/admin/project', 'Admin\ProjectController');
     Route::resource('/admin/request', 'Admin\RequestController');
     Route::resource('/admin/inbox', 'Admin\InboxController');
+    Route::resource('/admin/testimoni', 'Admin\TestimoniController');
+    Route::resource('/admin/portfolio', 'Admin\PortfolioController');
 });
 
 Route::group(['middleware'=>'user'], function (){

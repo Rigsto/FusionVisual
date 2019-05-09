@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class FaqController extends Controller
+class PortfolioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $pages = 'faq';
-        return view('admin.faq.index', compact('pages'));
+        $pages = 'medList';
+        return view('admin.portfolio.index', compact('pages'));
     }
 
     /**
@@ -26,7 +26,8 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        $pages = 'upload';
+        return view('admin.portfolio.upload', compact('pages'));
     }
 
     /**
@@ -43,7 +44,7 @@ class FaqController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function show($id)
@@ -54,7 +55,7 @@ class FaqController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function edit($id)
@@ -66,7 +67,7 @@ class FaqController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -77,7 +78,7 @@ class FaqController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function destroy($id)
