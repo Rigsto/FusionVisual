@@ -35,7 +35,7 @@
                             <td>{{$user->alamat}}</td>
                             <td>{{ucwords($user->role->nama)}}</td>
                             <td>@if($user->active == 1)<p class="text-success">Active</p> @else <p class="text-warning">Inactive</p> @endif</td>
-                            <td><div class="row no-gutters">
+                            <td width="150px"><div class="row no-gutters">
                                 <div class="col-md-6">
                                 @if($user->active == 1)
                                     {!! Form::open(['method'=>'POST', 'action'=> 'Admin\UserController@deactivate']) !!}

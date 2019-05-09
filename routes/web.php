@@ -47,6 +47,7 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('/admin/page', 'Admin\PageController');
     Route::resource('/admin/project', 'Admin\ProjectController');
     Route::resource('/admin/request', 'Admin\RequestController');
+    Route::resource('/admin/inbox', 'Admin\InboxController');
 });
 
 Route::group(['middleware'=>'user'], function (){
