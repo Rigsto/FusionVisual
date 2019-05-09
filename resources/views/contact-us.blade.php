@@ -1,6 +1,9 @@
 @extends('layout.pages')
 @section('content')
-    <section id="mett">
+    <div class="container" style="margin-top: 1em">
+        @include('inc.alert')
+    </div>
+    <section id="mett" style="margin-top: 7em;">
         <div class="container meetform">
             <div class="row no-gutters">
                 <div class="col-md-6"><img class="img-fluid" src="assets/img/aaa.png" width="100">
@@ -33,8 +36,8 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-12">
-                            {!! Form::label('else', 'What\'s on your mind?') !!}
-                            {!! Form::textarea('else', null, ['class'=>'form-control form-control-lg', 'placeholder'=>'Type something...', 'rows'=>6]) !!}
+                            <label>What's on your mind?</label>
+                            {!! Form::textarea('else', null, ['class'=>'form-control form-control-lg', 'placeholder'=>'Type something...', 'rows' => '6', 'style' => 'resize:none']) !!}
                         </div>
                     </div>
                     <div class="form-row">

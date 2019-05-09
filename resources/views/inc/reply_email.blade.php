@@ -8,19 +8,29 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
-            <div class="modal-body">
+            <div class="modal-body" style="text-align: left;">
                 {!! Form::open(['method'=>'POST']) !!}
                 {{ csrf_field() }}
-                {!! Form::label('name', 'Full Name') !!}
-                {!! Form::Subject('name', null, ['class'=>'form-control', 'required', 'placeholder'=>'Subject' ])!!}
-                {!! Form::label('name', 'Full Name') !!}
-                {!! Form::textarea('name', null, ['class'=>'form-control', 'required', 'placeholder'=>'Subject' ])!!}
+                <div class="form-group">
+                    {!! Form::label('name', 'Email') !!}
+                    {!! Form::email('email', $inbox->email, ['class'=>'form-control', 'readonly'])!!}
+                </div>
+                <div class="form-group">
+                {!! Form::label('name', 'Subject') !!}
+                {!! Form::text('subject', null, ['class'=>'form-control', 'required', 'placeholder'=>'Subject..' ])!!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('name', 'Message') !!}
+                    {!! Form::textarea('message', null, ['class'=>'form-control', 'required', 'rows' => '4', 'style' => 'resize:none', 'placeholder'=>'Message..' ])!!}
+                </div>
+                <div class="form-group">
                 {!! Form::submit('Reply', ['class'=>'btn btn-success']) !!}
                 {!! Form::close() !!}
+                </div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>

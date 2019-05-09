@@ -2,6 +2,7 @@
 @section('content')
     <section id="met">
         <div class="container meetform">
+            @include('inc.alert')
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <img class="img-fluid" src="assets/img/aaa.png" width="100">

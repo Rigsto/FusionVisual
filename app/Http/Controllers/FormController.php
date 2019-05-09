@@ -28,7 +28,7 @@ class FormController extends Controller
             'notes'         => $request->else
         ]);
 
-        return redirect()->route('meet-us');
+        return redirect()->route('meet-us')->with('Success', 'Your request has recorded! Please wait for a response');
     }
 
     public function contactus(Request $request)
@@ -38,6 +38,6 @@ class FormController extends Controller
             'email' => $request->email,
             'body' => $request->else
         ]);
-        return redirect()->route('contact-us');
+        return redirect()->route('contact-us')->with('Success', 'Message sent! Please wait for a response');
     }
 }

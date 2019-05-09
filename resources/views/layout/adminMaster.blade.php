@@ -54,8 +54,6 @@
 <!-- Page level plugins -->
 <script src="{{asset('dashboard/vendor/chart.js/Chart.min.js')}}"></script>
 <!-- Page level custom scripts -->
-<script src="{{asset('dashboard/js/demo/chart-area-demo.js')}}"></script>
-<script src="{{asset('dashboard/js/demo/chart-pie-demo.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script type="text/javascript">
 	$('.table-responsive').on('show.bs.dropdown', function () {
