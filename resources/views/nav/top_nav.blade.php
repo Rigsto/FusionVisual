@@ -13,7 +13,11 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                @if(\Illuminate\Support\Facades\Auth::user()->role->nama == "Administrator")
+                    <a class="dropdown-item" href="{{route('user.edit', \Illuminate\Support\Facades\Auth::id())}}">
+                @else
+                    <a class="dropdown-item" href="{{route('profile.edit', \Illuminate\Support\Facades\Auth::id())}}">
+                @endif
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>

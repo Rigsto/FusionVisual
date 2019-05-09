@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -96,9 +97,14 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $pages = 'ulist';
         $roles = Role::pluck('nama','id')->all();
-        return view('admin.user.edit', compact('user','roles','pages'));
+        if (Auth::id() == $id){
+            $pages = 'dash';
+            return view('admin.profile', compact('user','roles','pages'));
+        }else{
+            $pages = 'ulist';
+            return view('admin.user.edit', compact('user','roles','pages'));
+        }
     }
 
     /**
@@ -125,7 +131,11 @@ class UserController extends Controller
 //            $input['path'] = $name;
 //        }
         $user->update($input);
-        return redirect('/admin/user')->with('Success', 'User '.$request->name.' Updated');
+        if (Auth::id() == $id){
+            return redirect('/admin/dashboard')->with('Success', 'Profile Updated');
+        }else{
+            return redirect('/admin/user')->with('Success', 'User '.$request->name.' Updated');
+        }
     }
 
     /**

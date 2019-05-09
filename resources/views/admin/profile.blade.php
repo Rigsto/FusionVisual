@@ -4,7 +4,7 @@
         <!-- Content Row -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h1 class="h4 mb-0 font-weight-bold text-primary">Edit User</h1>
+                <h1 class="h4 mb-0 font-weight-bold text-primary">Edit Profile</h1>
             </div>
             <div class="card body">
                 <div class="col-md-12" style="margin-top: 1em;">
@@ -28,10 +28,6 @@
                     <div class="form-group">
                         {!! Form::label('password', 'Password ') !!}
                         {!! Form::password('password', ['class'=>'form-control',  'placeholder'=>'Password...'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('roles', 'User Role') !!}
-                        {!! Form::select('role_id', array(1 => 'Administrator', 2=> 'User'), null, ['class'=>'custom-select']) !!}
                     </div>
                     <div class="form-group">
                         <a href="{{ route('user.index') }}" class="btn btn-danger">Cancel</a>

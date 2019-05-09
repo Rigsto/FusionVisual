@@ -52,4 +52,6 @@ Route::group(['middleware'=>'admin'], function (){
 
 Route::group(['middleware'=>'user'], function (){
     Route::get('/user/dashboard', 'User\UserPageController@dashboard')->name('user');
+
+    Route::resource('/user/profile', 'User\ProfileController');
 });

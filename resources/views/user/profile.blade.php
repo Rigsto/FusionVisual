@@ -1,4 +1,4 @@
-@extends('layout.adminMaster')
+@extends('layout.userMaster')
 @section('content')
     <div class="container-fluid">
         <!-- Content Row -->
@@ -8,7 +8,7 @@
             </div>
             <div class="card body">
                 <div class="col-md-12" style="margin-top: 1em;">
-                    {!! Form::model($user, ['method'=>'PATCH', 'action'=>['Admin\UserController@update', $user->id]]) !!}
+                    {!! Form::model($user, ['method'=>'PATCH', 'action'=>['User\ProfileController@update', $user->id]]) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Full Name') !!}
                         {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Full Name..' ])!!}
@@ -28,10 +28,6 @@
                     <div class="form-group">
                         {!! Form::label('password', 'Password ') !!}
                         {!! Form::password('password', ['class'=>'form-control',  'placeholder'=>'Password...'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('roles', 'User Role') !!}
-                        {!! Form::select('role_id', array(1 => 'Administrator', 2=> 'User'), null, ['class'=>'custom-select']) !!}
                     </div>
                     <div class="form-group">
                         <a href="{{ route('user.index') }}" class="btn btn-danger">Cancel</a>
