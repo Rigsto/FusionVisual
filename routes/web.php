@@ -58,7 +58,7 @@ Route::group(['middleware'=>'user'], function (){
     Route::get('/user/dashboard', 'User\UserPageController@dashboard')->name('user');
 
     Route::resource('/user/profile', 'User\ProfileController');
-    Route::resource('/user/request', 'User\RequestController');
-    Route::resource('/user/project', 'User\ProjectController');
-    Route::resource('/user/faq', 'User\FaqController');
+    Route::resource('/user/myrequest', 'User\MyRequestController');
+    Route::resource('/user/order', 'User\OrderController');
+    Route::resource('/user/faq-list', 'User\FaqlistController');
 });

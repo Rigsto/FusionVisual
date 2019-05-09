@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class ProjectController extends Controller
+class FaqlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $pages = 'proj';
-        return view('user.project.index', compact('pages'));
+        $pages = 'faq';
+        return view('user.faq.index', compact('pages'));
     }
 
     /**

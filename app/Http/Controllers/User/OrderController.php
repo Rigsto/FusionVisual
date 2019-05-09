@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class RequestController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $pages = 'mreq';
-        return view('user.request.index', compact('pages'));
+        $pages = 'proj';
+        return view('user.project.index', compact('pages'));
     }
 
     /**
