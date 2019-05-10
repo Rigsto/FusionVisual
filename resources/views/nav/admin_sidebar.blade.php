@@ -37,8 +37,7 @@
         </a>
         <div id="collapseMedia" class="collapse @if($pages=='medlist' || $pages=='upload') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if($pages=='medlist') active @endif" href="{{ route('portfolio.index') }}">Portfolio
-                    List</a>
+                <a class="collapse-item @if($pages=='medlist') active @endif" href="{{ route('portfolio.index') }}">Portfolio List</a>
                 <a class="collapse-item @if($pages=='upload') active @endif" href="{{ route('portfolio.create') }}">Upload</a>
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Portofolio;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -15,8 +16,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $pages = 'medList';
-        return view('admin.portfolio.index', compact('pages'));
+        $portfolios = Portofolio::paginate(4);
+        $pages = 'medlist';
+        return view('admin.portfolio.index', compact('pages', 'portfolios'));
     }
 
     /**
