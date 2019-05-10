@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\MeetUs;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class MyRequestController extends Controller
 {
@@ -15,8 +17,11 @@ class MyRequestController extends Controller
      */
     public function index()
     {
+        $requests = MeetUs::where('email', Auth::user()->email)->where('deleted_at', null)->where('admin_id', null)->get();
+        $approve = MeetUs::where('email', Auth::user()->email)->where('deleted_at', null)->whereNotNull('admin_id')->get();
+        $reject = MeetUs::where('email', Auth::user()->email)->onlyTrashed()->get();
         $pages = 'mreq';
-        return view('user.request.index', compact('pages'));
+        return view('user.request.index', compact('pages', 'requests', 'approve', 'reject'));
     }
 
     /**

@@ -4,7 +4,11 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
+                @if(\Illuminate\Support\Facades\Auth::user()->role->nama == "Administrator")
                 <h4 class="modal-title">{{$request->name}} Meeting Notes</h4>
+                @else
+                    <h4 class="modal-title">Your Meeting's Notes</h4>
+                @endif
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
