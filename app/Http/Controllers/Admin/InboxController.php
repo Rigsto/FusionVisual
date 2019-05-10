@@ -15,8 +15,8 @@ class InboxController extends Controller
      */
     public function index()
     {
-        $inboxes = ContactUs::all()->sortBy('id');
-        $history = ContactUs::onlyTrashed()->get();
+        $inboxes = ContactUs::paginate(4,['*'],'inbox');
+        $history = ContactUs::onlyTrashed()->paginate(4,['*'],'history');
         $pages = 'inbox';
         return view('admin.inbox.index', compact('inboxes','history','pages'));
     }

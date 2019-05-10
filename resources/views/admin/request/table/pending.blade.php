@@ -60,6 +60,12 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="float-left">
+                <p>Displaying {{$requests->count()}} of {{$requests->total()}} entries</p>
+            </div>
+            <div class="float-right">
+                {{$requests->links()}}
+            </div>
             @else
                 <h1 class="h4 mb-0 font-weight-bold text-primary">No Records</h1>
             @endif

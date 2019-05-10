@@ -45,6 +45,12 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="float-left">
+                <p>Displaying {{$reject->count()}} of {{$reject->total()}} entries</p>
+            </div>
+            <div class="float-right">
+                {{$reject->links()}}
+            </div>
             @else
                 <h1 class="h4 mb-0 font-weight-bold text-primary">No Records</h1>
             @endif

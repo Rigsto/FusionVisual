@@ -17,9 +17,9 @@ class RequestController extends Controller
     public function index()
     {
         $pages = 'mreq';
-        $requests = MeetUs::all()->where('admin_id', null)->sortBy('created_at');
-        $approve = MeetUs::where('deleted_at', null)->whereNotNull('admin_id')->get();
-        $reject = MeetUs::onlyTrashed()->get();
+        $requests = MeetUs::where('admin_id', null)->paginate(4,['*'],'pending');
+        $approve = MeetUs::where('deleted_at', null)->whereNotNull('admin_id')->paginate(4,['*'],'approved');
+        $reject = MeetUs::onlyTrashed()->paginate(4,['*'],'rejected');
         return view('admin.request.index', compact('requests','pages', 'approve', 'reject'));
     }
 

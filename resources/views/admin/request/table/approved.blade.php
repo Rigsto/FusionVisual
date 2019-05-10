@@ -45,6 +45,12 @@
                     @endforeach
                 </tbody>
             </table>
+                <div class="float-left">
+                    <p>Displaying {{$approve->count()}} of {{$approve->total()}} entries</p>
+                </div>
+                <div class="float-right">
+                    {{$approve->links()}}
+                </div>
             @else
                 <h1 class="h4 mb-0 font-weight-bold text-primary">No Records</h1>
             @endif
