@@ -55,7 +55,12 @@
                     <div class="form-row">
                         <div class="col-md-12">
                             {!! Form::label('email', 'Your E-mail Address *') !!}
-                            {!! Form::email('email', null, ['class'=>'form-control', 'required'=>'', 'placeholder'=>'E-mail Address...']) !!}
+                            @if($user = \Illuminate\Support\Facades\Auth::user())
+                            {!! Form::email('email', $user->email, ['class'=>'form-control', 'readonly', 'placeholder'=>'E-mail Address...']) !!}
+                                <span class="text-primary">Your email has filled automaticaly because your are logged in.</span>
+                            @else
+                                {!! Form::email('email', null, ['class'=>'form-control', 'required'=>'', 'placeholder'=>'E-mail Address...']) !!}
+                            @endif
                         </div>
                     </div>
                     <div class="form-row" id ="phoneOrSkype">
