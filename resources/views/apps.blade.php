@@ -3,117 +3,71 @@
     <div class="container webprice">
         <h1 class="text-center bus">Company Profile Packages</h1>
         <div class="row">
-            <div class="col-sm-4 col-md-4">
-                <div class="pricingTable purple">
+            @if($comps)
+                @foreach($comps as $paket)
+            <div class="col-sm-4">
+                <div class="pricingTable @if($paket->id % 3 == 1) purple @elseif($paket->id % 3 == 2) green @else yellow @endif">
                     <div class="pricingTable-header">
-                        <h3>Amoeba</h3><span>Lorem Ipsum</span></div>
-                    <div class="pricing-plans"><span class="price-value"><i class="fa fa-usd"></i><span>10 </span></span>
+                        <h3>{{$paket->nama}}</h3>
+                    </div>
+                    <div class="pricing-plans"><span class="price-value"><i class="fa fa-usd"></i><span>Rp. {{number_format($paket->harga, 0, '', '.')}},-</span></span>
                     </div>
                     <div class="pricingContent">
                         <ul>
-                            <li>Item 1</li>
-                            <li>Item 2</li>
-                            <li>Item 3</li>
-                            <li>Item 4</li>
+                            <li>Up to {{ $paket->pages }} Pages</li>
+                            <li>{{$paket->duration}} Days of Work</li>
+                            <li>@if($paket->publish == 1) <s>Publish to Google Play</s> @else Publish to Google Play @endif</li>
+                            <li>@if($paket->play_id == null) No Google Play Support @else Get {{$paket->play->nama}} Play Package @endif</li>
+                            <li>@if($paket->connectivity == 1) Offline App @else Online App @endif</li>
+                            <li>@if($paket->freeEditPage == 1)1 Free Update Existing Page @else {{$paket->freeEditPage}} Free Update Existing Pages @endif</li>
+                            <li>Responsive Design</li>
+                            <li>@if($paket->storage == 1) No Storage @elseif($paket->storage == 2) Using Phone Storage @else Using Cloud Storage @endif</li>
+                            <li>@if($paket->offline == 1) <s>Store Offline Data</s> @else Store Offline Data @endif</li>
+                            <li>@if($paket->online == 1) <s>Store Online Data</s> @else Store Online Data @endif</li>
+                            <li>@if($paket->admin == 1) <s>Admin Page</s> @else Admin Page @endif</li>
+                            <li>Support @if($paket->language == 1) 1 Language @else {{$paket->language}} Languages @endif</li>
                         </ul>
                     </div>
                     <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">Add To
                             Cart</a></div>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="pricingTable green">
-                    <div class="pricingTable-header">
-                        <h3>sparrow</h3><span>Lorem Ipsum</span></div>
-                    <div class="pricing-plans"><span class="price-value"><i class="fa fa-usd"></i><span>10 </span></span>
-                    </div>
-                    <div class="pricingContent">
-                        <ul>
-                            <li>Item 1</li>
-                            <li>Item 2</li>
-                            <li>Item 3</li>
-                            <li>Item 4</li>
-                        </ul>
-                    </div>
-                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">ADD TO
-                            CART<br></a></div>
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="pricingTable yellow">
-                    <div class="pricingTable-header">
-                        <h3>crow</h3><span>Lorem Ipsum</span></div>
-                    <div class="pricing-plans"><span class="price-value"><i class="fa fa-usd"></i><span>10 </span></span>
-                    </div>
-                    <div class="pricingContent">
-                        <ul>
-                            <li>Item 1</li>
-                            <li>Item 2</li>
-                            <li>Item 3</li>
-                            <li>Item 4</li>
-                        </ul>
-                    </div>
-                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">ADD TO
-                            CART<br></a></div>
-                </div>
-            </div>
+                @endforeach
+            @endif
         </div>
         <h1 class="text-center bus">Business Packages</h1>
         <div class="row bus">
-            <div class="col-sm-4 col-md-4">
-                <div class="pricingTable purple">
-                    <div class="pricingTable-header">
-                        <h3>croccodile</h3><span>Lorem Ipsum</span></div>
-                    <div class="pricing-plans"><span class="price-value"><i class="fa fa-usd"></i><span>10 </span></span>
+            @if($bus)
+                @foreach($bus as $paket)
+                    <div class="col-sm-4">
+                        <div class="pricingTable @if($paket->id % 3 == 1) purple @elseif($paket->id % 3 == 2) green @else yellow @endif">
+                            <div class="pricingTable-header">
+                                <h3>{{$paket->nama}}</h3>
+                            </div>
+                            <div class="pricing-plans"><span class="price-value"><i class="fa fa-usd"></i><span>Rp. {{number_format($paket->harga, 0, '', '.')}},-</span></span>
+                            </div>
+                            <div class="pricingContent">
+                                <ul>
+                                    <li>Up to {{ $paket->pages }} Pages</li>
+                                    <li>{{$paket->duration}} Days of Work</li>
+                                    <li>@if($paket->publish == 1) <s>Publish to Google Play</s> @else Publish to Google Play @endif</li>
+                                    <li>@if($paket->play_id == null) No Google Play Support @else Get {{$paket->play->nama}} Play Package @endif</li>
+                                    <li>@if($paket->connectivity == 1) Offline App @else Online App @endif</li>
+                                    <li>@if($paket->freeEditPage == 1)1 Free Update Existing Page @else {{$paket->freeEditPage}} Free Update Existing Pages @endif</li>
+                                    <li>Responsive Design</li>
+                                    <li>@if($paket->storage == 1) No Storage @elseif($paket->storage == 2) Using Phone Storage @else Using Cloud Storage @endif</li>
+                                    <li>@if($paket->offline == 1) <s>Store Offline Data</s> @else Store Offline Data @endif</li>
+                                    <li>@if($paket->online == 1) <s>Store Online Data</s> @else Store Online Data @endif</li>
+                                    <li>@if($paket->admin == 1) <s>Admin Page</s> @else Admin Page @endif</li>
+                                    <li>Support @if($paket->language == 1) 1 Language @else {{$paket->language}} Languages @endif</li>
+                                </ul>
+                            </div>
+                            <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">Add To
+                                    Cart</a></div>
+                        </div>
                     </div>
-                    <div class="pricingContent">
-                        <ul>
-                            <li>Item 1</li>
-                            <li>Item 2</li>
-                            <li>Item 3</li>
-                            <li>Item 4</li>
-                        </ul>
-                    </div>
-                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">ADD TO
-                            CART<br></a></div>
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="pricingTable green">
-                    <div class="pricingTable-header">
-                        <h3>leopard</h3><span>Lorem Ipsum</span></div>
-                    <div class="pricing-plans"><span class="price-value"><i class="fa fa-usd"></i><span>10 </span></span>
-                    </div>
-                    <div class="pricingContent">
-                        <ul>
-                            <li>Item 1</li>
-                            <li>Item 2</li>
-                            <li>Item 3</li>
-                            <li>Item 4</li>
-                        </ul>
-                    </div>
-                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">ADD TO
-                            CART<br></a></div>
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="pricingTable yellow">
-                    <div class="pricingTable-header">
-                        <h3>elepahant</h3><span>Lorem Ipsum</span></div>
-                    <div class="pricing-plans"><span class="price-value"><i class="fa fa-usd"></i><span>10 </span></span>
-                    </div>
-                    <div class="pricingContent">
-                        <ul>
-                            <li>Item 1</li>
-                            <li>Item 2</li>
-                            <li>Item 3</li>
-                            <li>Item 4</li>
-                        </ul>
-                    </div>
-                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">ADD TO
-                            CART<br></a></div>
-                </div>
-            </div>
+                @endforeach
+            @endif
         </div>
     </div>
 @endsection

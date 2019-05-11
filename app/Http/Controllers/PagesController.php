@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PaketApp;
 use App\PaketWeb;
 
 class PagesController extends Controller
@@ -21,7 +22,9 @@ class PagesController extends Controller
     }
 
     public function mobile(){
-        return view("apps");
+        $comps = PaketApp::whereBetween('id', [1,3])->get();
+        $bus = PaketApp::whereBetween('id', [4,6])->get();
+        return view("apps", compact('comps', 'bus'));
     }
 
     public function portfolio(){

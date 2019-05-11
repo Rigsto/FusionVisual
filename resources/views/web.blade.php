@@ -10,24 +10,24 @@
                     <div class="pricingTable-header">
                         <h3>{{$paket->nama}}</h3>
                     </div>
-                    <div class="pricing-plans"><span class="price-value"><span>{{$paket->harga}}</span></span>
+                    <div class="pricing-plans"><span class="price-value"><span>Rp. {{number_format($paket->harga, 0, '', '.')}},-</span></span>
                     </div>
                     <div class="pricingContent">
                         <ul>
-                            <li>@if($paket->freeHosting == 1) <strike>Free Hosting</strike> @else Free Hosting @endif</li>
-                            <li>@if($paket->freeDomain == 1) <strike>Free Domain</strike> @else Free Domain @endif</li>
-                            <li>Subdomain :  {{$paket->freeSubdomain}}</li>
+                            <li>@if($paket->freeHosting == 1) <s>Free Hosting</s> @else Free Hosting @endif</li>
+                            <li>@if($paket->freeDomain == 1) <s>Free Domain</s> @else Free Domain @endif</li>
+                            <li>@if($paket->freeSubdomain == 0) No Subdomain @elseif($paket->freeSubdomain == 1)1 Subdomain @else {{$paket->freeSubdomain}} Subdomains @endif</li>
                             <li>up to {{$paket->pages}} Pages</li>
                             <li>{{$paket->seo}} Key Words</li>
                             <li>{{$paket->duration}} Days of Work</li>
-                            <li>Free Update Existing Pages : {{$paket->freeEditPage}}</li>
-                            <li>@if($paket->responsive == 1) <strike>Responsive Design</strike> @else FResponsive Design @endif</li>
-                            <li>@if($paket->ftp == 1) <strike>FTP Access</strike> @else FTP Access @endif</li>
-                            <li>@if($paket->slideshow == 1) <strike>Slideshow Header</strike> @else Slideshow Header @endif</li>
-                            <li>@if($paket->cms == 1) <strike>Content Management System</strike> @else Content Management System @endif</li>
-                            <li>@if($paket->ssl == 1) <strike>SSL Security</strike> @else SSL Security @endif</li>
-                            <li>@if($paket->login == 1) <strike>Login & Registration System</strike> @else Login & Registration System @endif</li>
-                            <li>@if($paket->siteSearch == 1) <strike>Search Feature</strike> @else Search Feature @endif</li>
+                            <li>@if($paket->freeEditPage == 1)1 Free Update Existing Page @else {{$paket->freeEditPage}} Free Update Existing Pages @endif</li>
+                            <li>@if($paket->responsive == 1) <s>Responsive Design</s> @else Responsive Design @endif</li>
+                            <li>@if($paket->ftp == 1) <s>FTP Access</s> @else FTP Access @endif</li>
+                            <li>@if($paket->slideshow == 1) <s>Slideshow Header</s> @else Slideshow Header @endif</li>
+                            <li>@if($paket->cms == 1) <s>Content Management System</s> @else Content Management System @endif</li>
+                            <li>@if($paket->ssl == 1) <s>SSL Security</s> @else SSL Security @endif</li>
+                            <li>@if($paket->login == 1) <s>Login &amp; Registration System</s> @else Login &amp; Registration System @endif</li>
+                            <li>@if($paket->siteSearch == 1) <s>Search Feature</s> @else Search Feature @endif</li>
                         </ul>
                     </div>
                     <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">Add to
@@ -48,24 +48,24 @@
                     <div class="pricingTable-header">
                         <h3>{{$paket->nama}}</h3>
                     </div>
-                    <div class="pricing-plans"><span class="price-value"><span>{{$paket->harga}}</span></span>
+                    <div class="pricing-plans"><span class="price-value"><span>Rp. {{number_format($paket->harga, 0, '', '.')}},-</span></span>
                     </div>
                     <div class="pricingContent">
                         <ul>
-                            <li>@if($paket->freeHosting == 1) <strike>Free Hosting</strike> @else Free Hosting @endif</li>
-                            <li>@if($paket->freeDomain == 1) <strike>Free Domain</strike> @else Free Domain @endif</li>
-                            <li>Subdomain :  {{$paket->freeSubdomain}}</li>
+                            <li>@if($paket->freeHosting == 1) <s>Free Hosting</s> @else Free Hosting @endif</li>
+                            <li>@if($paket->freeDomain == 1) <s>Free Domain</s> @else Free Domain @endif</li>
+                            <li>@if($paket->freeSubdomain == 0) No Subdomain @elseif($paket->freeSubdomain == 1)1 Subdomain @else {{$paket->freeSubdomain}} Subdomains @endif</li>
                             <li>up to {{$paket->pages}} Pages</li>
                             <li>{{$paket->seo}} Key Words</li>
                             <li>{{$paket->duration}} Days of Work</li>
-                            <li>Free Update Existing Pages : {{$paket->freeEditPage}}</li>
-                            <li>@if($paket->responsive == 1) <strike>Responsive Design</strike> @else Responsive Design @endif</li>
-                            <li>@if($paket->ftp == 1) <strike>FTP Access</strike> @else FTP Access @endif</li>
-                            <li>@if($paket->slideshow == 1) <strike>Slideshow Header</strike> @else Slideshow Header @endif</li>
-                            <li>@if($paket->cms == 1) <strike>Content Management System</strike> @else Content Management System @endif</li>
-                            <li>@if($paket->ssl == 1) <strike>SSL Security</strike> @else SSL Security @endif</li>
-                            <li>@if($paket->login == 1) <strike>Login & Registration System</strike> @else Login & Registration System @endif</li>
-                            <li>@if($paket->siteSearch == 1) <strike>Search Feature</strike> @else Search Feature @endif</li>
+                            <li>@if($paket->freeEditPage == 1)1 Free Update Existing Page @else {{$paket->freeEditPage}} Free Update Existing Pages @endif</li>
+                            <li>@if($paket->responsive == 1) <s>Responsive Design</s> @else Responsive Design @endif</li>
+                            <li>@if($paket->ftp == 1) <s>FTP Access</s> @else FTP Access @endif</li>
+                            <li>@if($paket->slideshow == 1) <s>Slideshow Header</s> @else Slideshow Header @endif</li>
+                            <li>@if($paket->cms == 1) <s>Content Management System</s> @else Content Management System @endif</li>
+                            <li>@if($paket->ssl == 1) <s>SSL Security</s> @else SSL Security @endif</li>
+                            <li>@if($paket->login == 1) <s>Login &amp; Registration System</s> @else Login &amp; Registration System @endif</li>
+                            <li>@if($paket->siteSearch == 1) <s>Search Feature</s> @else Search Feature @endif</li>
                         </ul>
                     </div>
                     <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">Add to
