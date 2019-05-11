@@ -16,7 +16,7 @@ class NewsletterController extends Controller
     public function index()
     {
         $pages = 'sublist';
-        return view('admin.newsletter.index', compact('sublist'));
+        return view('admin.newsletter.index', compact('pages'));
     }
 
     /**
@@ -88,6 +88,6 @@ class NewsletterController extends Controller
     public function send()
     {
         $pages = 'sendm';
-        return view('newsletter.send', compact('pages'));
+        return view('admin.newsletter.send', compact('pages'));
     }
 }
