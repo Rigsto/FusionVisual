@@ -17,7 +17,7 @@ class CreatePortofoliosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->bigInteger('photo_id');
-            $table->enum('status', [0, 1, 2])->default(0);
+            $table->enum('tipe', [0, 1, 2])->default(0);
             $table->bigInteger('admin_id');
             $table->timestamps();
         });
