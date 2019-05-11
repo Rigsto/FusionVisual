@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\ProyekApp;
+use App\ProyekDesain;
+use App\ProyekWeb;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -16,7 +19,10 @@ class ProjectController extends Controller
     public function index()
     {
         $pages = 'proj';
-        return view('admin.projects.index', compact('pages'));
+        $web = ProyekWeb::all();
+        $app = ProyekApp::all();
+        $des = ProyekDesain::all();
+        return view('admin.projects.index', compact('pages', 'web', 'app', 'des'));
     }
 
     /**
