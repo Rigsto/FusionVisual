@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\PaketWeb;
+
 class PagesController extends Controller
 {
     public function index(){
@@ -13,7 +15,9 @@ class PagesController extends Controller
     }
 
     public function web(){
-        return view("web");
+        $companies = PaketWeb::whereBetween('id' , [1,2])->get();
+        $bus = PaketWeb::whereBetween('id' , [3,5])->get();
+        return view("web", compact('companies','bus'));
     }
 
     public function mobile(){
