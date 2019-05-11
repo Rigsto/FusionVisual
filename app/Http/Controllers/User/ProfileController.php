@@ -106,8 +106,7 @@ class ProfileController extends Controller
     private function validateImage()
     {
         return request()->validate([
-            'password' => 'sometimes', 'string', 'min:8', 'confirmed',
-            'photo' => 'sometimes|image|max:5000',
+            'photo' => 'sometimes|file|image|max:5000',
         ]);
     }
 
