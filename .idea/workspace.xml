@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73b84de8-1dc0-49c4-ba41-71bd67a612ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/portfolio/table/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/description_modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PortfolioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PortfolioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Portofolio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Portofolio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/portfolio/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/portfolio/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nav/admin_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nav/admin_sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PaketWebSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PaketWebSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,82 +16,58 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/CatDesain.php">
+        <entry file="file://$PROJECT_DIR$/app/Paket.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="360">
+              <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Color.php">
+        <entry file="file://$PROJECT_DIR$/app/Tipe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="440">
+              <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ContactUs.php">
+        <entry file="file://$PROJECT_DIR$/database/seeds/TipeSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Databas.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Domain.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Ftp.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Hosting.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/MeetUs.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-80">
-              <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="38" />
+            <state relative-caret-position="80">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Paket.php">
+        <entry file="file://$PROJECT_DIR$/database/seeds/PaketWebSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+            <state relative-caret-position="1640">
+              <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+              <folding>
+                <element signature="e#7#24#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/PaketSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-60">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -105,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/PaketApp.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="-33">
               <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
             </state>
           </provider>
@@ -144,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FormController.php" />
         <option value="$PROJECT_DIR$/resources/views/contact-us.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/inbox/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" />
@@ -195,6 +164,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PortfolioController.php" />
         <option value="$PROJECT_DIR$/resources/views/inc/description_modal.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/portfolio/table/list.blade.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PaketWebSeeder.php" />
       </list>
     </option>
   </component>
@@ -328,6 +298,23 @@
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FusionsVisual" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FusionsVisual" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FusionsVisual" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FusionsVisual" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="factories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FusionsVisual" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FusionsVisual" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FusionsVisual" type="b2602c69:ProjectViewProjectNode" />
@@ -585,7 +572,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171526000" />
+    <option name="totallyTimeSpent" value="171591000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -601,10 +588,10 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4994641" visible="true" weight="0.2595949" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4994641" visible="true" weight="0.26226014" />
       <window_info id="Structure" order="3" sideWeight="0.5005359" side_tool="true" weight="0.2803838" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49946696" visible="true" weight="0.30546623" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49946696" visible="true" weight="0.30546623" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50053304" side_tool="true" weight="0.28938907" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.17256163" />
       <window_info anchor="bottom" id="Messages" order="4" weight="0.3290461" />
@@ -713,34 +700,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/nav/top_nav.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/MyRequestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="21" column="84" lean-forward="true" selection-start-line="21" selection-start-column="84" selection-end-line="21" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/request/table/pending.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/request/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/request/table/history.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1160">
@@ -1060,15 +1019,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/PaketApp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="-33">
           <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Paket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        <state relative-caret-position="360">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PaketSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PaketAppSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1280">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="24" />
+          <folding>
+            <element signature="e#7#24#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PaketWebSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1640">
+          <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+          <folding>
+            <element signature="e#7#24#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

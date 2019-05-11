@@ -30,6 +30,7 @@ class PaketWebSeeder extends Seeder
         $paket->ssl = 1;
         $paket->login = 1;
         $paket->siteSearch = 1;
+        $paket->save();
 
         $paket = new PaketWeb();
         $paket->nama = "Magi";
@@ -49,6 +50,7 @@ class PaketWebSeeder extends Seeder
         $paket->ssl = 1;
         $paket->login = 1;
         $paket->siteSearch = 1;
+        $paket->save();
 
         $paket = new PaketWeb();
         $paket->nama = "Poets";
@@ -68,6 +70,7 @@ class PaketWebSeeder extends Seeder
         $paket->ssl = 1;
         $paket->login = 1;
         $paket->siteSearch = 1;
+        $paket->save();
 
         $paket = new PaketWeb();
         $paket->nama = "Merchant";
@@ -87,6 +90,7 @@ class PaketWebSeeder extends Seeder
         $paket->ssl = 2;
         $paket->login = 2;
         $paket->siteSearch = 1;
+        $paket->save();
 
         $paket = new PaketWeb();
         $paket->nama = "Alchemist";
@@ -106,5 +110,6 @@ class PaketWebSeeder extends Seeder
         $paket->ssl = 2;
         $paket->login = 2;
         $paket->siteSearch = 2;
+        $paket->save();
     }
 }
