@@ -41,7 +41,6 @@ Route::group(['middleware'=>'admin'], function (){
     Route::get('admin/user/activate', 'Admin\UserController@activate')->name('user.activate');
     Route::post('admin/user/activate', 'Admin\UserController@activate');
 
-    Route::get('/admin/newsletter/send', 'Admin\NewsletterController@send')->name('newsletter.send');
     Route::post('/admin/newsletter/send', 'Admin\NewsLetterController@sendmail');
 
     Route::resource('/admin/user', 'Admin\UserController');

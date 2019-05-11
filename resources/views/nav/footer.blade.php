@@ -9,7 +9,7 @@
                             <h1 class="don">Don't miss a word from us!</h1>
                         </div>
                     </div>
-                    {!! Form::open(['method'=>'POST', 'action'=>'FormController@subscribe']) !!}
+                    {!! Form::open(['method'=>'POST', 'action'=>'Admin\NewsletterController@store']) !!}
                     @csrf
                     <div class="row no-gutters">
                         <div class="col-md-12">
