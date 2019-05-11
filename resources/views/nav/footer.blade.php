@@ -9,20 +9,21 @@
                             <h1 class="don">Don't miss a word from us!</h1>
                         </div>
                     </div>
+                    {!! Form::open(['method'=>'POST', 'action'=>'FormController@subscribe']) !!}
+                    @csrf
                     <div class="row no-gutters">
-                        <div class="col-md-12"><input type="text" name="email" placeholder="Enter your email..." class="form-control"></div>
+                        <div class="col-md-12">
+                            {!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'Enter your email...', 'autocomplete'=>'off']) !!}
+                        </div>
                     </div>
                     <div class="row no-gutters">
                         <div class="col-md-12 subss">
                             <div class="containerlink">
-                                <a href="#">
-                                    <div class="subs">
-                                        <p>Subscribe!</p>
-                                    </div>
-                                </a>
+                                {!! Form::submit('Subscribe!', ['class'=>'subs', 'style'=>'padding-bottom: 1rem;']) !!}
                             </div>
                         </div>
                     </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
             <div class="col-md-4 offset-xl-3">
