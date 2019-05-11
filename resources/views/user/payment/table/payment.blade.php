@@ -12,6 +12,7 @@
                         <th>Bank Name</th>
                         <th>Account Number</th>
                         <th>Owner</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -21,6 +22,18 @@
                             <td>{{$pay->namaBank}}</td>
                             <td>{{$pay->nomorRekening}}</td>
                             <td>{{$pay->atasNama}}</td>
+                            <td width="150px"><div class="row no-gutters">
+                                    <div class="col-md-6">
+                                        <a href="{{ route('payment.edit', $pay->id) }}" class="btn btn-circle btn-warning"><i class="fa fa-search"></i></a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        {!! Form::open(['method'=>'DELETE', 'action'=> ['User\PaymentController@destroy', $pay->id], 'id' => 'delete-user']) !!}
+                                        {{ csrf_field() }}
+                                        {!! Form::button('<i class="fas fa-trash"></i>', ['type'=>'submit', 'class'=>'btn btn-danger btn-circle', 'title'=>'Delete Payment']) !!}
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

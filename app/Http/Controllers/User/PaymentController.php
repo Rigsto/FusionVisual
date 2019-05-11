@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Pembayaran;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +51,7 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -61,7 +62,9 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pages = 'paylist';
+        $pay = Pembayaran::findOrFail($id);
+        return view('user.payment.edit', compact('pages', 'pay'));
     }
 
     /**
@@ -73,7 +76,12 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pay = Pembayaran::findOrFail($id);
+        $pay->update([
+            'nomorRekening' => $request->acc,
+            'atasNama' => $request->owner
+        ]);
+        return redirect()->route('payment.index')->with('Success', 'Payment Method Edited');
     }
 
     /**
@@ -84,6 +92,7 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pembayaran::findOrFail($id)->delete();
+        return redirect()->route('payment.index')->with('Success', 'Payment Deleted');
     }
 }
