@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Events\UserActivationEmail;
+use App\Photo;
 use App\Role;
 use App\User;
 use Illuminate\Auth\Events\Registered;
@@ -11,14 +12,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $ids = Auth::id();
@@ -28,11 +25,6 @@ class UserController extends Controller
         return view('admin.user.index', compact('users','admin', 'pages'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $pages = 'uadd';
@@ -40,18 +32,12 @@ class UserController extends Controller
         return view('admin.user.add', compact('roles','pages'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validator($request->all())->validate();
         $user = $this->new($request->all());
-        if (empty($user)) { // Failed to register user
-            redirect('/admin/user/')->with('Fail', 'Failed to add user'); // Wherever you want to redirect
+        if (empty($user)) {
+            redirect('/admin/user/')->with('Fail', 'Failed to add user');
         }
         event(new Registered($user));
         event(new UserActivationEmail($user));
@@ -61,7 +47,7 @@ class UserController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'min:3'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -79,23 +65,11 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $user = User::findOrFail($id);
@@ -109,29 +83,33 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
+        $this->validateImage();
         $user = User::findOrFail($id);
         if(trim($request->password) == ''){
             $input = $request->except('password');
-        } else{
+        }else{
             $input = $request->all();
             $input['password'] = bcrypt($request->password);
         }
-//        if ($file = $request->file('file')){
-//            $tmp = str_replace(" ", "-",$request->name);
-//            $type = $file->getClientOriginalExtension();
-//            $name = $tmp."_photos.".$type;
-//            $file->move('images', $name);
-//            $input['path'] = $name;
-//        }
+
+        if ($file = $request->file('photo')){
+            $tmp = str_replace(" ", "-",$request->name);
+            $type = $file->getClientOriginalExtension();
+            $name = $tmp."_photoProfile.".$type;
+            $file->move('images', $name);
+            $image = Image::make('images/' . $name)->fit(300, 300);
+            $image->save();
+            $pic = Photo::where('path', $name)->first();
+            if ($pic){
+                $pic->update(['path'=>$name]);
+            }else{
+                $photo = Photo::create(['path'=>$name]);
+                $input['photo_id'] = $photo->id;
+            }
+        }
+
         $user->update($input);
         if (Auth::id() == $id){
             return redirect('/admin/dashboard')->with('Success', 'Profile Updated');
@@ -140,12 +118,14 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    private function validateImage()
+    {
+        return request()->validate([
+            'password' => 'sometimes', 'string', 'min:8', 'confirmed',
+            'photo' => 'sometimes|image|max:5000',
+        ]);
+    }
+
     public function destroy($id)
     {
         $user = User::where('id', $id)->first();

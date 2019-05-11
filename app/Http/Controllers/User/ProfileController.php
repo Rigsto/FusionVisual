@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Photo;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -74,6 +76,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validateImage();
         $user = User::findOrFail($id);
         if(trim($request->password) == ''){
             $input = $request->except('password');
@@ -81,15 +84,31 @@ class ProfileController extends Controller
             $input = $request->all();
             $input['password'] = bcrypt($request->password);
         }
-//        if ($file = $request->file('file')){
-//            $tmp = str_replace(" ", "-",$request->name);
-//            $type = $file->getClientOriginalExtension();
-//            $name = $tmp."_photos.".$type;
-//            $file->move('images', $name);
-//            $input['path'] = $name;
-//        }
+        if ($file = $request->file('photo')){
+            $tmp = str_replace(" ", "-",$request->name);
+            $type = $file->getClientOriginalExtension();
+            $name = $tmp."_photoProfile.".$type;
+            $file->move('images', $name);
+            $image = Image::make('images/' . $name)->fit(300, 300);
+            $image->save();
+            $pic = Photo::where('path', $name)->first();
+            if ($pic){
+                $pic->update(['path'=>$name]);
+            }else{
+                $photo = Photo::create(['path'=>$name]);
+                $input['photo_id'] = $photo->id;
+            }
+        }
         $user->update($input);
         return redirect('/user/dashboard')->with('Success', 'Profile Updated');
+    }
+
+    private function validateImage()
+    {
+        return request()->validate([
+            'password' => 'sometimes', 'string', 'min:8', 'confirmed',
+            'photo' => 'sometimes|image|max:5000',
+        ]);
     }
 
     /**

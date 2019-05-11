@@ -8,7 +8,8 @@
             </div>
             <div class="card body">
                 <div class="col-md-12" style="margin-top: 1em;">
-                    {!! Form::model($user, ['method'=>'PATCH', 'action'=>['Admin\UserController@update', $user->id]]) !!}
+                    <img src="{{$user->photo ? asset('images/'.$user->photo->path) : 'http://placehold.it/400x400'}}" height="200" class="img-profile rounded-circle py-2">
+                    {!! Form::model($user, ['method'=>'PATCH', 'action'=>['Admin\UserController@update', $user->id], 'files' => 'true']) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Full Name') !!}
                         {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Full Name..' ])!!}
@@ -24,6 +25,10 @@
                     <div class="form-group">
                         {!! Form::label('ala', 'Address') !!}
                         {!! Form::text('alamat', null, ['class'=> 'form-control', 'placeholder' =>'Address...']) !!}
+                    </div>
+                    <div class="form-group d-flex flex-column">
+                        {!! Form::label('photo_id', 'Profile Picture') !!}
+                        {!! Form::file('photo', null, ['class'=>'form-control'])!!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('password', 'Password ') !!}
