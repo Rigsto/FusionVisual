@@ -58,9 +58,16 @@ Route::group(['middleware'=>'admin'], function (){
 Route::group(['middleware'=>'user'], function (){
     Route::get('/user/dashboard', 'User\UserPageController@dashboard')->name('user');
 
+    Route::get('/user/order/{x}', ['as'=>'order.index', 'uses'=>'User\OrderController@index']);
+
+//    Route::get('user/order/web', function (){
+//        $pages = 'web';
+//        return view('user.project.web', compact('pages'));
+//    });
+
     Route::resource('/user/profile', 'User\ProfileController');
     Route::resource('/user/payment', 'User\PaymentController');
     Route::resource('/user/my-request', 'User\MyRequestController');
-    Route::resource('/user/order', 'User\OrderController');
+    Route::resource('/user/order', 'User\OrderController')->except('index');
     Route::resource('/user/faq-list', 'User\FaqlistController');
 });

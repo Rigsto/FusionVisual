@@ -20,7 +20,7 @@ class CreatePesanansTable extends Migration
             $table->string('buktiTransfer');
             $table->enum('statusBayar', ['0', '1']);
             $table->enum('statusTerima', ['0', '1', '2']);
-            $table->time('waktuTerima')->nullable();
+            $table->timestamp('waktuTerima')->nullable();
             $table->bigInteger('admin_id')->nullable();
             $table->timestamps();
 

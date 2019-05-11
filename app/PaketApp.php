@@ -46,6 +46,6 @@ class PaketApp extends Model
 
     public function paket()
     {
-        return $this->morphMany('App/Paket', 'kodePaket');
+        return $this->morphMany('App\Paket', 'kodePaket', 'kodePaket_type', 'kodePaket_id', 'id');
     }
 }

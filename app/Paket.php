@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Paket extends Model
 {
+    public function pesanan(){
+        return $this->hasMany('App/Pesanan');
+    }
+
     public function tipe()
     {
         return $this->belongsTo('App/Tipe');
@@ -18,6 +22,6 @@ class Paket extends Model
 
     public function kodePaket()
     {
-        return $this->morphTo();
+        return $this->morphTo('kodePaket', 'kodePaket_type', 'kodePaket_id');
     }
 }

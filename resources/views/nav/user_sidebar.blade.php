@@ -16,7 +16,18 @@
             </div>
         </div>
     </li>
+    <li class="nav-item @if($pages=='web' || $pages=='app' || $pages=='des') active @endif">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-shopping-basket"></i><span>Orders</span>
+        </a>
+        <div id="collapsePages2" class="collapse @if($pages=='web' || $pages=='app' || $pages=='des') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if($pages=='web') active @endif" href="{{ route('order.index', 'web') }}">Website</a>
+                <a class="collapse-item @if($pages=='app') active @endif" href="{{ route('order.index', 'app') }}">Android Application</a>
+                <a class="collapse-item @if($pages=='des') active @endif" href="{{ route('order.index', 'design') }}">Design</a>
+            </div>
+        </div>
+    </li>
     <li class="nav-item @if($pages=='mreq') active @endif"><a class="nav-link" href="{{ route('my-request.index') }}"><i class="fas fa-fw fa-comments-dollar"></i><span>My Meet Request</span></a></li>
-    <li class="nav-item @if($pages=='proj') active @endif"><a class="nav-link" href="{{ route('order.index') }}"><i class="fas fa-fw fa-history"></i><span>History Order</span></a></li>
     <li class="nav-item @if($pages=='faq') active @endif"><a class="nav-link" href="{{ route('faq-list.index') }}"><i class="fas fa-fw fa-question-circle"></i><span>FAQ</span></a></li>
 </ul>

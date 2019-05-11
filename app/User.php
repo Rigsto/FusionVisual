@@ -41,12 +41,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Pembayaran');
     }
 
-//    public function setPasswordAttribute($pass)
-//    {
-//        if (!empty($pass)) {
-//            $this->attributes['password'] = bcrypt($pass);
-//        }
-//    }
+    public function pesanan(){
+        return $this->hasMany('App\Pesanan');
+    }
 
     public function role()
     {

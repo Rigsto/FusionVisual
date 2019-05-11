@@ -3,20 +3,40 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Paket;
+use App\Pesanan;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @param string $x
      *
      * @return Response
      */
-    public function index()
+    public function index($x)
     {
-        $pages = 'proj';
-        return view('user.project.index', compact('pages'));
+        switch ($x){
+            case 'web':
+                $pages = 'web';
+                $tipe = 'Website';
+                $pes = Auth::user()->pesanan->whereBetween('paket_id', [1,5]);
+                break;
+            case 'app':
+                $pages = 'app';
+                $tipe = 'Android Application';
+                $pes = Auth::user()->pesanan->whereBetween('paket_id', [10,15]);
+                break;
+            case 'design':
+                $pages = 'des';
+                $tipe = 'Design';
+                $pes = Auth::user()->pesanan->whereBetween('paket_id', [16,62]);
+                break;
+        }
+        return view('user.project.index', compact('pages', 'pes', 'tipe'));
     }
 
     /**
