@@ -29,6 +29,7 @@ Route::post('/resend', 'Auth\ActivationController@resend');
 
 Route::post('/meet', 'FormController@meetus');
 Route::post('/contact', 'FormController@contactus');
+Route::post('/subscribe', 'Admin\NewsletterController@store');
 
 Auth::routes(['verify'=>true]);
 
@@ -41,11 +42,12 @@ Route::group(['middleware'=>'admin'], function (){
     Route::post('admin/user/activate', 'Admin\UserController@activate');
 
     Route::get('/admin/newsletter/send', 'Admin\NewsletterController@send')->name('newsletter.send');
+    Route::post('/admin/newsletter/send', 'Admin\NewsLetterController@sendmail');
 
     Route::resource('/admin/user', 'Admin\UserController');
     Route::resource('/admin/blog', 'Admin\BlogController');
     Route::resource('/admin/faq', 'Admin\FaqController');
-    Route::resource('/admin/newsletter', 'Admin\NewsletterController');
+    Route::resource('/admin/newsletter', 'Admin\NewsletterController')->except('store');
     Route::resource('/admin/page', 'Admin\PageController');
     Route::resource('/admin/project', 'Admin\ProjectController');
     Route::resource('/admin/request', 'Admin\RequestController');

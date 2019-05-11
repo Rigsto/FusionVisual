@@ -51,7 +51,7 @@
         <div id="collapsePages" class="collapse @if($pages=='sublist' || $pages=='sendm') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item @if($pages=='sublist') active @endif" href="{{ route('newsletter.index') }}">Subscriber List</a>
-                <a class="collapse-item @if($pages=='sendm') active @endif" href="{{ route('newsletter.send') }}"> Send
+                <a class="collapse-item @if($pages=='sendm') active @endif" href="{{ route('newsletter.create') }}"> Send
                     Mail</a>
             </div>
         </div>

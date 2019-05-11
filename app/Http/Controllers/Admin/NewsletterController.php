@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Subcriber;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -15,29 +16,32 @@ class NewsletterController extends Controller
      */
     public function index()
     {
+        $subs = Subcriber::all();
         $pages = 'sublist';
-        return view('admin.newsletter.index', compact('pages'));
+        return view('admin.newsletter.index', compact('pages', 'subs'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Create new email for emailing subscriber list
      *
      * @return Response
      */
     public function create()
     {
-        //
+        $pages = 'sendm';
+        return view('admin.newsletter.send', compact('pages'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     *  Add new subscriber
      *
      * @param Request $request
      * @return Response
      */
     public function store(Request $request)
     {
-        //
+        Subcriber::create($request->all());
+        return redirect()->back()->with('Success', 'Added as Subscriber');
     }
 
     /**
@@ -82,12 +86,17 @@ class NewsletterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Subcriber::findOrFail($id)->delete();
+        return redirect()->route('newsletter.index')->with('Success', 'Subscriber Added');
     }
 
-    public function send()
-    {
-        $pages = 'sendm';
-        return view('admin.newsletter.send', compact('pages'));
+    /**
+     *  Send form to subscriber list
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function sendmail(Request $request){
+
     }
 }

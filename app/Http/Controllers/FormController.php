@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ContactUs;
 use App\Http\Requests\MeetUsRequest;
 use App\MeetUs;
+use App\Subcriber;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
