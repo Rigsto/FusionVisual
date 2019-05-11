@@ -1,7 +1,8 @@
-@extends('layout.adminMaster')
+@extends('layout.userMaster')
 @section('content')
     <div class="container-fluid">
+        <!-- Content Row -->
         @include('inc.alert')
-        @include('admin.newsletter.table.subscriber')
+        @include('user.payment.table.payment')
     </div>
 @endsection

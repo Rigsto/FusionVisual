@@ -5,6 +5,17 @@
     </div>
     <hr class="sidebar-divider my-0">
     <li class="nav-item @if($pages=='dash') active @endif"><a class="nav-link" href="{{route('user')}}"><i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+    <li class="nav-item @if($pages=='paylist' || $pages=='addpay') active @endif">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-credit-card"></i><span>Payment Method</span>
+        </a>
+        <div id="collapsePages" class="collapse @if($pages=='paylist' || $pages=='addpay') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if($pages=='paylist') active @endif" href="{{ route('payment.index') }}">Payment Method List</a>
+                <a class="collapse-item @if($pages=='addpay') active @endif" href="{{ route('payment.create') }}">Add New Method</a>
+            </div>
+        </div>
+    </li>
     <li class="nav-item @if($pages=='mreq') active @endif"><a class="nav-link" href="{{ route('my-request.index') }}"><i class="fas fa-fw fa-comments-dollar"></i><span>My Meet Request</span></a></li>
     <li class="nav-item @if($pages=='proj') active @endif"><a class="nav-link" href="{{ route('order.index') }}"><i class="fas fa-fw fa-history"></i><span>History Order</span></a></li>
     <li class="nav-item @if($pages=='faq') active @endif"><a class="nav-link" href="{{ route('faq-list.index') }}"><i class="fas fa-fw fa-question-circle"></i><span>FAQ</span></a></li>
