@@ -23,7 +23,7 @@
                         <tr class="text-center">
                             <td>#APP{{str_pad($app->id, 4, '0', STR_PAD_LEFT)}}</td>
                             <td>{{$app->pesanan->paket->kodePaket->nama}}</td>
-                            <td>{{$app->pesanan->waktuTerima}}</td>
+                            <td>{{\Carbon\Carbon::parse($app->pesanan->waktuTerima)->format('d F Y')}}</td>
                             <td>{{$app->pesanan->user->name}}</td>
                             <td>@if($app->namaApp == null) - @else {{$app->namaApp}} @endif</td>
                             <td>@if($app->status == 0) Idle @elseif($app->status == 1) Ongoing @else Maintenance @endif</td>
