@@ -49,6 +49,9 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('/admin/newsletter', 'Admin\NewsletterController')->except('store');
     Route::resource('/admin/page', 'Admin\PageController');
     Route::resource('/admin/project', 'Admin\ProjectController');
+    Route::resource('/admin/project/web', 'Admin\ProyekWebController');
+    Route::resource('/admin/project/app', 'Admin\ProyekAppController');
+    Route::resource('/admin/project/design', 'Admin\ProyekDesainController');
     Route::resource('/admin/request', 'Admin\RequestController');
     Route::resource('/admin/inbox', 'Admin\InboxController');
     Route::resource('/admin/testimoni', 'Admin\TestimoniController');
