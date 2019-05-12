@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group">
                         <a href="{{ route('portfolio.index') }}" class="btn btn-danger">Cancel</a>
-                        {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+                        {!! Form::submit('Create Portfolio', ['class'=>'btn btn-primary']) !!}
                     </div>
                     {!! Form::close() !!}
                 </div>

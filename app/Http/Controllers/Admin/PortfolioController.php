@@ -50,7 +50,7 @@ class PortfolioController extends Controller
             $type = $file->getClientOriginalExtension();
             $name = $tmp."_photoProfile.".$type;
             $file->move('images', $name);
-            $image = Image::make('images/' . $name)->fit(400, 400);
+            $image = Image::make('images/' . $name)->fit(700, 700);
             $image->save();
             $pic = Photo::where('path', $name)->first();
             if ($pic){
@@ -68,10 +68,6 @@ class PortfolioController extends Controller
             'description' => $input['description']
         ]);
         return redirect('/admin/portfolio')->with('Success', 'Added New Portfolio');
-    }
-
-    private function new(array $data){
-
     }
 
     private function validateImage()

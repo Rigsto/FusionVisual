@@ -12,6 +12,7 @@
                         <th>Photo</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Category</th>
                         <th>Updated at</th>
                         <th>Created at</th>
                         <th>Action</th>
@@ -27,9 +28,23 @@
                                    data-target="#descriptionModal-{{$portfolio->id}}">Read</a>
                                 @include('inc.description_modal')
                             </td>
+                            <td>{{$portfolio->tipe == 0 ? "Website" : ($portfolio->tipe == 1 ? "Mobile Application" : "Design")}}</td>
                             <td>{{$portfolio->updated_at->diffForhumans()}}</td>
                             <td>{{$portfolio->created_at->diffForhumans()}}</td>
-                            <td></td>
+                            <td width="150px"><div class="row no-gutters">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-info btn-circle" title="Edit" data-toggle="modal"
+                                                data-target="#editModal-{{$portfolio->id}}"><i class="fas fa-edit"></i></button>
+                                        @include('admin.portfolio.edit_modal')
+                                    </div>
+                                    <div class="col-md-6">
+                                        {!! Form::open(['method'=>'DELETE', 'action'=> ['Admin\PortfolioController@destroy', $portfolio->id], 'title' => 'Edit Portfolio']) !!}
+                                        {{ csrf_field() }}
+                                        {!! Form::button('<i class="fas fa-trash"></i>', ['type'=>'submit', 'class'=>'btn btn-danger btn-circle', 'title'=>'Delete Portfolio']) !!}
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

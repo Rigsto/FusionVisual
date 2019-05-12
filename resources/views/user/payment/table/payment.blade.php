@@ -22,7 +22,7 @@
                             <td>{{$pay->atasNama}}</td>
                             <td width="150px"><div class="row no-gutters">
                                     <div class="col-md-6">
-                                        <a href="{{ route('payment.edit', $pay->id) }}" class="btn btn-circle btn-warning"><i class="fa fa-search"></i></a>
+                                        <a href="{{ route('payment.edit', $pay->id) }}" class="btn btn-circle btn-info"><i class="fa fa-edit"></i></a>
                                     </div>
                                     <div class="col-md-6">
                                         {!! Form::open(['method'=>'DELETE', 'action'=> ['User\PaymentController@destroy', $pay->id], 'id' => 'delete-user']) !!}
