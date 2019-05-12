@@ -13,7 +13,7 @@
                             <label class="col-form-label">Full Name</label>
                         </div>
                         <div class="col-md-9">
-                            {!! Form::text('name', null, ['class'=>'form-control', 'required', 'placeholder'=>'Full Name..' ])!!}
+                            {!! Form::text('name', \Illuminate\Support\Facades\Auth::user()->name, ['class'=>'form-control', 'readonly', 'placeholder'=>'E-mail Address...']) !!}
                         </div>
                     </div>
                 </div>

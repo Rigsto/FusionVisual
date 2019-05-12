@@ -119,7 +119,7 @@
             <div class="row no-gutters">
                 <div class="col-md-12 test">
                     <h1>Our Customers Testimonial</h1>
-                    <p>9 to 10 Rating based on XXX customers review.&nbsp;<a href="{{ route('review') }}">Show More</a>
+                    <p>9 to 10 Rating based on XXX customers review.&nbsp;<a href="{{ route('review.index') }}">Show More</a>
                     </p>
                 </div>
             </div>
