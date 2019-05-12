@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PaketApp;
 use App\PaketWeb;
+use App\Portofolio;
 
 class PagesController extends Controller
 {
@@ -28,7 +29,10 @@ class PagesController extends Controller
     }
 
     public function portfolio(){
-        return view("portfolio");
+        $web = Portofolio::where('tipe', '0')->get();
+        $app = Portofolio::where('tipe', '1')->get();
+        $des = Portofolio::where('tipe', '2')->get();
+        return view("portfolio" , compact('web', 'app', 'des'));
     }
 
     public function meet(){

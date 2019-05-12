@@ -11,78 +11,39 @@
             <hr class="line3">
             <h1>Graphic Design</h1>
             <div class="row no-gutters rowinside">
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
+                @if($des)
+                    @foreach($des as $design)
+                <div class="col-md-4 pb-4">
+                    <div class="inside"><img class="img-fluid" src="{{asset('images/'.$design->photo->path)}}"></div>
                 </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         <div class="container" id="web">
             <hr class="line03">
             <h1 class="webhead">Website Development</h1>
             <div class="row no-gutters rowinside">
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"><button class="btn btn-primary insidebutton" type="button">Demo</button></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"><button class="btn btn-primary insidebutton" type="button">Demo</button></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"><button class="btn btn-primary insidebutton" type="button">Demo</button></div>
-                </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"><button class="btn btn-primary insidebutton" type="button">Demo</button></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"><button class="btn btn-primary insidebutton" type="button">Demo</button></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"><button class="btn btn-primary insidebutton" type="button">Demo</button></div>
-                </div>
+                @if($web)
+                    @foreach($web as $website)
+                        <div class="col-md-4 pb-4">
+                            <div class="inside"><img class="img-fluid" src="{{asset('images/'.$website->photo->path)}}"></div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         <div class="container" id="app">
             <hr class="line3">
             <h1>Mobile Apps</h1>
             <div class="row no-gutters rowinside">
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inside"><img class="img-fluid" src="assets/img/Artboard%203@3x.png"></div>
-                </div>
+                @if($app)
+                    @foreach($app as $apps)
+                        <div class="col-md-4 pb-4">
+                            <div class="inside"><img class="img-fluid" src="{{asset('images/'.$apps->photo->path)}}"></div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
