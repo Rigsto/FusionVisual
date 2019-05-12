@@ -76,6 +76,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Photo');
     }
 
+    public function review(){
+        return $this->hasOne('App\Review');
+    }
+
 //    cek role
     public function isAdmin(){
         if ($this->role->nama == 'Administrator' && $this->active == 1 && $this->activation_token == null){
