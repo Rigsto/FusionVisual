@@ -128,8 +128,14 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::where('id', $id)->first();
-//        return $user;0
-        $user->delete();
+        $photo = Photo::where('id' ,$user->photo_id)->first();
+        if ($user->photo){
+            unlink(public_path().'/images/'.$user->photo->path);
+            $photo->forceDelete();
+            $user->delete();
+        }else{
+            $user->delete();
+        }
         return redirect('/admin/user')->with('Success', 'User Deleted');
     }
 

@@ -35,6 +35,7 @@
                 <div class="form-group">
                     {!! Form::submit('Edit Portfolio', ['class'=>'btn btn-primary']) !!}
                 </div>
+                {!! Form::close() !!}
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">

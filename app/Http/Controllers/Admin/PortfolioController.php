@@ -78,6 +78,14 @@ class PortfolioController extends Controller
         ]);
     }
 
+    private function validateImageUpdate()
+    {
+        return request()->validate([
+            'image' => 'sometimes|file|image|max:5000',
+
+        ]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -100,26 +108,36 @@ class PortfolioController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateImageUpdate();
+        $port = Portofolio::findOrFail($id);
+        $input = $request->all();
+        if ($file = $request->file('image')){
+            $tmp = str_replace(" ", "-",$request->name);
+            $type = $file->getClientOriginalExtension();
+            $name = $tmp."_portfolio.".$type;
+            $file->move('images', $name);
+            $image = Image::make('images/' . $name)->fit(700, 700);
+            $image->save();
+            $pic = Photo::where('path', $name)->first();
+            if ($pic){
+                $pic->update(['path'=>$name]);
+            }else{
+                $photo = Photo::create(['path'=>$name]);
+                $input['photo_id'] = $photo->id;
+            }
+        }
+        $port->update($input);
+        return redirect('/admin/portfolio')->with('Success', 'Portfolio Updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return Response
-     */
     public function destroy($id)
     {
-        //
+        $port = Portofolio::where('id', $id)->first();
+        $photo = Photo::where('id' ,$port->photo_id)->first();
+        $photo->delete();
+        $port->delete();
+        return redirect('/admin/portfolio')->with('Success', 'Portfolio Deleted');
     }
 }
