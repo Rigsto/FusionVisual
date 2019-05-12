@@ -49,7 +49,7 @@ class ProyekDesainController extends Controller
     {
         $pages = 'proj';
         $des = ProyekDesain::findOrFail($id);
-        return view('admin.projects.web.show', compact('des', 'pages'));
+        return view('admin.projects.design.show', compact('des', 'pages'));
     }
 
     /**

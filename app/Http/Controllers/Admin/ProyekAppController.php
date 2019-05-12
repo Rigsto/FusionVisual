@@ -49,7 +49,7 @@ class ProyekAppController extends Controller
     {
         $pages = 'proj';
         $app = ProyekApp::findOrFail($id);
-        return view('admin.projects.web.show', compact('app', 'pages'));
+        return view('admin.projects.app.show', compact('app', 'pages'));
     }
 
     /**
