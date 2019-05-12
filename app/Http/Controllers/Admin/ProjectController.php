@@ -90,4 +90,61 @@ class ProjectController extends Controller
     {
         //
     }
+
+    /**
+     * Accept and reject project
+     *
+     * @param string $tipe
+     * @param int $id
+     * @param string $acdc
+     * @return Response
+     */
+    public function acdc($tipe, $id, $acdc)
+    {
+        switch ($tipe){
+            case 'web':
+                if ($acdc == 'accept'){
+                    ProyekWeb::find($id)->pesanan()->update([
+                        'statusTerima' => '2'
+                    ]);
+                    $mail = 'Web Project - #WEB'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
+                    break;
+                } else {
+                    ProyekWeb::find($id)->pesanan()->update([
+                        'statusTerima' => '1'
+                    ]);
+                    $mail = 'Web Project - #WEB'.str_pad($id, 4, '0', STR_PAD_LEFT).' Rejected';
+                    break;
+                }
+            case 'app':
+                if ($acdc == 'accept'){
+                    ProyekApp::find($id)->pesanan()->update([
+                        'statusTerima' => '2'
+                    ]);
+                    $mail = 'APP Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
+                    break;
+                } else {
+                    ProyekApp::find($id)->pesanan()->update([
+                        'statusTerima' => '1'
+                    ]);
+                    $mail = 'APP Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Rejected';
+                    break;
+                }
+            case 'design':
+                if ($acdc == 'accept'){
+                    ProyekDesain::find($id)->pesanan()->update([
+                        'statusTerima' => '2'
+                    ]);
+                    $mail = 'Design Project - #DES'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
+                    break;
+                } else {
+                    ProyekDesain::find($id)->pesanan()->update([
+                        'statusTerima' => '1'
+                    ]);
+                    $mail = 'Design Project - #DES'.str_pad($id, 4, '0', STR_PAD_LEFT).' Rejected';
+                    break;
+                }
+        }
+        return redirect()->back()->with('Success', $mail);
+    }
 }

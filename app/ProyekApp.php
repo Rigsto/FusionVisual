@@ -36,7 +36,7 @@ class ProyekApp extends Model
 
     public function proyekWeb()
     {
-        return $this->belongsTo('App\ProyekWeb');
+        return $this->belongsTo('App\ProyekWeb', 'proyekWeb_id');
     }
 
     public function publishPlay()

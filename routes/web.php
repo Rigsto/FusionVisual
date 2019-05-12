@@ -57,9 +57,12 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('/admin/newsletter', 'Admin\NewsletterController')->except('store');
     Route::resource('/admin/page', 'Admin\PageController');
     Route::resource('/admin/project', 'Admin\ProjectController');
+
     Route::resource('/admin/project/web', 'Admin\ProyekWebController');
     Route::resource('/admin/project/app', 'Admin\ProyekAppController');
     Route::resource('/admin/project/design', 'Admin\ProyekDesainController');
+    Route::get('/admin/project/{tipe}/{id}/{acdc}', ['as'=>'project.acdc', 'uses'=>'Admin\ProjectController@acdc']);
+
     Route::resource('/admin/request', 'Admin\RequestController');
     Route::resource('/admin/inbox', 'Admin\InboxController');
     Route::resource('/admin/testimoni', 'Admin\TestimoniController');
@@ -70,11 +73,6 @@ Route::group(['middleware'=>'user'], function (){
     Route::get('/user/dashboard', 'User\UserPageController@dashboard')->name('user');
 
     Route::get('/user/order/{x}', ['as'=>'order.index', 'uses'=>'User\OrderController@index']);
-
-//    Route::get('user/order/web', function (){
-//        $pages = 'web';
-//        return view('user.project.web', compact('pages'));
-//    });
 
     Route::resource('/user/profile', 'User\ProfileController');
     Route::resource('/user/payment', 'User\PaymentController');
