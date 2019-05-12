@@ -12,15 +12,15 @@
                     {!! Form::open(['method'=>'POST', 'action'=>'User\PaymentController@store']) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Bank Name') !!}
-                        {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Bank Name..' ])!!}
+                        {!! Form::text('namaBank', null, ['class'=>'form-control','required', 'placeholder'=>'Bank Name..' ])!!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('acc', 'Account Number') !!}
-                        {!! Form::text('acc', null, ['class'=>'form-control', 'placeholder'=>'Account Number...'])!!}
+                        {!! Form::text('nomorRekening', null, ['class'=>'form-control', 'required', 'placeholder'=>'Account Number...'])!!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('owner', 'Owner Name') !!}
-                        {!! Form::text('owner', null, ['class'=> 'form-control', 'placeholder' =>'Owner Name...']) !!}
+                        {!! Form::text('atasNama', null, ['class'=> 'form-control', 'required', 'placeholder' =>'Owner Name...']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::submit('Add New Method', ['class'=>'btn btn-primary']) !!}

@@ -8,7 +8,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr class="text-center">
-                        <th>Id</th>
                         <th>Bank Name</th>
                         <th>Account Number</th>
                         <th>Owner</th>
@@ -18,7 +17,6 @@
                     <tbody>
                     @foreach($pays as $pay)
                         <tr class="text-center">
-                            <td>{{$pay->id}}</td>
                             <td>{{$pay->namaBank}}</td>
                             <td>{{$pay->nomorRekening}}</td>
                             <td>{{$pay->atasNama}}</td>

@@ -6,6 +6,7 @@ use App\Pembayaran;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
@@ -40,7 +41,23 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validator($request->all())->validate();
+        Pembayaran::create([
+            'user_id' => Auth::id(),
+            'namaBank' => $request->namaBank,
+            'nomorRekening' => $request->nomorRekening,
+            'atasNama' => $request->atasNama
+        ]);
+        return redirect('user/payment')->with('Success', 'Added New Payment Method');
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'namaBank' => ['required', 'string', 'max:255', 'min:3'],
+            'nomorRekening' => ['required', 'string', 'max:255', 'unique:pembayarans'],
+            'atasNama' => ['required', 'string', 'max:255', 'min:3'],
+        ]);
     }
 
     /**
@@ -81,7 +98,7 @@ class PaymentController extends Controller
             'nomorRekening' => $request->acc,
             'atasNama' => $request->owner
         ]);
-        return redirect()->route('payment.index')->with('Success', 'Payment Method Edited');
+        return redirect()->route('payment.index')->with('Success', 'Payment Method Updated');
     }
 
     /**
@@ -93,6 +110,6 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         Pembayaran::findOrFail($id)->delete();
-        return redirect()->route('payment.index')->with('Success', 'Payment Deleted');
+        return redirect()->route('payment.index')->with('Success', 'Deleted Payment Method');
     }
 }

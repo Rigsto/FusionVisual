@@ -8,7 +8,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr class="text-center">
-                        <th>Id</th>
                         <th>Date & Time</th>
                         <th>Meeting Method</th>
                         <th>Phone Number / Skype ID</th>
@@ -21,7 +20,6 @@
                     <tbody>
                     @foreach($approve as $request)
                         <tr class="text-center">
-                            <td>{{$request->id}}</td>
                             <td>{{$request->dateMeet."-".$request->timeMeet}}</td>
                             <td>{{ucwords($request->methodmeet)}}</td>
                             <td>{{$request->phoneOrSkype}}</td>
