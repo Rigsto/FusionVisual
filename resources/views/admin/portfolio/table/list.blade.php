@@ -21,7 +21,7 @@
                     @foreach($portfolios as $portfolio)
                         <tr class="text-center">
                             <td>{{$portfolio->id}}</td>
-                            <td><img src="" alt=""></td>
+                            <td><img class="img-profile" src="{{$portfolio->photo ? asset('images/'.$portfolio->photo->path) : 'http://placehold.it/400x400'}}" height="45"></td>
                             <td>{{ucwords($portfolio->nama)}}</td>
                             <td><a type="button" class="text-primary" data-toggle="modal"
                                    data-target="#descriptionModal-{{$portfolio->id}}">Read</a>

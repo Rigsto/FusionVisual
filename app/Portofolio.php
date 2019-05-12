@@ -14,12 +14,14 @@ class Portofolio extends Model
         'nama',
         'photo_id',
         'status',
+        'tipe',
+        'admin_id',
         'description'
     ];
 
     public function photo()
     {
-        return $this->morphMany('App\Photo', 'photoable');
+        return $this->belongsTo('App\Photo');
     }
 
     public function admin()

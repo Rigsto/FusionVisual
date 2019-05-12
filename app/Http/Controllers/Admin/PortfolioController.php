@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Photo;
 use App\Portofolio;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class PortfolioController extends Controller
 {
@@ -40,7 +43,43 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateImage();
+        $input = $request->all();
+        if ($file = $request->file('image')){
+            $tmp = str_replace(" ", "-",$request->name);
+            $type = $file->getClientOriginalExtension();
+            $name = $tmp."_photoProfile.".$type;
+            $file->move('images', $name);
+            $image = Image::make('images/' . $name)->fit(400, 400);
+            $image->save();
+            $pic = Photo::where('path', $name)->first();
+            if ($pic){
+                $pic->update(['path'=>$name]);
+            }else{
+                $photo = Photo::create(['path'=>$name]);
+                $input['photo_id'] = $photo->id;
+            }
+        }
+        Portofolio::create([
+            'nama' => $input['name'],
+            'photo_id' => $input['photo_id'],
+            'tipe' => $input['tipe'],
+            'admin_id' => Auth::id(),
+            'description' => $input['description']
+        ]);
+        return redirect('/admin/portfolio')->with('Success', 'Added New Portfolio');
+    }
+
+    private function new(array $data){
+
+    }
+
+    private function validateImage()
+    {
+        return request()->validate([
+            'image' => 'required|file|image|max:5000',
+
+        ]);
     }
 
     /**

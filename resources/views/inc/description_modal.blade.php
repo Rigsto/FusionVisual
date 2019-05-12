@@ -9,7 +9,7 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body">
-                {{$portfolio->notes}}
+                {{$portfolio->description}}
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
