@@ -22,7 +22,7 @@
                         <tr class="text-center">
                             <td>#WEB{{str_pad($web->id, 4, '0', STR_PAD_LEFT)}}</td>
                             <td>{{$web->pesanan->paket->kodePaket->nama}}</td>
-                            <td>{{$web->pesanan->waktuTerima}}</td>
+                            <td>{{$web->pesanan->waktuTerima->diffForhumans()}}</td>
                             <td>{{$web->pesanan->user->name}}</td>
                             <td>@if($web->status == 0) Idle @elseif($web->status == 1) Ongoing @else Maintenance @endif</td>
                             <td>@if($web->deadline == null) - @else {{$web->deadline}} @endif</td>

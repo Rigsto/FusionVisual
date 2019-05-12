@@ -11,7 +11,7 @@
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <h4>Customer Details</h4>
-                    {!! Form::open(['method'=>'POST']) !!}
+                    {!! Form::open(['method'=>'POST', 'action'=>'CheckoutController@store']) !!}
                     {{ csrf_field() }}
                     @if(isset($web))
                         {!! Form::hidden('id', $web->id) !!}

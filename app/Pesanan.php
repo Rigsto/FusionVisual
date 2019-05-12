@@ -8,6 +8,7 @@ class Pesanan extends Model
 {
     protected $fillable = [
         'paket_id',
+        'user_id',
         'buktiTransfer',
         'statusBayar',
         'statusTerima',

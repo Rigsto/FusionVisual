@@ -8,6 +8,7 @@ class ProyekApp extends Model
 {
     protected $fillable = [
         'nama',
+        'pesanan_id',
         'themeRef',
         'color_id',
         'penjelasan',

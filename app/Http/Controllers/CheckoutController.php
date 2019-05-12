@@ -10,6 +10,7 @@ use App\Pesanan;
 use App\ProyekApp;
 use App\ProyekWeb;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +57,7 @@ class CheckoutController extends Controller
             event(new UserActivationEmail($user));
             $input['user_id'] = $user->id;
         }
+
         $app = PaketApp::where('nama', $request->package)->first();
         if ($app){
             $paket = Paket::where('kodePaket_id', $app->id)->first();
@@ -63,14 +65,15 @@ class CheckoutController extends Controller
             $pesanan = Pesanan::create([
                 'user_id' => $input['user_id'],
                 'paket_id' => $input['paket_id'],
-                'buktiTranfer' => '-',
+                'buktiTransfer' => '-',
                 'statusBayar' => '0',
                 'statusTerima' => '0',
+                'waktuTerima' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             ProyekApp::create([
                 'pesanan_id' => $pesanan->id,
                 'nama' => '-',
-                'theme_Ref' => '-',
+                'themeRef' => '-',
                 'color_id' => 0,
                 'penjelasan' => '-',
                 'status' => '0'
@@ -82,18 +85,21 @@ class CheckoutController extends Controller
             $pesanan = Pesanan::create([
                 'user_id' => $input['user_id'],
                 'paket_id' => $input['paket_id'],
-                'buktiTranfer' => '-',
+                'buktiTransfer' => '-',
                 'statusBayar' => '0',
                 'statusTerima' => '0',
+                'waktuTerima' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             ProyekWeb::create([
                 'pesanan_id' => $pesanan->id,
-                'theme_Ref' => '-',
+                'themeRef' => '-',
                 'color_id' => 0,
                 'penjelasan' => '-',
                 'status' => '0'
             ]);
         }
+
+        return view('/thankyou');
     }
 
     private function createPesanan(){
