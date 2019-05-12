@@ -47,9 +47,9 @@ class PagesController extends Controller
         return view("sign-up");
     }
 
-    public function checkout(){
-        return view("checkout");
-    }
+//    public function checkout(){
+//        return view("checkout");
+//    }
 
     public function review(){
         return view("review");

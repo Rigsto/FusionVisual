@@ -30,8 +30,12 @@
                             <li>@if($paket->siteSearch == 1) <s>Search Feature</s> @else Search Feature @endif</li>
                         </ul>
                     </div>
-                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">Add to
-                            cart</a>
+                    <div class="pricingTable-sign-up">
+                        {!! Form::open(['method'=>'POST', 'action'=> 'CheckoutController@web']) !!}
+                        {{ csrf_field() }}
+                        {!! Form::hidden('id', $paket->id) !!}
+                        {!! Form::button('Add to cart', ['type'=>'submit', 'class'=>'btn btn-block', 'title'=>'Activate User']) !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
@@ -68,8 +72,13 @@
                             <li>@if($paket->siteSearch == 1) <s>Search Feature</s> @else Search Feature @endif</li>
                         </ul>
                     </div>
-                    <div class="pricingTable-sign-up"><a href="{{ route('checkout') }}" class="btn btn-block">Add to
-                            cart</a></div>
+                    <div class="pricingTable-sign-up">
+                        {!! Form::open(['method'=>'POST', 'action'=> 'CheckoutController@web']) !!}
+                        {{ csrf_field() }}
+                        {!! Form::hidden('id', $paket->id) !!}
+                        {!! Form::button('Add to cart', ['type'=>'submit', 'class'=>'btn btn-block', 'title'=>'Activate User']) !!}
+                        {!! Form::close() !!}
+                    </div>
                 </div>
             </div>
                 @endforeach

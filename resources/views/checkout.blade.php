@@ -50,18 +50,47 @@
                 <div class="col-md-4 offset-xl-2">
                     <h4 style="margin: 0;">Your Order</h4>
                     <hr style="margin: 0.5em 0 0.5em 0;border-top: 1px solid black;">
-                    <div>
-                        <h4 style="margin: 0;">Package Name</h4>
-                        <p style="margin: 0;">Description</p>
-                        <p style="margin: 0;">Price</p>
-                    </div>
-                    <hr style="margin: 0.5em 0 0.5em 0;border-top: 1px solid black;">
-                    <div>
-                        <p style="margin: 0;">Subtotal</p>
-                        <p style="margin: 0;">Unique Code</p>
-                        <p style="margin: 0;">Total</p>
-                    </div>
-                    <hr>
+                    @if($web)
+                        <div>
+                            <h4 style="margin: 0;">{{$web->nama}}</h4>
+                            <p style="margin: 0;">{{$web->id == 1 || $web->id == 2 ? 'Website Development Company Profile Packages' : 'Website Development Business Packages'}}</p>
+                            <p style="margin: 0;">Rp. {{number_format($web->harga, 0, '', '.')}},-</p>
+                        </div>
+                        <hr style="margin: 0.5em 0 0.5em 0;border-top: 1px solid black;">
+                        <div class="row no-gutters">
+                            <div class="col-md-6 text-left">
+                                <p style="margin: 0;">Subtotal</p>
+                                <p style="margin: 0;">Unique Code </p>
+                                <p style="margin: 0; font-weight: bold">Total </p>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <p style="margin: 0;">Rp. {{number_format($web->harga, 0, '', '.')}},-</p>
+                                <p style="margin: 0;">Rp. {{number_format($web->harga, 0, '', '.')}},-</p>
+                                <p style="margin: 0; font-weight: bold">Rp. {{number_format($web->harga, 0, '', '.')}},-</p>
+                            </div>
+                        </div>
+                        <hr>
+                    @else
+                        <div>
+                            <h4 style="margin: 0;">{{$app->nama}}</h4>
+                            <p style="margin: 0;">{{$app->id == 1 || $app->id == 2 ? 'Mobile Apps Development Company Profile Packages' : 'Mobile Apps Development Business Packages'}}</p>
+                            <p style="margin: 0;">Rp. {{number_format($app->harga, 0, '', '.')}},-</p>
+                        </div>
+                        <hr style="margin: 0.5em 0 0.5em 0;border-top: 1px solid black;">
+                        <div class="row no-gutters">
+                            <div class="col-md-6 text-left">
+                                <p style="margin: 0;">Subtotal</p>
+                                <p style="margin: 0;">Unique Code </p>
+                                <p style="margin: 0; font-weight: bold">Total </p>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <p style="margin: 0;">Rp. {{number_format($app->harga, 0, '', '.')}},-</p>
+                                <p style="margin: 0;">Rp. {{number_format($app->harga, 0, '', '.')}},-</p>
+                                <p style="margin: 0; font-weight: bold">Rp. {{number_format($app->harga, 0, '', '.')}},-</p>
+                            </div>
+                        </div>
+                        <hr>
+                    @endif
                 </div>
             </div>
         </div>

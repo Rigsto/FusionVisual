@@ -21,7 +21,7 @@ Route::get('/mobile', "PagesController@mobile")->name('mobile');
 Route::get('/portfolio', "PagesController@portfolio")->name('portfolio');
 Route::get('/meet', "PagesController@meet")->name('meet-us');
 Route::get('/contact', "PagesController@contact")->name('contact-us');
-Route::get('/checkout', "PagesController@checkout")->name('checkout');
+//Route::get('/checkout', "PagesController@checkout")->name('checkout');
 Route::get('/review', "PagesController@review")->name('review');
 Route::get('/activate', 'Auth\ActivationController@activate')->name('activate');
 Route::get('/resend', 'Auth\ActivationController@showResendForm')->name('resend');
@@ -30,6 +30,10 @@ Route::post('/resend', 'Auth\ActivationController@resend');
 Route::get('/thankyou', function (){
     return view('thankyou');
 });
+
+Route::resource('/checkout', 'CheckoutController');
+Route::post('/checkout/app', 'CheckoutController@app')->name('checkout.app');
+Route::post('/checkout/web', 'CheckoutController@web')->name('checkout.web');
 
 Route::post('/meet', 'FormController@meetus');
 Route::post('/contact', 'FormController@contactus');
