@@ -107,6 +107,9 @@ class ProjectController extends Controller
                     ProyekWeb::find($id)->pesanan()->update([
                         'statusTerima' => '2'
                     ]);
+                    ProyekWeb::find($id)->update([
+                        'status' => '1'
+                    ]);
                     $mail = 'Web Project - #WEB'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
                     break;
                 } else {
@@ -121,6 +124,9 @@ class ProjectController extends Controller
                     ProyekApp::find($id)->pesanan()->update([
                         'statusTerima' => '2'
                     ]);
+                    ProyekApp::find($id)->update([
+                        'status' => '1'
+                    ]);
                     $mail = 'APP Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
                     break;
                 } else {
@@ -134,6 +140,9 @@ class ProjectController extends Controller
                 if ($acdc == 'accept'){
                     ProyekDesain::find($id)->pesanan()->update([
                         'statusTerima' => '2'
+                    ]);
+                    ProyekDesain::find($id)->update([
+                        'status' => '1'
                     ]);
                     $mail = 'Design Project - #DES'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
                     break;

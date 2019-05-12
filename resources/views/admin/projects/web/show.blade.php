@@ -149,6 +149,11 @@
                             @if($web->pesanan->statusTerima == 0)
                                 <a href="{{ route('project.acdc', ['tipe'=>'web', 'id'=>$web->id, 'acdc'=>'accept']) }}" class="btn btn-success">Accept Project</a>
                                 <a href="{{ route('project.acdc', ['tipe'=>'web', 'id'=>$web->id, 'acdc'=>'reject']) }}" class="btn btn-danger">Reject Project</a>
+                            @elseif($web->pesanan->statusTerima == 2)
+                                <a href="{{ route('project.acdc', ['tipe'=>'web', 'id'=>$web->id, 'acdc'=>'accept']) }}" class="btn btn-warning">Maintenance</a>
+                                <a href="{{ route('project.acdc', ['tipe'=>'web', 'id'=>$web->id, 'acdc'=>'accept']) }}" class="btn btn-success">Finished</a>
+                            @else
+                                <a href="{{ route('project.acdc', ['tipe'=>'web', 'id'=>$web->id, 'acdc'=>'reject']) }}" class="btn btn-danger">Delete</a>
                             @endif
                         </div>
                     </div>

@@ -8,7 +8,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr class="text-center">
-                        <th>Id</th>
                         <th>Package Type</th>
                         <th>Ordered on</th>
                         @if($tipe == 'Android Application')
@@ -22,11 +21,10 @@
                     <tbody>
                     @foreach($pes as $pe)
                         <tr class="text-center">
-                            <td>{{$pe->id}}</td>
                             <td>{{$pe->paket->kodePaket->nama}}</td>
-                            <td>{{$pe->waktuTerima}}</td>
+                            <td>{{\Carbon\Carbon::parse($pe->waktuTerima)->format('d F Y')}}</td>
                             @if($tipe == 'Android Application')
-                                <td>{{$pe->proyekApp->namaApp}}</td>
+                                <td>{{$pe->proyekApp->nama}}</td>
                             @endif
                             <td>
                                 @if($tipe == 'Website')
@@ -41,7 +39,7 @@
                                 @if($tipe == 'Website')
                                     @if($pe->proyekWeb->deadline == null) - @else {{\Carbon\Carbon::parse($pe->proyekWeb->deadline)->format('d F Y')}} @endif
                                 @elseif($tipe == 'Android Application')
-                                    @if($pe->proyekApp->deadline == null) - @else {{$pe->proyekApp->deadline}} @endif
+                                    @if($pe->proyekApp->deadline == null) - @else {{\Carbon\Carbon::parse($pe->proyekApp->deadline)->format('d F Y')}} @endif
                                 @else
                                     @if($pe->proyekDes->deadline == null) - @else {{$pe->proyekDes->deadline}} @endif
                                 @endif
