@@ -69,7 +69,7 @@
                             <h6>Deadline</h6>
                         </div>
                         <div class="col-md-9">
-                            : @if($app->deadline == null) - @else {{$app->deadline}} @endif
+                            : @if($app->deadline == null) - @else {{\Carbon\Carbon::parse($app->deadline)->format('d F Y')}} @endif
                         </div>
                     </div>
                     <div class="row">

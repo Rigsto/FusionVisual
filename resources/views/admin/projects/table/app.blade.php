@@ -25,9 +25,9 @@
                             <td>{{$app->pesanan->paket->kodePaket->nama}}</td>
                             <td>{{\Carbon\Carbon::parse($app->pesanan->waktuTerima)->format('d F Y')}}</td>
                             <td>{{$app->pesanan->user->name}}</td>
-                            <td>@if($app->namaApp == null) - @else {{$app->namaApp}} @endif</td>
+                            <td>@if($app->nama == null) - @else {{$app->nama}} @endif</td>
                             <td>@if($app->status == 0) Idle @elseif($app->status == 1) Ongoing @else Maintenance @endif</td>
-                            <td>@if($app->deadline == null) - @else {{$app->deadline}} @endif</td>
+                            <td>@if($app->deadline == null) - @else {{\Carbon\Carbon::parse($app->deadline)->format('d F Y')}} @endif</td>
                             <td width="100px"><div class="row no-gutters">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-6">

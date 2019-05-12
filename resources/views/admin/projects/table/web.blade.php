@@ -25,7 +25,7 @@
                             <td>{{\Carbon\Carbon::parse($web->pesanan->waktuTerima)->format('d F Y')}}</td>
                             <td>{{$web->pesanan->user->name}}</td>
                             <td>@if($web->status == 0) Idle @elseif($web->status == 1) Ongoing @else Maintenance @endif</td>
-                            <td>@if($web->deadline == null) - @else {{$web->deadline}} @endif</td>
+                            <td>@if($web->deadline == null) - @else {{\Carbon\Carbon::parse($web->deadline)->format('d F Y')}} @endif</td>
                             <td width="100px"><div class="row no-gutters">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-6">

@@ -39,7 +39,7 @@
                             </td>
                             <td>
                                 @if($tipe == 'Website')
-                                    @if($pe->proyekWeb->deadline == null) - @else {{$pe->proyekWeb->deadline}} @endif
+                                    @if($pe->proyekWeb->deadline == null) - @else {{\Carbon\Carbon::parse($pe->proyekWeb->deadline)->format('d F Y')}} @endif
                                 @elseif($tipe == 'Android Application')
                                     @if($pe->proyekApp->deadline == null) - @else {{$pe->proyekApp->deadline}} @endif
                                 @else

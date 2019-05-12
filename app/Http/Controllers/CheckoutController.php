@@ -67,7 +67,8 @@ class CheckoutController extends Controller
 
         $app = PaketApp::where('nama', $request->package)->first();
         if ($app){
-            $paket = Paket::where('kodePaket_id', $app->id)->first();
+            $dead = $app->duration;
+            $paket = Paket::where('kodePaket_id', $app->id)->where('kodePaket_type', 'App\PaketApp')->first();
             $input['paket_id'] = $paket->id;
             $pesanan = Pesanan::create([
                 'user_id' => $input['user_id'],
@@ -83,11 +84,13 @@ class CheckoutController extends Controller
                 'themeRef' => $input['reff'],
                 'color_id' => $color->id,
                 'penjelasan' => $input['description'],
-                'status' => '0'
+                'status' => '0',
+                'deadline' => Carbon::now()->addDay($dead)->format('Y-m-d H:i:s')
             ]);
         }else{
             $web = PaketWeb::where('nama', $request->package)->first();
-            $paket = Paket::where('kodePaket_id', $web->id)->first();
+            $dead = $web->duration;
+            $paket = Paket::where('kodePaket_id', $web->id)->where('kodePaket_type', 'App\PaketWeb')->first();
             $input['paket_id'] = $paket->id;
             $pesanan = Pesanan::create([
                 'user_id' => $input['user_id'],
@@ -102,7 +105,8 @@ class CheckoutController extends Controller
                 'themeRef' => $input['reff'],
                 'color_id' => $color->id,
                 'penjelasan' => $input['description'],
-                'status' => '0'
+                'status' => '0',
+                'deadline' => Carbon::now()->addDay($dead)->format('Y-m-d H:i:s')
             ]);
         }
 

@@ -1,6 +1,6 @@
 @extends('layout.pages')
 @section('content')
-    <section id="head" class="revtitlebg">
+    <section id="head">
         <div class="container couttitle">
             <h2>Checkout</h2>
         </div>
