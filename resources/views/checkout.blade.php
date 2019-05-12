@@ -7,11 +7,19 @@
     </section>
     <section id="coutform" class="py-5">
         <div class="container">
+            @include('inc.alert')
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <h4>Customer Details</h4>
                     {!! Form::open(['method'=>'POST']) !!}
                     {{ csrf_field() }}
+                    @if(isset($web))
+                        {!! Form::hidden('id', $web->id) !!}
+                        {!! Form::hidden('package', $web->nama) !!}
+                    @else
+                        {!! Form::hidden('id', $app->id) !!}
+                        {!! Form::hidden('package', $app->nama) !!}
+                    @endif
                     <div class="form-group">
                         <label>Email Address</label>
                         @if($user = \Illuminate\Support\Facades\Auth::user())
