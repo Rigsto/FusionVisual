@@ -13,7 +13,13 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::paginate(5);
-        return view('review', compact('reviews'));
+        $cek = Review::where('user_id', Auth::id())->first();
+        if ($cek){
+            $input = false;
+        }else{
+            $input = true;
+        }
+        return view('review', compact('reviews', 'input'));
     }
 
     /**
@@ -77,7 +83,9 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $review = Review::findOrFail($id);
+        $review->update($request->all());
+        return redirect('review');
     }
 
     /**
@@ -88,6 +96,8 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $review = Review::findOrFail($id);
+        $review->delete();
+        return redirect('review');
     }
 }

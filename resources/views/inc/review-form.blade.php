@@ -66,7 +66,11 @@
         </div>
         <div class="form-row no-gutters">
             <div class="col text-center">
-                {!! Form::submit('Submit Review', ['class'=>'btn btn-outline-primary']) !!}
+                @if($input == false)
+                    {!! Form::submit('Submit Review', ['class'=>'btn btn-outline-primary', 'disabled']) !!}
+                @else
+                    {!! Form::submit('Submit Review', ['class'=>'btn btn-outline-primary']) !!}
+                @endif
             </div>
         </div>
     {!! Form::close() !!}

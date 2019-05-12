@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\PaketApp;
 use App\PaketWeb;
 use App\Portofolio;
+use App\Review;
 
 class PagesController extends Controller
 {
     public function index(){
-        return view("index");
+        $reviews = Review::all()->take(3);
+        $cust = Review::all()->count();
+        return view("index", compact('cust', 'reviews'));
     }
 
     public function design(){
@@ -51,7 +54,7 @@ class PagesController extends Controller
 //        return view("checkout");
 //    }
 
-    public function review(){
-        return view("review");
-    }
+//    public function review(){
+//        return view("review");
+//    }
 }

@@ -114,79 +114,43 @@
             </div>
         </div>
     </section>
+    @if(count($reviews) > 0)
     <section class="testimoni">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-md-12 test">
                     <h1>Our Customers Testimonial</h1>
-                    <p>9 to 10 Rating based on XXX customers review.&nbsp;<a href="{{ route('review.index') }}">Show More</a>
+                    <p>Top {{count($reviews)}} Rating based on {{$cust}} customers review.&nbsp;<a href="{{ route('review.index') }}">Show More</a>
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                @foreach($reviews as $review)
+                <div class="col-md-4 py-3">
                     <div>
                         <div class="col-md-12 review">
                             <div class="row no-gutters">
                                 <div class="col-md-12">
-                                    <p class="contentreview"><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.<br></p>
+                                    <p class="contentreview">{{$review->comments}}</p><br>
                                 </div>
                             </div>
                             <div class="row no-gutters">
-                                <div class="col-md-4 imgrev"><img class="rounded-circle img-fluid" src="assets/img/cover.jpg" width="150"></div>
+                                <div class="col-md-4 imgrev"><img class="rounded-circle img-fluid" src="{{asset('images/'.$review->user->photo->path)}}" width="150"></div>
                                 <div class="col-md-8">
                                     <div class="inforev">
-                                        <h3 class="namerev">Nakano Ichika</h3>
-                                        <p class="comrev">Company Name</p>
+                                        <h3 class="namerev">{{$review->user->name}}</h3>
+                                        <p class="comrev">{{$review->activity}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div>
-                        <div class="col-md-12 review">
-                            <div class="row no-gutters">
-                                <div class="col-md-12">
-                                    <p class="contentreview"><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.<br></p>
-                                </div>
-                            </div>
-                            <div class="row no-gutters">
-                                <div class="col-md-4 imgrev"><img class="rounded-circle img-fluid" src="assets/img/cover.jpg" width="150"></div>
-                                <div class="col-md-8">
-                                    <div class="inforev">
-                                        <h3 class="namerev">Nakano Miku</h3>
-                                        <p class="comrev">Company Name</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div>
-                        <div class="col-md-12 review">
-                            <div class="row no-gutters">
-                                <div class="col-md-12">
-                                    <p class="contentreview"><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.<br></p>
-                                </div>
-                            </div>
-                            <div class="row no-gutters">
-                                <div class="col-md-4 imgrev"><img class="rounded-circle img-fluid" src="assets/img/cover.jpg" width="150"></div>
-                                <div class="col-md-8">
-                                    <div class="inforev">
-                                        <h3 class="namerev">Nakano Itsuki</h3>
-                                        <p class="comrev">Company Name</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
     @include('nav.footer')
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
