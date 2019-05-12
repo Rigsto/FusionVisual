@@ -45,7 +45,7 @@
                     @endguest
                     <h4>Order Details</h4>
                     <div class="form-group">
-                        @if(isset($app))
+                        @if(!isset($web))
                         <label>Application Name</label>
                         {!! Form::text('appname', null, ['class'=>'form-control', 'placeholder'=>'Application Name..' , 'required'=>'']) !!}
                         @endif

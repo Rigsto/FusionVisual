@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Color;
 use App\Events\UserActivationEmail;
 use App\Paket;
 use App\PaketApp;
@@ -58,6 +59,12 @@ class CheckoutController extends Controller
             $input['user_id'] = $user->id;
         }
 
+        $color = Color::create([
+            'colorPrimary' => $input['colorPrimary'],
+            'colorSecondary' => $input['colorSecondary'],
+            'colorTertiary' => $input['colorTertiary'],
+        ]);
+
         $app = PaketApp::where('nama', $request->package)->first();
         if ($app){
             $paket = Paket::where('kodePaket_id', $app->id)->first();
@@ -72,10 +79,10 @@ class CheckoutController extends Controller
             ]);
             ProyekApp::create([
                 'pesanan_id' => $pesanan->id,
-                'nama' => '-',
-                'themeRef' => '-',
-                'color_id' => 0,
-                'penjelasan' => '-',
+                'nama' => $input['appname'],
+                'themeRef' => $input['reff'],
+                'color_id' => $color->id,
+                'penjelasan' => $input['description'],
                 'status' => '0'
             ]);
         }else{
@@ -92,9 +99,9 @@ class CheckoutController extends Controller
             ]);
             ProyekWeb::create([
                 'pesanan_id' => $pesanan->id,
-                'themeRef' => '-',
-                'color_id' => 0,
-                'penjelasan' => '-',
+                'themeRef' => $input['reff'],
+                'color_id' => $color->id,
+                'penjelasan' => $input['description'],
                 'status' => '0'
             ]);
         }
