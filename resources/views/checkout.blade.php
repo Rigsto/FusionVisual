@@ -5,7 +5,7 @@
             <h2>Checkout</h2>
         </div>
     </section>
-    <section id="coutform" class="py-5">
+    <section id="coutform" class="py-1">
         <div class="container">
             @include('inc.alert')
             <div class="row no-gutters">
@@ -43,12 +43,42 @@
                         {!! Form::password('password_confirmation', ['class'=>'form-control', 'placeholder'=>'Re-type Password...' , 'required'=>'']) !!}
                     </div>
                     @endguest
+                    <h4>Order Details</h4>
+                    <div class="form-group">
+                        @if(isset($app))
+                        <label>Application Name</label>
+                        {!! Form::text('appname', null, ['class'=>'form-control', 'placeholder'=>'Application Name..' , 'required'=>'']) !!}
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label>Template / Design Reference</label>
+                        {!! Form::text('reff', null, ['class'=>'form-control', 'placeholder'=>'Template / Design Reference..' , 'required'=>'']) !!}
+                    </div>
+                    <div class="form-group">
+                        <label>Color</label>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Primary Color</label>
+                                {!! Form::text('colorPrimary', null, ['class' => 'form-control colorpicker', 'required'=>'' ,'placeholder' => 'Primary Color..']) !!}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Secondary Color</label>
+                                {!! Form::text('colorSecondary', null, ['class' => 'form-control colorpicker', 'required'=>'', 'placeholder' => 'Secondary Color..']) !!}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Tertiary Color</label>
+                                {!! Form::text('colorTertiary', null, ['class' => 'form-control colorpicker', 'required'=>'', 'placeholder' => 'Tertiary Color..']) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        {!! Form::textarea('description', null, ['class'=>'form-control', 'required', 'rows' => '4', 'style' => 'resize:none', 'placeholder'=>'Description..' ])!!}
+                    </div>
                     <h4>Payment Details</h4>
                     <div class="form-group">
                         <label>Bank Transfer</label>
-                        {!! Form::select('payment', array('Choose Bank',
-                                            'BCA'),
-                            null, ['class'=>'custom-select', 'id' => 'mplace']) !!}
+                        {!! Form::select('payment', [''=>'Choose Bank', 1 => 'BCA'], null, ['class'=>'custom-select', 'required']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::submit('Complete Order', ['class'=>'btn btn-primary']) !!}
