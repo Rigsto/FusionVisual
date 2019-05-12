@@ -27,6 +27,10 @@ Route::get('/activate', 'Auth\ActivationController@activate')->name('activate');
 Route::get('/resend', 'Auth\ActivationController@showResendForm')->name('resend');
 Route::post('/resend', 'Auth\ActivationController@resend');
 
+Route::get('/thankyou', function (){
+    return view('thankyou');
+});
+
 Route::post('/meet', 'FormController@meetus');
 Route::post('/contact', 'FormController@contactus');
 Route::post('/subscribe', 'Admin\NewsletterController@store');
