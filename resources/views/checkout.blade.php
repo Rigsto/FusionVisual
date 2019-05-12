@@ -50,7 +50,8 @@
                 <div class="col-md-4 offset-xl-2">
                     <h4 style="margin: 0;">Your Order</h4>
                     <hr style="margin: 0.5em 0 0.5em 0;border-top: 1px solid black;">
-                    @if($web)
+{{--                    {{dd($app)}}--}}
+                    @if(isset($web))
                         <div>
                             <h4 style="margin: 0;">{{$web->nama}}</h4>
                             <p style="margin: 0;">{{$web->id == 1 || $web->id == 2 ? 'Website Development Company Profile Packages' : 'Website Development Business Packages'}}</p>

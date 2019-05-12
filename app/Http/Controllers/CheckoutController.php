@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PaketApp;
 use App\PaketWeb;
 use Illuminate\Http\Request;
 
@@ -57,7 +58,7 @@ class CheckoutController extends Controller
 
     public function app(Request $request)
     {
-        $app = PaketWeb::where('id', $request->id)->first();
+        $app = PaketApp::where('id', $request->id)->first();
         return view('/checkout', compact('app'));
     }
 
