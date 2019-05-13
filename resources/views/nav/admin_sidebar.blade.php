@@ -12,11 +12,11 @@
         </a>
         <div id="collapseTwo" class="collapse @if($pages=='mhome' || $pages=='mport' || $pages=='mMeet' || $pages=='mcont' || $pages=='mabout') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if($pages=='mhome') active @endif" href="">Home</a>
-                <a class="collapse-item @if($pages=='mport') active @endif" href="">Portfolio</a>
-                <a class="collapse-item @if($pages=='mMeet') active @endif" href="">Meet Us</a>
-                <a class="collapse-item @if($pages=='mcont') active @endif" href="">Contact Us</a>
-                <a class="collapse-item @if($pages=='mabout') active @endif" href="">About Us</a>
+                <a class="collapse-item @if($pages=='mhome') active @endif" href="{{ route('page.index', 'home') }}">Home</a>
+                <a class="collapse-item @if($pages=='mport') active @endif" href="{{ route('page.index', 'portfolio') }}">Portfolio</a>
+                <a class="collapse-item @if($pages=='mMeet') active @endif" href="{{ route('page.index', 'meet-us') }}">Meet Us</a>
+                <a class="collapse-item @if($pages=='mcont') active @endif" href="{{ route('page.index', 'contact-us') }}">Contact Us</a>
+                <a class="collapse-item @if($pages=='mabout') active @endif" href="{{ route('page.index', 'about-us') }}">About Us</a>
             </div>
         </div>
     </li>
