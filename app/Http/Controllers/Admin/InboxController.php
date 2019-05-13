@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\ContactUs;
+use App\Events\ReplyContactUsMailEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class InboxController extends Controller
 {
@@ -73,7 +75,12 @@ class InboxController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inbox = ContactUs::findOrFail($id);
+        $input = $request->all();
+        event(new ReplyContactUsMailEvent($input));
+        $inbox->update(['admin_id' => $request->ids]);
+        $inbox->delete();
+        return redirect('admin/inbox')->with('Success', 'Replied a message');
     }
 
     /**

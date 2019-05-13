@@ -9,8 +9,9 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body" style="text-align: left;">
-                {!! Form::open(['method'=>'POST']) !!}
+                {!! Form::model($inbox,['method'=>'PATCH', 'action'=>['Admin\InboxController@update', $inbox->id]]) !!}
                 {{ csrf_field() }}
+                {!! Form::hidden('ids', \Illuminate\Support\Facades\Auth::id()) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Email') !!}
                     {!! Form::email('email', $inbox->email, ['class'=>'form-control', 'readonly'])!!}

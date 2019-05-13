@@ -14,6 +14,7 @@ class ContactUs extends Model
         'name',
         'subject',
         'email',
-        'body'
+        'body',
+        'admin_id'
     ];
 }

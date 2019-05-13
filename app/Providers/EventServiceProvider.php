@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\ReplyContactUsMailEvent;
 use App\Events\UserActivationEmail;
 use App\Listeners\SendActivationEmail;
+use App\Listeners\SendReplyContactUsMail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -21,6 +23,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         UserActivationEmail::class => [
             SendActivationEmail::class,
+        ],
+        ReplyContactUsMailEvent::class => [
+            SendReplyContactUsMail::class,
         ],
     ];
 
