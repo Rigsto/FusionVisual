@@ -9,12 +9,29 @@ class PageController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param string $page
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($page)
     {
-        return view('admin.pages.index');
+        switch ($page){
+            case 'home':
+                $pages = 'mhome';
+                break;
+            case 'portfolio':
+                $pages = 'mport';
+                break;
+            case 'meet-us':
+                $pages = 'mMeet';
+                break;
+            case 'contact-us':
+                $pages = 'mcont';
+                break;
+            case 'about-us':
+                $pages = 'mabout';
+                break;
+        }
+        return view('admin.pages.index', compact('pages'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Faq;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -15,8 +16,9 @@ class FaqlistController extends Controller
      */
     public function index()
     {
+        $faqs = Faq::all();
         $pages = 'faq';
-        return view('user.faq.index', compact('pages'));
+        return view('user.faq.index', compact('pages', 'faqs'));
     }
 
     /**

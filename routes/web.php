@@ -55,7 +55,8 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('/admin/blog', 'Admin\BlogController');
     Route::resource('/admin/faq', 'Admin\FaqController');
     Route::resource('/admin/newsletter', 'Admin\NewsletterController')->except('store');
-    Route::resource('/admin/page', 'Admin\PageController');
+    Route::resource('/admin/page', 'Admin\PageController')->except('index');
+    Route::get('/admin/page/{page}', ['as'=>'page.index', 'uses'=>'Admin\PageController@index']);
     Route::resource('/admin/project', 'Admin\ProjectController');
 
     Route::resource('/admin/project/web', 'Admin\ProyekWebController');
