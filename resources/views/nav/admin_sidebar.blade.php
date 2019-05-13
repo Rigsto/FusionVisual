@@ -60,5 +60,15 @@
                     class="fas fa-fw fa-rss"></i><span>Blog</span></a></li>
     <li class="nav-item @if($pages=='testi') active @endif"><a class="nav-link" href="{{ route('testimoni.index') }}"><i
                     class="fas fa-fw fa-comment"></i><span>Testimoni</span></a></li>
-    <li class="nav-item @if($pages=='faq') active @endif"><a class="nav-link" href="{{ route('faq.index') }}"><i class="fas fa-fw fa-question-circle"></i><span>FAQ</span></a></li>
+   <li class="nav-item @if($pages=='faq' || $pages=='newfaq') active @endif">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFaq" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-question-circle"></i><span>FAQ</span>
+        </a>
+        <div id="collapseFaq" class="collapse @if($pages=='faq' || $pages=='newfaq') show @endif" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if($pages=='faq') active @endif" href="{{ route('faq.index') }}">Question List</a>
+                <a class="collapse-item @if($pages=='newfaq') active @endif" href="{{ route('faq.create') }}">New Question</a>
+            </div>
+        </div>
+    </li>
 </ul>

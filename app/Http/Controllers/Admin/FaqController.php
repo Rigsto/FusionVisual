@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Faq;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -16,7 +17,8 @@ class FaqController extends Controller
     public function index()
     {
         $pages = 'faq';
-        return view('admin.faq.index', compact('pages'));
+        $faq = Faq::all();
+        return view('admin.faq.index', compact('pages', 'faq'));
     }
 
     /**
@@ -26,7 +28,8 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        $pages = 'newfaq';
+        return view('admin.faq.create', compact('pages'));
     }
 
     /**
@@ -37,7 +40,8 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Faq::create($request->all());
+        return redirect()->route('faq.index')->with('Success', 'Added New Frequent Asked Question');
     }
 
     /**
@@ -59,7 +63,9 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $faq = Faq::find($id);
+        $pages = 'faq';
+        return view('admin.faq.edit', compact('faq', 'pages'));
     }
 
     /**
@@ -71,7 +77,9 @@ class FaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $faq = Faq::find($id);
+        $faq->update($request->all());
+        return redirect()->route('faq.index')->with('Success', 'Frequent Asked Question Edited');
     }
 
     /**
@@ -82,6 +90,7 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Faq::find($id)->delete();
+        return redirect()->route('faq.index')->with('Success', 'Frequent Asked Question Deleted');
     }
 }
