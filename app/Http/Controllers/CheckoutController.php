@@ -89,14 +89,11 @@ class CheckoutController extends Controller
                 'deadline' => Carbon::now()->addDay($dead)->format('Y-m-d H:i:s')
             ]);
             $mail = [
-                'invoice_number',
                 'email' => Auth::user()->email,
                 'package_name' => $app->nama,
-                'package_type',
+                'package_type' => "Mobile Application Development",
                 'harga' => $app->harga,
-                'subtotal' => $app->harga,
-                'unique_code' => 001,
-                'total' => $app->harga+001
+                'total' => $app->harga
             ];
         }else{
             $web = PaketWeb::where('nama', $request->package)->first();
@@ -120,23 +117,16 @@ class CheckoutController extends Controller
                 'deadline' => Carbon::now()->addDay($dead)->format('Y-m-d H:i:s')
             ]);
             $mail = [
-                'invoice_number',
                 'email' => Auth::user()->email,
                 'package_name' => $web->nama,
-                'package_type',
+                'package_type'=> 'Website Development',
                 'harga' => $web->harga,
-                'subtotal' => $web->harga,
-                'unique_code' => 001,
-                'total' => $web->harga+001
+                'total' => $web->harga
             ];
         }
 
         event(new OrderConfirmation($mail));
         return view('/thankyou');
-    }
-
-    private function createPesanan(){
-
     }
 
     protected function validator(array $data)

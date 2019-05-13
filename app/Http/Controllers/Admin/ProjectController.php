@@ -19,9 +19,9 @@ class ProjectController extends Controller
     public function index()
     {
         $pages = 'proj';
-        $webs = ProyekWeb::paginate(5);
-        $apps = ProyekApp::paginate(5);
-        $dess = ProyekDesain::paginate(5);
+        $webs = ProyekWeb::paginate(5,['*'],'web');
+        $apps = ProyekApp::paginate(5,['*'],'apps');
+        $dess = ProyekDesain::paginate(5,['*'],'design');
         return view('admin.projects.index', compact('pages', 'webs', 'apps', 'dess'));
     }
 

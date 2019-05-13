@@ -1,12 +1,21 @@
 @component('mail::message')
-# Introduction
+<h1>Thank you for ordering on Fusions Visual</h1>
 
-The body of your message.
+Here your order detail :
+<hr>
+Package     : {{$mail['package_name']}}
+<br>Description : {{$mail['package_type']}}
+<br>Price       : Rp. {{number_format($mail['harga'], 0, '', '.')}},-
+<hr>
+<p style="text-align: center"><b>Total       : Rp. {{number_format($mail['total'], 0, '', '.')}},-</b></p>
+<hr>
+<p style="text-align: center">Finish your payment to complete your order.</p><br>
+<h1 style="text-align: center">BCA - 72727272 a/n FusionsVisual</h1>
 
 @component('mail::button', ['url' => ''])
-Button Text
+UPLOAD PAYMENT RECEIPT
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Fusions Visual
 @endcomponent

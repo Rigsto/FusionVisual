@@ -37,6 +37,9 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div class="float-right">
+                    {{$webs->links()}}
+                </div>
             @else
                 <h1 class="h4 mb-0 font-weight-bold text-primary">No Project</h1>
             @endif
