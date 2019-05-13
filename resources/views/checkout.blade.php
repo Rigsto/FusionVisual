@@ -98,13 +98,9 @@
                         <hr style="margin: 0.5em 0 0.5em 0;border-top: 1px solid black;">
                         <div class="row no-gutters">
                             <div class="col-md-6 text-left">
-                                <p style="margin: 0;">Subtotal</p>
-                                <p style="margin: 0;">Unique Code </p>
                                 <p style="margin: 0; font-weight: bold">Total </p>
                             </div>
                             <div class="col-md-6 text-right">
-                                <p style="margin: 0;">Rp. {{number_format($web->harga, 0, '', '.')}},-</p>
-                                <p style="margin: 0;">Rp. {{number_format($web->harga, 0, '', '.')}},-</p>
                                 <p style="margin: 0; font-weight: bold">Rp. {{number_format($web->harga, 0, '', '.')}},-</p>
                             </div>
                         </div>
@@ -118,13 +114,9 @@
                         <hr style="margin: 0.5em 0 0.5em 0;border-top: 1px solid black;">
                         <div class="row no-gutters">
                             <div class="col-md-6 text-left">
-                                <p style="margin: 0;">Subtotal</p>
-                                <p style="margin: 0;">Unique Code </p>
                                 <p style="margin: 0; font-weight: bold">Total </p>
                             </div>
                             <div class="col-md-6 text-right">
-                                <p style="margin: 0;">Rp. {{number_format($app->harga, 0, '', '.')}},-</p>
-                                <p style="margin: 0;">Rp. {{number_format($app->harga, 0, '', '.')}},-</p>
                                 <p style="margin: 0; font-weight: bold">Rp. {{number_format($app->harga, 0, '', '.')}},-</p>
                             </div>
                         </div>

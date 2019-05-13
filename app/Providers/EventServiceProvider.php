@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\OrderConfirmation;
 use App\Events\ReplyContactUsMailEvent;
 use App\Events\UserActivationEmail;
 use App\Listeners\SendActivationEmail;
+use App\Listeners\SendOrderConfirmationEmail;
 use App\Listeners\SendReplyContactUsMail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -26,6 +28,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         ReplyContactUsMailEvent::class => [
             SendReplyContactUsMail::class,
+        ],
+        OrderConfirmation::class => [
+            SendOrderConfirmationEmail::class,
         ],
     ];
 

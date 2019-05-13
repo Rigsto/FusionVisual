@@ -32,7 +32,7 @@
                         {!! Form::open(['method'=>'POST', 'action'=> 'CheckoutController@app']) !!}
                         {{ csrf_field() }}
                         {!! Form::hidden('id', $paket->id) !!}
-                        {!! Form::button('Add to cart', ['type'=>'submit', 'class'=>'btn btn-block', 'title'=>'Activate User']) !!}
+                        {!! Form::button('Order Now', ['type'=>'submit', 'class'=>'btn btn-block', 'title'=>'Activate User']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                                 {!! Form::open(['method'=>'POST', 'action'=> 'CheckoutController@app']) !!}
                                 {{ csrf_field() }}
                                 {!! Form::hidden('id', $paket->id) !!}
-                                {!! Form::button('Add to cart', ['type'=>'submit', 'class'=>'btn btn-block', 'title'=>'Activate User']) !!}
+                                {!! Form::button('Order Now', ['type'=>'submit', 'class'=>'btn btn-block', 'title'=>'Activate User']) !!}
                                 {!! Form::close() !!}
                             </div>
                         </div>

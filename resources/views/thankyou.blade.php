@@ -4,7 +4,7 @@
         <h1 class="text-center">Thank you for<br>Your Order!</h1>
         <p class="text-center">A confirmation email has sent!</p>
         <div class="text-center">
-            <button class="btn btn-outline-primary" type="button">Dashboard</button>
+            <a class="btn btn-outline-primary" href="https://mail.google.com">Cek Email</a>
         </div>
     </div>
 @endsection
