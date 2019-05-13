@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -15,8 +16,9 @@ class TestimoniController extends Controller
      */
     public function index()
     {
+        $reviews = Review::paginate(5);
         $pages = 'testi';
-        return view('admin.testimoni.index', compact('pages'));
+        return view('admin.testimoni.index', compact('pages', 'reviews'));
     }
 
     /**
@@ -82,6 +84,8 @@ class TestimoniController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $r = Review::findOrFail($id);
+        $r->delete();
+        return redirect()->back()->with('Success', 'Review Deleted');
     }
 }
