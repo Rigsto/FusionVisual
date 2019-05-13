@@ -14,6 +14,7 @@
 	<!-- Custom styles for this template-->
 	<link href="{{asset('dashboard/css/sb-admin-2.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/css/bootstrap-colorpicker.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -59,6 +60,10 @@
 	$('.table-responsive').on('show.bs.dropdown', function () {
 		$('.table-responsive').css( "overflow", "inherit" );
 	});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/js/bootstrap-colorpicker.min.js"></script>
+<script>
+	$('.colorpicker').colorpicker();
 </script>
 </body>
 </html>

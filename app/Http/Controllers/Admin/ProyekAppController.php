@@ -60,7 +60,9 @@ class ProyekAppController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pages = 'proj';
+        $app = ProyekApp::findOrFail($id);
+        return view('admin.projects.app.edit', compact('app', 'pages'));
     }
 
     /**
