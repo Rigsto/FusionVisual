@@ -74,7 +74,16 @@ class ProyekWebController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $web = ProyekWeb::findOrFail($id);
+        $update = $request->all();
+        if ($file = $request->file('zipData')){
+            $type = $file->getClientOriginalExtension();
+            $name = $web->id."_zipData.".$type;
+            $file->move('zip', $name);
+            $update['zipData'] = $name;
+        }
+        $web->update($update);
+        return redirect()->back()->with('Success', 'Project Updated');
     }
 
     /**

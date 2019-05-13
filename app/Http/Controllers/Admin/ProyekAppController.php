@@ -74,7 +74,16 @@ class ProyekAppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $app = ProyekApp::findOrFail($id);
+        $update = $request->all();
+        if ($file = $request->file('zipData')){
+            $type = $file->getClientOriginalExtension();
+            $name = $app->id."_zipData.".$type;
+            $file->move('zip', $name);
+            $update['zipData'] = $name;
+        }
+        $app->update($update);
+        return redirect()->back()->with('Success', 'Project Updated');
     }
 
     /**
