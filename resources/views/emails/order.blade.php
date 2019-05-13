@@ -3,7 +3,8 @@
 
 Here your order detail :
 <hr>
-Package     : {{$mail['package_name']}}
+Order ID        : {{$mail['id']}}
+<br>Package     : {{$mail['package_name']}}
 <br>Description : {{$mail['package_type']}}
 <br>Price       : Rp. {{number_format($mail['harga'], 0, '', '.')}},-
 <hr>
@@ -12,7 +13,7 @@ Package     : {{$mail['package_name']}}
 <p style="text-align: center">Finish your payment to complete your order.</p><br>
 <h1 style="text-align: center">BCA - 72727272 a/n FusionsVisual</h1>
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => route('upload')])
 UPLOAD PAYMENT RECEIPT
 @endcomponent
 
