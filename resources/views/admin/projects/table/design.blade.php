@@ -24,8 +24,8 @@
                             <td>#DES{{str_pad($des->id, 4, '0', STR_PAD_LEFT)}}</td>
                             <td>{{$des->pesanan->paket->kodePaket->catdesain->category}}</td>
                             <td>{{$des->pesanan->paket->kodePaket->tipedesain->tipe}}</td>
-                            <td>{{$des->pesanan->waktuTerima}}</td>
-                            <td>@if($des->namaApp == null) - @else {{$des->namaApp}} @endif</td>
+                            <td>{{\Carbon\Carbon::parse($des->pesanan->waktuTerima)->format('d F Y')}}</td>
+                            <td>{{$des->pesanan->user->name}}</td>
                             <td>@if($des->status == 0) Idle @elseif($des->status == 1) Ongoing @else Maintenance @endif</td>
                             <td>@if($des->deadline == null) - @else {{$des->deadline}} @endif</td>
                             <td width="100px"><div class="row no-gutters">

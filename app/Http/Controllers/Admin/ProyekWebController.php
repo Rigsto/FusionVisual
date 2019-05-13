@@ -60,7 +60,9 @@ class ProyekWebController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pages = 'proj';
+        $web = ProyekWeb::findOrFail($id);
+        return view('admin.projects.web.edit', compact('web', 'pages'));
     }
 
     /**
@@ -81,7 +83,7 @@ class ProyekWebController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) //soft delete
     {
         //
     }

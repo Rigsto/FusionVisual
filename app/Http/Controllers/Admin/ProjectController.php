@@ -112,11 +112,17 @@ class ProjectController extends Controller
                     ]);
                     $mail = 'Web Project - #WEB'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
                     break;
-                } else {
+                } elseif($acdc == 'reject') {
                     ProyekWeb::find($id)->pesanan()->update([
                         'statusTerima' => '1'
                     ]);
                     $mail = 'Web Project - #WEB'.str_pad($id, 4, '0', STR_PAD_LEFT).' Rejected';
+                    break;
+                } else {
+                    $x = ProyekWeb::find($id);
+                    $x->pesanan->delete();
+                    $x->delete();
+                    $mail = 'Web Project - #WEB'.str_pad($id, 4, '0', STR_PAD_LEFT).' Deleted';
                     break;
                 }
             case 'app':
@@ -127,13 +133,19 @@ class ProjectController extends Controller
                     ProyekApp::find($id)->update([
                         'status' => '1'
                     ]);
-                    $mail = 'APP Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
+                    $mail = 'App Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
                     break;
-                } else {
+                } elseif($acdc == 'reject') {
                     ProyekApp::find($id)->pesanan()->update([
                         'statusTerima' => '1'
                     ]);
-                    $mail = 'APP Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Rejected';
+                    $mail = 'App Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Rejected';
+                    break;
+                } else {
+                    $x = ProyekApp::find($id);
+                    $x->pesanan->delete();
+                    $x->delete();
+                    $mail = 'App Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Deleted';
                     break;
                 }
             case 'design':
@@ -146,11 +158,17 @@ class ProjectController extends Controller
                     ]);
                     $mail = 'Design Project - #DES'.str_pad($id, 4, '0', STR_PAD_LEFT).' Accepted';
                     break;
-                } else {
+                } elseif($acdc == 'reject') {
                     ProyekDesain::find($id)->pesanan()->update([
                         'statusTerima' => '1'
                     ]);
                     $mail = 'Design Project - #DES'.str_pad($id, 4, '0', STR_PAD_LEFT).' Rejected';
+                    break;
+                } else {
+                    $x = ProyekDesain::find($id);
+                    $x->pesanan->delete();
+                    $x->delete();
+                    $mail = 'Design Project - #DES'.str_pad($id, 4, '0', STR_PAD_LEFT).' Deleted';
                     break;
                 }
         }
