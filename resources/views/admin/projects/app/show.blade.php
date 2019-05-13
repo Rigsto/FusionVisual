@@ -131,7 +131,7 @@
                                 <h6>Transfer Photo</h6>
                             </div>
                             <div class="col-md-9">
-                                : <img src="{{ $app->pesanan->buktiTransfer }}" alt="">
+                                : <img src="{{asset('receipt/'.$app->pesanan->buktiTransfer)}}" height="200">
                             </div>
                         </div>
                     @endif

@@ -123,6 +123,7 @@ class ProjectController extends Controller
                     $x->pesanan->delete();
                     $x->delete();
                     $mail = 'Web Project - #WEB'.str_pad($id, 4, '0', STR_PAD_LEFT).' Deleted';
+                    return redirect('/admin/project')->with('Success', $mail);
                     break;
                 }
             case 'app':
@@ -146,6 +147,7 @@ class ProjectController extends Controller
                     $x->pesanan->delete();
                     $x->delete();
                     $mail = 'App Project - #APP'.str_pad($id, 4, '0', STR_PAD_LEFT).' Deleted';
+                    return redirect('/admin/project')->with('Success', $mail);
                     break;
                 }
             case 'design':
@@ -169,6 +171,7 @@ class ProjectController extends Controller
                     $x->pesanan->delete();
                     $x->delete();
                     $mail = 'Design Project - #DES'.str_pad($id, 4, '0', STR_PAD_LEFT).' Deleted';
+                    return redirect('/admin/project')->with('Success', $mail);
                     break;
                 }
         }
