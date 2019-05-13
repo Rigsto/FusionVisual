@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Color;
+use App\Events\OrderConfirmation;
 use App\Events\UserActivationEmail;
 use App\Paket;
 use App\PaketApp;
@@ -87,6 +88,16 @@ class CheckoutController extends Controller
                 'status' => '0',
                 'deadline' => Carbon::now()->addDay($dead)->format('Y-m-d H:i:s')
             ]);
+            $mail = [
+                'invoice_number',
+                'email' => Auth::user()->email,
+                'package_name' => $app->nama,
+                'package_type',
+                'harga' => $app->harga,
+                'subtotal' => $app->harga,
+                'unique_code' => 001,
+                'total' => $app->harga+001
+            ];
         }else{
             $web = PaketWeb::where('nama', $request->package)->first();
             $dead = $web->duration;
@@ -108,8 +119,19 @@ class CheckoutController extends Controller
                 'status' => '0',
                 'deadline' => Carbon::now()->addDay($dead)->format('Y-m-d H:i:s')
             ]);
+            $mail = [
+                'invoice_number',
+                'email' => Auth::user()->email,
+                'package_name' => $web->nama,
+                'package_type',
+                'harga' => $web->harga,
+                'subtotal' => $web->harga,
+                'unique_code' => 001,
+                'total' => $web->harga+001
+            ];
         }
 
+        event(new OrderConfirmation($mail));
         return view('/thankyou');
     }
 

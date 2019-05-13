@@ -27,6 +27,6 @@ class SendOrderConfirmationEmail
      */
     public function handle(OrderConfirmation $event)
     {
-//        Mail::to($event->input['email'])->send(new OrderConfirmationEmail($event->input));
+        Mail::to($event->mail['email'])->send(new OrderConfirmationEmail($event->mail));
     }
 }

@@ -9,14 +9,15 @@ class OrderConfirmation
 {
     use Dispatchable, SerializesModels;
 
+    public $mail;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($mail)
     {
-        //
+        $this->mail = $mail;
     }
 
 }
