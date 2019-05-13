@@ -9,6 +9,7 @@ use App\Paket;
 use App\PaketApp;
 use App\PaketWeb;
 use App\Pesanan;
+use App\Photo;
 use App\ProyekApp;
 use App\ProyekWeb;
 use App\User;
@@ -18,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class CheckoutController extends Controller
 {
@@ -89,6 +91,7 @@ class CheckoutController extends Controller
                 'deadline' => Carbon::now()->addDay($dead)->format('Y-m-d H:i:s')
             ]);
             $mail = [
+                'id' => $pesanan->id,
                 'email' => Auth::user()->email,
                 'package_name' => $app->nama,
                 'package_type' => "Mobile Application Development",
@@ -117,6 +120,7 @@ class CheckoutController extends Controller
                 'deadline' => Carbon::now()->addDay($dead)->format('Y-m-d H:i:s')
             ]);
             $mail = [
+                'id' => $pesanan->id,
                 'email' => Auth::user()->email,
                 'package_name' => $web->nama,
                 'package_type'=> 'Website Development',
@@ -182,6 +186,33 @@ class CheckoutController extends Controller
     public function edit($id)
     {
         //
+    }
+
+    public function showForm()
+    {
+        return view('/upload-payment');
+    }
+
+    public function ConfirmPayment(Request $request)
+    {
+        $user = User::findOrFail($request->email);
+        $order = Pesanan::where('user_id', $user->id)->where('id', $request->ids)->first();
+        if ($file = $request->receipt){
+            $tmp = "Order@".$request->ids."orderedBy@".$user->name;
+            $type = $file->getClientOriginalExtension();
+            $name = $tmp."_transferReceipt.".$type;
+            $file->move('receipt', $name);
+            $image = Image::make('receipt/' . $name);
+            $image->save();
+            $pic = Photo::where('path', $name)->first();
+            if ($pic){
+                $pic->update(['path'=>$name]);
+            }else{
+                $photo = Photo::create(['path'=>$name]);
+            }
+        }
+        $order->update(['buktiTransfer' => $photo->path, 'statusBayar' => '1']);
+        return redirect("/user/dashboard")->with('Success','Receipt received, please wait for confirmation');
     }
 
     /**
