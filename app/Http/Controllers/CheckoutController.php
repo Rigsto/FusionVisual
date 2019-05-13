@@ -195,7 +195,7 @@ class CheckoutController extends Controller
 
     public function ConfirmPayment(Request $request)
     {
-        $user = User::findOrFail($request->email);
+        $user = User::where('email', $request->email)->first();
         $order = Pesanan::where('user_id', $user->id)->where('id', $request->ids)->first();
         if ($file = $request->receipt){
             $tmp = "Order@".$request->ids."orderedBy@".$user->name;
