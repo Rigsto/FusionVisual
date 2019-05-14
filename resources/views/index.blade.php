@@ -93,7 +93,7 @@
                 <div class="col-md-6 ten">
                     <div class="row no-gutters pro" data-aos="fade-right" data-aos-delay="1350" data-aos-once="true">
                         <div class="col-md-4 proo">
-                            <h1 class="jects">10</h1>
+                            <h1 class="jects">{{$pes}}</h1>
                             <p class="ject">Projects</p>
                         </div>
                         <div class="col-md-4 proo">

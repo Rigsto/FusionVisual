@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PaketApp;
 use App\PaketWeb;
+use App\Pesanan;
 use App\Portofolio;
 use App\Review;
 
@@ -12,7 +13,8 @@ class PagesController extends Controller
     public function index(){
         $reviews = Review::all()->take(3);
         $cust = Review::all()->count();
-        return view("index", compact('cust', 'reviews'));
+        $pes = Pesanan::all()->count();
+        return view("index", compact('cust', 'reviews', 'pes'));
     }
 
     public function design(){
