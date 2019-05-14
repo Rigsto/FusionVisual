@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\WelcomeEmailEvent;
 use App\Http\Controllers\Controller;
 use App\Subcriber;
 use Illuminate\Http\Request;
@@ -41,6 +42,7 @@ class NewsletterController extends Controller
     public function store(Request $request)
     {
         Subcriber::create($request->all());
+        event(new WelcomeEmailEvent($request->email));
         return redirect()->back()->with('Success', 'Added as Subscriber');
     }
 
