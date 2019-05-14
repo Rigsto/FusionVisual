@@ -149,7 +149,7 @@
                                 <h6>Accept Time</h6>
                             </div>
                             <div class="col-md-9">
-                                : {{$wen->pesanan->waktuTerima}}
+                                : {{$app->pesanan->waktuTerima}}
                             </div>
                         </div>
                     @endif
