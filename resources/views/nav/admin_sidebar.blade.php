@@ -6,20 +6,20 @@
     <hr class="sidebar-divider my-0">
     <li class="nav-item @if($pages=='dash') active @endif"><a class="nav-link" href="{{route('admin')}}"><i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span></a></li>
     <li class="nav-item @if($pages=='proj') active @endif"><a class="nav-link" href="{{ route('project.index') }}"><i class="fas fa-fw fa-tasks"></i><span>Projects</span></a></li>
-    <li class="nav-item @if($pages=='mhome' || $pages=='mport' || $pages=='mMeet' || $pages=='mcont' || $pages=='mabout') active @endif">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-file-alt"></i><span>Manage Page</span>
-        </a>
-        <div id="collapseTwo" class="collapse @if($pages=='mhome' || $pages=='mport' || $pages=='mMeet' || $pages=='mcont' || $pages=='mabout') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if($pages=='mhome') active @endif" href="{{ route('page.index', 'home') }}">Home</a>
-                <a class="collapse-item @if($pages=='mport') active @endif" href="{{ route('page.index', 'portfolio') }}">Portfolio</a>
-                <a class="collapse-item @if($pages=='mMeet') active @endif" href="{{ route('page.index', 'meet-us') }}">Meet Us</a>
-                <a class="collapse-item @if($pages=='mcont') active @endif" href="{{ route('page.index', 'contact-us') }}">Contact Us</a>
-                <a class="collapse-item @if($pages=='mabout') active @endif" href="{{ route('page.index', 'about-us') }}">About Us</a>
-            </div>
-        </div>
-    </li>
+    {{--<li class="nav-item @if($pages=='mhome' || $pages=='mport' || $pages=='mMeet' || $pages=='mcont' || $pages=='mabout') active @endif">--}}
+        {{--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">--}}
+            {{--<i class="fas fa-fw fa-file-alt"></i><span>Manage Page</span>--}}
+        {{--</a>--}}
+        {{--<div id="collapseTwo" class="collapse @if($pages=='mhome' || $pages=='mport' || $pages=='mMeet' || $pages=='mcont' || $pages=='mabout') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+            {{--<div class="bg-white py-2 collapse-inner rounded">--}}
+                {{--<a class="collapse-item @if($pages=='mhome') active @endif" href="{{ route('page.index', 'home') }}">Home</a>--}}
+                {{--<a class="collapse-item @if($pages=='mport') active @endif" href="{{ route('page.index', 'portfolio') }}">Portfolio</a>--}}
+                {{--<a class="collapse-item @if($pages=='mMeet') active @endif" href="{{ route('page.index', 'meet-us') }}">Meet Us</a>--}}
+                {{--<a class="collapse-item @if($pages=='mcont') active @endif" href="{{ route('page.index', 'contact-us') }}">Contact Us</a>--}}
+                {{--<a class="collapse-item @if($pages=='mabout') active @endif" href="{{ route('page.index', 'about-us') }}">About Us</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</li>--}}
     <li class="nav-item @if($pages=='ulist' || $pages=='uadd') active @endif">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-user-cog"></i><span>Manage User</span>
@@ -56,8 +56,8 @@
             </div>
         </div>
     </li>
-    <li class="nav-item @if($pages=='blog') active @endif"><a class="nav-link" href="{{ route('blog.index') }}"><i
-                    class="fas fa-fw fa-rss"></i><span>Blog</span></a></li>
+    {{--<li class="nav-item @if($pages=='blog') active @endif"><a class="nav-link" href="{{ route('blog.index') }}"><i--}}
+                    {{--class="fas fa-fw fa-rss"></i><span>Blog</span></a></li>--}}
     <li class="nav-item @if($pages=='testi') active @endif"><a class="nav-link" href="{{ route('testimoni.index') }}"><i
                     class="fas fa-fw fa-comment"></i><span>Testimoni</span></a></li>
    <li class="nav-item @if($pages=='faq' || $pages=='newfaq') active @endif">

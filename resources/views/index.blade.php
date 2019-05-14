@@ -35,21 +35,21 @@
             <div class="row no-gutters slogan">
                 <div class="col">
                     <h1 data-aos="fade-up" data-aos-delay="500" data-aos-once="true" class="tagline">Where Technology and Design sync</h1>
-                    <p data-aos="fade-up" data-aos-delay="600" data-aos-once="true" class="desc">Lorem ipsum dolor sit amet, ut altera voluptua per,&nbsp;ridens&nbsp;<br>vocibus singulis id has, noluisse sententia.<br></p>
+                    <p data-aos="fade-up" data-aos-delay="600" data-aos-once="true" class="desc">An independent digital creative business focuses on Solving problems through Visual which we believe is very important to <br>Build a strong Identity to each and any field of businesses, especially digital products.<br></p>
                 </div>
             </div>
             <div class="row no-gutters products">
                 <div class="col-md-2 dess">
-                    <a href="#">
+                    <a href="{{ route('web') }}">
                         <div data-aos="fade" data-aos-delay="750" data-aos-once="true" class="des">
-                            <p>DESIGN</p>
+                            <p>Website</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-2 webaa">
-                    <a href="#">
+                    <a href="{{ route('mobile') }}">
                         <div data-aos="fade" data-aos-delay="950" data-aos-once="true" class="weba">
-                            <p>WEB &amp; APP</p>
+                            <p>Mobile Application</p>
                         </div>
                     </a>
                 </div>
