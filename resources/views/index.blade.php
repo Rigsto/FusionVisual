@@ -32,6 +32,7 @@
         @include('nav.nav')
         @include('inc.logout_modal')
         <div class="container header">
+            @include('inc.alert')
             <div class="row no-gutters slogan">
                 <div class="col">
                     <h1 data-aos="fade-up" data-aos-delay="500" data-aos-once="true" class="tagline">Where Technology and Design sync</h1>

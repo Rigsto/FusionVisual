@@ -41,9 +41,18 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateSubs($request);
         Subcriber::create($request->all());
         event(new WelcomeEmailEvent($request->email));
         return redirect()->back()->with('Success', 'Added as Subscriber');
+    }
+
+    protected function validateSubs(Request $request){
+        $this->validate($request, [
+            'email' => 'required|email|unique:subcribers,email'
+        ], [
+            'email.unique' => 'You already make a subscription'
+        ]);
     }
 
     /**
