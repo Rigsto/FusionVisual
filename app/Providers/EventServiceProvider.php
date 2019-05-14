@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\NewsletterEvent;
 use App\Events\OrderConfirmation;
 use App\Events\ReplyContactUsMailEvent;
 use App\Events\UserActivationEmail;
 use App\Events\WelcomeEmailEvent;
 use App\Listeners\SendActivationEmail;
+use App\Listeners\SendNewsletterMail;
 use App\Listeners\SendOrderConfirmationEmail;
 use App\Listeners\SendReplyContactUsMail;
 use App\Listeners\SendWelcomeEmail;
@@ -36,6 +38,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         WelcomeEmailEvent::class => [
             SendWelcomeEmail::class,
+        ],
+        NewsletterEvent::class => [
+            SendNewsletterMail::class,
         ],
     ];
 

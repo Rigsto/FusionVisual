@@ -4,7 +4,7 @@
         <!-- Content Row -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h1 class="h4 mb-0 font-weight-bold text-primary">Edit User</h1>
+                <h1 class="h4 mb-0 font-weight-bold text-primary">New FAQ</h1>
             </div>
             <div class="card body">
                 <div class="col-md-12" style="margin-top: 1em;">

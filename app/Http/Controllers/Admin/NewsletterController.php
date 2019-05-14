@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\NewsletterEvent;
 use App\Events\WelcomeEmailEvent;
 use App\Http\Controllers\Controller;
 use App\Subcriber;
@@ -108,6 +109,8 @@ class NewsletterController extends Controller
      * @return Response
      */
     public function sendmail(Request $request){
-
+        $mail = $request->all();
+        event(new NewsletterEvent($mail));
+        return redirect('admin/newsletter')->with('Success','An email have broadcast');
     }
 }
