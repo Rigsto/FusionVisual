@@ -19,7 +19,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4"><img class="rounded-circle img-fluid" src="{{asset('images/'.$review->user->photo->path)}}" width="150"></div>
+                <div class="col-md-4">
+                    @if($review->user->photo)
+                    <img class="rounded-circle img-fluid" src="{{asset('images/'.$review->user->photo->path)}}" width="150">
+                    @else
+                    <img class="rounded-circle img-fluid" src="#" width="150">
+                    @endif
+                </div>
                 <div class="col-md-8 contentcom">
                     <p>{{$review->comments}}</p>
                     <br>
