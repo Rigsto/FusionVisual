@@ -29,6 +29,6 @@ class Newsletter extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails\broadcast');
+        return $this->markdown('emails.broadcast');
     }
 }

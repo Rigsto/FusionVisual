@@ -29,6 +29,6 @@ class ReplyContactUsMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails\reply');
+        return $this->markdown('emails.reply');
     }
 }

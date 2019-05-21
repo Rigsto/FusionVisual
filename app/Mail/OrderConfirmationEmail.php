@@ -29,6 +29,6 @@ class OrderConfirmationEmail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails\order');
+        return $this->markdown('emails.order');
     }
 }

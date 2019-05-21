@@ -8,13 +8,13 @@
             </div>
             <div class="card body">
                 <div class="col-md-12" style="margin-top: 1em;">
-                    {!! Form::open(['method'=>'POST', 'action'=>'Admin\NewsLetterController@sendmail']) !!}
+                    {!! Form::open(['method'=>'POST', 'action'=>'Admin\NewsletterController@sendmail']) !!}
                     <div class="form-group">
-                        {!! Form::label('sub', 'Question') !!}
+                        {!! Form::label('sub', 'Subject') !!}
                         {!! Form::text('subject', null, ['class'=>'form-control', 'placeholder'=>'Subject..' ])!!}
                     </div>
                     <div class="form-group">
-                        {!! Form::label('msg', 'Answer') !!}
+                        {!! Form::label('msg', 'Message') !!}
                         {!! Form::textarea('message', null, ['class'=>'form-control', 'placeholder'=>'Message...', 'resize'=>'none', 'rows'=>'4'])!!}
                     </div>
                     <div class="form-group">
