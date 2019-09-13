@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73b84de8-1dc0-49c4-ba41-71bd67a612ec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/FusionsVisual.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FusionsVisual.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +24,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/inc/alert.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret selection-end-line="29" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -74,7 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inc/review-form-edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inc/modal_edit_review.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/review.blade.php" />
@@ -125,6 +136,7 @@
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/newsletter/send.blade.php" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -216,6 +228,11 @@
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -240,24 +257,6 @@
               <item name="FusionsVisual" type="b2602c69:ProjectViewProjectNode" />
               <item name="FusionsVisual" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FusionsVisual" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FusionsVisual" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FusionsVisual" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FusionsVisual" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FusionsVisual" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FusionsVisual" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="inc" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -274,7 +273,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -338,6 +337,7 @@
       <workItem from="1558769562541" duration="89000" />
       <workItem from="1559117345883" duration="3640000" />
       <workItem from="1559192953911" duration="189000" />
+      <workItem from="1568361203925" duration="565000" />
     </task>
     <task id="LOCAL-00001" summary="require form html 5.8">
       <created>1555140481163</created>
@@ -434,7 +434,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281621000" />
+    <option name="totallyTimeSpent" value="282186000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -451,10 +451,10 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4994641" visible="true" weight="0.26226014" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4994641" visible="true" weight="0.26492536" />
       <window_info id="Structure" order="3" sideWeight="0.5005359" side_tool="true" weight="0.2803838" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49946696" visible="true" weight="0.3215434" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49946696" visible="true" weight="0.32083791" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50053304" side_tool="true" weight="0.28938907" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.17256163" />
       <window_info anchor="bottom" id="Messages" order="4" weight="0.3290461" />
@@ -540,13 +540,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/order.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ActivationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -893,6 +886,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="29" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
         </state>
       </provider>
     </entry>
